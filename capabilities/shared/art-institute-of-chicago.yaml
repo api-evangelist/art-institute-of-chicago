@@ -1,0 +1,21 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: art-institute-of-chicago-api
+  description: Shared base capability for the Art Institute of Chicago Public API.
+spec:
+  provider: Art Institute of Chicago
+  baseUrl: https://api.artic.edu/api/v1
+  authentication:
+    type: none
+    notes: No API key required. Send AIC-User-Agent header (e.g. 'MyApp (contact@example.com)')
+      for courtesy tracking.
+  rateLimits:
+    default: 60 requests per minute per IP
+    contact: engineering@artic.edu for higher limits
+  headers:
+    AIC-User-Agent: Recommended header identifying the calling application.
+  license:
+    data: CC0 1.0
+    descriptions: CC-BY 4.0
+    places: CC-BY 4.0 (includes Getty TGN data)

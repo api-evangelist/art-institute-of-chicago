@@ -1,0 +1,131 @@
+{
+  "name": "Exhibition",
+  "description": "An exhibition (past, present or future).",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "api_model",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "api_link",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "status",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "aic_start_at",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "aic_end_at",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "short_description",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "web_url",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "image_url",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "image_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_image_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "is_featured",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "position",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "gallery_id",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "gallery_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "artwork_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "artwork_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "artist_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "document_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "site_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "suggest_autocomplete_all",
+      "type": "array/object/null",
+      "description": ""
+    },
+    {
+      "name": "source_updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

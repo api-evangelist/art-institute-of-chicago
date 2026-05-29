@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.artic.edu/schemas/exhibition.schema.json",
+  "title": "Exhibition",
+  "type": "object",
+  "description": "An exhibition (past, present or future).",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "api_model": {
+      "type": "string"
+    },
+    "api_link": {
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "aic_start_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "aic_end_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "short_description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "web_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "image_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "image_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_image_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_featured": {
+      "type": "boolean"
+    },
+    "position": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "gallery_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "gallery_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artwork_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "artwork_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artist_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "document_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "suggest_autocomplete_all": {
+      "type": [
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "source_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "api_model",
+    "api_link"
+  ]
+}

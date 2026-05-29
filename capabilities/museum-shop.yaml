@@ -1,0 +1,21 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: museum-shop
+  description: Browse and search museum shop products.
+spec:
+  provider: Art Institute of Chicago
+  baseUrl: https://api.artic.edu/api/v1
+  operations:
+  - id: listProducts
+    method: GET
+    path: /products
+    purpose: Browse shop products.
+  - id: searchProducts
+    method: GET
+    path: /products/search
+    purpose: Search shop catalog.
+  - id: getProduct
+    method: GET
+    path: /products/{id}
+    purpose: Get product detail.

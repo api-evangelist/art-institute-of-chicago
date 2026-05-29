@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.artic.edu/schemas/agent.schema.json",
+  "title": "Agent",
+  "type": "object",
+  "description": "A person or organization (artist, maker, donor, etc.).",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "api_model": {
+      "type": "string"
+    },
+    "api_link": {
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "type": "string"
+    },
+    "sort_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_titles": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "is_artist": {
+      "type": "boolean"
+    },
+    "birth_date": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "death_date": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ulan_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Getty ULAN identifier."
+    },
+    "suggest_autocomplete_all": {
+      "type": [
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "source_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "api_model",
+    "api_link"
+  ]
+}

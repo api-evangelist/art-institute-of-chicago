@@ -1,0 +1,46 @@
+apiVersion: apicommons.org/rate-limits/0.1
+kind: RateLimits
+metadata:
+  provider: Art Institute of Chicago
+  providerId: art-institute-of-chicago
+  specification: API Commons Rate Limits 0.1
+  lastUpdated: '2026-05-29'
+  documentation: https://api.artic.edu/docs/
+policies:
+- id: anonymous-default
+  name: Anonymous default
+  scope:
+    identifier: client-ip
+    appliesToPlans:
+    - public
+  limits:
+  - type: request-rate
+    limit: 60
+    window: 1m
+    enforcement: per-ip
+  concurrency:
+    documented: false
+    notes: Self-throttle to a single concurrent thread when scraping (per docs).
+  quotas:
+    daily: null
+    monthly: null
+    notes: No documented daily or monthly quota.
+  behavior:
+    exceedAction: HTTP 429-style error response (per Laravel throttle middleware behavior).
+    retryAdvice: Back off and retry after the minute window.
+  headers:
+    request:
+      AIC-User-Agent: Required courtesy header identifying the application; format
+        'AppName (contact-email)'.
+    response:
+      documented: false
+      notes: Standard rate-limit response headers are not formally documented.
+guidance:
+- Use the fields parameter to request only needed fields.
+- Use the ids parameter to batch-fetch multiple resources in one request.
+- Use the /msearch endpoint for batch search.
+- Cache responses aggressively; data only changes once per ~24h.
+- For bulk extraction, prefer the nightly api-data dumps over scraping.
+contact:
+  email: engineering@artic.edu
+  purpose: Request increased rate limits for legitimate use cases.

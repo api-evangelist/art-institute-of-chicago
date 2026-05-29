@@ -1,0 +1,81 @@
+{
+  "name": "Agent",
+  "description": "A person or organization (artist, maker, donor, etc.).",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "api_model",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "api_link",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "sort_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_titles",
+      "type": "array/null",
+      "description": ""
+    },
+    {
+      "name": "is_artist",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "birth_date",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "death_date",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "description",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "ulan_id",
+      "type": "string/null",
+      "description": "Getty ULAN identifier."
+    },
+    {
+      "name": "suggest_autocomplete_all",
+      "type": "array/object/null",
+      "description": ""
+    },
+    {
+      "name": "source_updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

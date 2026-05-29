@@ -1,0 +1,33 @@
+apiVersion: apicommons.org/plans/0.1
+kind: PlansAndPricing
+metadata:
+  provider: Art Institute of Chicago
+  providerId: art-institute-of-chicago
+  specification: API Commons Plans 0.1
+  lastUpdated: '2026-05-29'
+plans:
+- id: public
+  name: Public (Free)
+  description: Anonymous access to the Art Institute of Chicago Public API. No API
+    key, no signup, no payment.
+  pricing:
+    model: free
+    currency: USD
+    amount: 0
+  access:
+    authentication: none
+    signupRequired: false
+    publicallyAvailable: true
+  limits:
+    requestsPerMinute: 60
+    perIp: true
+    imageHotlinking: allowed (no rate limit documented)
+  support:
+    channel: email
+    address: engineering@artic.edu
+    purpose: Higher-limit allowlist requests, integration questions, reporting issues.
+notes:
+- The Art Institute of Chicago does not operate a paid tier; the only access path
+  is the free public API.
+- Bulk consumers should download nightly data dumps from https://github.com/art-institute-of-chicago/api-data
+  instead of scraping.

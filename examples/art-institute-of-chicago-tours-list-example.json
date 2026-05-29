@@ -1,0 +1,63 @@
+{
+  "pagination": {
+    "total": 20,
+    "limit": 1,
+    "offset": 0,
+    "total_pages": 20,
+    "current_page": 1,
+    "next_url": "https://api.artic.edu/api/v1/tours?page=2&limit=1"
+  },
+  "data": [
+    {
+      "id": 4405,
+      "api_model": "tours",
+      "api_link": "https://api.artic.edu/api/v1/tours/4405",
+      "title": "Founding Modern: Radical Design from the 19th Century",
+      "image": "http://aic-mobile-tours.artic.edu/sites/default/files/tour-images/01_37273_HoffmanArmchair.jpg",
+      "description": "<p>Discover the radical and world changing design of the Arts and Crafts and Secessionist Movements.</p>\n",
+      "intro": "<p>This tour takes listeners to the end of the 19th century, when designers from the UK and Vienna were completely reimagining a philosophy of design. From chairs to clocks, these designers sought to ...",
+      "weight": null,
+      "intro_link": null,
+      "intro_transcript": "<p>Andrew Meriwether: Hi, there. My name is Andrew Meriwether. I am the audio producer at the Art Institute of Chicago, and before we get into the tour, I want you to try a little exercise. I want you...",
+      "artwork_titles": [
+        "Reclining Armchair",
+        "Manxman Piano",
+        "Table",
+        "Tall-Case Clock",
+        "Ad Astra"
+      ],
+      "artist_titles": [
+        "Josef Hoffmann",
+        "Mackay Hugh Baillie Scott",
+        "Charles Rennie Mackintosh",
+        "Josef Hoffmann",
+        "Akseli Gallen-Kallela"
+      ],
+      "suggest_autocomplete_boosted": "Founding Modern: Radical Design from the 19th Century",
+      "suggest_autocomplete_all": {
+        "input": [
+          "Founding Modern: Radical Design from the 19th Century"
+        ],
+        "contexts": {
+          "groupings": [
+            "title"
+          ]
+        }
+      },
+      "source_updated_at": null,
+      "updated_at": "2026-05-28T23:05:44-05:00",
+      "timestamp": "2026-05-29T09:19:17-05:00"
+    }
+  ],
+  "info": {
+    "license_text": "The data in this response may be protected by copyright, and other restrictions, of the Art Institute of Chicago and third parties. You may use this data for noncommercial educational and personal use and for \"fair use\" as authorized under law, provided that you also retain all copyright and other proprietary notices contained on the materials and cite the author and source of the materials.",
+    "license_links": [
+      "https://www.artic.edu/terms"
+    ],
+    "version": "1.14"
+  },
+  "config": {
+    "iiif_url": "https://www.artic.edu/iiif/2",
+    "website_url": "http://www.artic.edu"
+  }
+}

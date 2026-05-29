@@ -1,0 +1,101 @@
+{
+  "name": "Product",
+  "description": "Museum shop product.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "api_model",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "api_link",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "description",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "external_sku",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "image_url",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "web_url",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "min_current_price",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "max_current_price",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "min_compare_at_price",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "max_compare_at_price",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "price_display",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "artist_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "artwork_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "exhibition_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "source_updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

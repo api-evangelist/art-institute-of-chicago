@@ -1,0 +1,46 @@
+{
+  "name": "Place",
+  "description": "A geographic place (Getty TGN aligned).",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "api_model",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "api_link",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "tgn_id",
+      "type": "string/null",
+      "description": "Getty Thesaurus of Geographic Names identifier."
+    },
+    {
+      "name": "source_updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

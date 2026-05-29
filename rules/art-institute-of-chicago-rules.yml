@@ -1,0 +1,85 @@
+extends:
+- - spectral:oas
+  - recommended
+rules:
+  artic-operation-id-required:
+    description: Every operation MUST have an operationId.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: error
+    then:
+      field: operationId
+      function: truthy
+  artic-operation-id-camel-case:
+    description: operationId values MUST be camelCase.
+    given: $.paths[*][get,post,put,delete,patch].operationId
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[a-z][a-zA-Z0-9]*$
+  artic-summary-title-case:
+    description: Operation summary MUST be Title Case.
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][A-Za-z0-9]*( ([A-Za-z0-9]+))*$
+  artic-tag-required:
+    description: Every operation MUST have at least one tag.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: error
+    then:
+      field: tags
+      function: truthy
+  artic-tag-title-case:
+    description: Tag names MUST be Title Case.
+    given: $.tags[*].name
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][A-Za-z]*( [A-Z][A-Za-z]*)*$
+  artic-list-pagination-params:
+    description: List endpoints (root collection paths, not /search or /{id}) MUST
+      declare limit and page parameters.
+    given: $.paths['/artworks','/agents','/places','/galleries','/exhibitions','/products','/tours','/mobile-sounds','/publications','/digital-publications','/printed-publications','/sections','/sites','/educator-resources','/articles','/events'].get.parameters[*].$ref
+    severity: warn
+    then:
+      function: truthy
+  artic-response-envelope:
+    description: 200 responses MUST be JSON.
+    given: $.paths[*][get,post,put,delete,patch].responses['200'].content
+    severity: error
+    then:
+      field: application/json
+      function: truthy
+  artic-error-default:
+    description: Operations MUST declare a default error response.
+    given: $.paths[*][get,post,put,delete,patch].responses
+    severity: warn
+    then:
+      field: default
+      function: truthy
+  artic-info-license:
+    description: info.license MUST be present (CC0/CC-BY).
+    given: $.info
+    severity: error
+    then:
+      field: license
+      function: truthy
+  artic-info-contact:
+    description: info.contact MUST be present.
+    given: $.info
+    severity: error
+    then:
+      field: contact
+      function: truthy
+  artic-server-https:
+    description: All servers MUST use HTTPS.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: ^https://

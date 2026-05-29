@@ -1,0 +1,76 @@
+{
+  "name": "Gallery",
+  "description": "A physical gallery space inside the museum.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "api_model",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "api_link",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "number",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "floor",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "is_closed",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "latitude",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "longitude",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "latlon",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "tgn_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "source_updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

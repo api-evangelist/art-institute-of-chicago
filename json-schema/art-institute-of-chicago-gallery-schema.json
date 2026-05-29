@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.artic.edu/schemas/gallery.schema.json",
+  "title": "Gallery",
+  "type": "object",
+  "description": "A physical gallery space inside the museum.",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "api_model": {
+      "type": "string"
+    },
+    "api_link": {
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "type": "string"
+    },
+    "number": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "floor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_closed": {
+      "type": "boolean"
+    },
+    "latitude": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "longitude": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "latlon": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tgn_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "api_model",
+    "api_link"
+  ]
+}

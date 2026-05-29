@@ -1,0 +1,104 @@
+name: Art Institute of Chicago Vocabulary
+description: Operational and domain vocabulary for the Art Institute of Chicago Public
+  API.
+version: '1.0'
+tags:
+- Agent Roles
+- Agent Types
+- Agents
+- Articles
+- Artists
+- Artwork Date Qualifiers
+- Artwork Place Qualifiers
+- Artwork Types
+- Artworks
+- Category Terms
+- Digital Publication Articles
+- Digital Publications
+- Educator Resources
+- Event Occurrences
+- Event Programs
+- Events
+- Exhibitions
+- Galleries
+- Generic Pages
+- Highlights
+- Hours
+- Images
+- Landing Pages
+- Mobile Sounds
+- Places
+- Press Releases
+- Printed Publications
+- Products
+- Publications
+- Search
+- Sections
+- Sites
+- Sounds
+- Static Pages
+- Texts
+- Tours
+- Videos
+concepts:
+- term: Artwork
+  definition: An object in the museum's collection (painting, sculpture, print, etc.).
+- term: Agent
+  definition: A person or organization (artist, maker, donor, dealer) related to an
+    artwork.
+- term: Artist
+  definition: An agent flagged with is_artist=true; convenience filter.
+- term: Place
+  definition: A geographic location, aligned to the Getty Thesaurus of Geographic
+    Names (TGN).
+- term: Gallery
+  definition: A physical room in the museum where artworks are displayed.
+- term: Exhibition
+  definition: A curated grouping of artworks shown over a time range.
+- term: Tour
+  definition: A curated multi-stop visitor experience.
+- term: Mobile Sound
+  definition: An audio stop in the museum mobile app.
+- term: Product
+  definition: An item for sale in the museum shop.
+- term: Publication
+  definition: A printed or digital scholarly publication.
+- term: Section
+  definition: A subdivision of an online publication.
+- term: Site
+  definition: A microsite or themed online site published by the museum.
+- term: Educator Resource
+  definition: Teaching/learning material for K-12 and higher education.
+- term: IIIF Image ID
+  definition: An identifier resolvable against the IIIF Image API at config.iiif_url.
+- term: Public Domain
+  definition: Indicates the artwork's reproduction is unrestricted (is_public_domain=true).
+- term: Date Qualifier
+  definition: A controlled vocabulary qualifier (e.g. 'attributed to', 'ca.') on artwork
+    dates.
+standards:
+- name: IIIF Image API 2.0
+  url: https://iiif.io/api/image/2.0/
+  purpose: Image delivery
+- name: IIIF Presentation API
+  url: https://iiif.io/api/presentation/2.1/
+  purpose: Artwork manifests
+- name: Getty TGN
+  url: http://vocab.getty.edu/tgn/
+  purpose: Place authority
+- name: Getty ULAN
+  url: http://vocab.getty.edu/ulan/
+  purpose: Artist/agent authority
+- name: schema.org
+  url: https://schema.org/
+  purpose: Linked-data alignment
+- name: CIDOC-CRM
+  url: http://www.cidoc-crm.org/
+  purpose: Cultural heritage ontology
+licenses:
+- name: CC0 1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  applies_to: Most metadata
+- name: CC-BY 4.0
+  url: https://creativecommons.org/licenses/by/4.0/
+  applies_to: Descriptions and place data

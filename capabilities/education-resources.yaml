@@ -1,0 +1,21 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: education-resources
+  description: Find educator and educational resources for classroom use.
+spec:
+  provider: Art Institute of Chicago
+  baseUrl: https://api.artic.edu/api/v1
+  operations:
+  - id: listEducatorResources
+    method: GET
+    path: /educator-resources
+    purpose: List teacher resources.
+  - id: searchEducatorResources
+    method: GET
+    path: /educator-resources/search
+    purpose: Search by topic.
+  - id: listDigitalPublications
+    method: GET
+    path: /digital-publications
+    purpose: Discover online catalogues.

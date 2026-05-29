@@ -1,0 +1,29 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: browse-collection
+  description: Browse and discover artworks in the Art Institute of Chicago collection.
+spec:
+  provider: Art Institute of Chicago
+  baseUrl: https://api.artic.edu/api/v1
+  operations:
+  - id: listArtworks
+    method: GET
+    path: /artworks
+    purpose: Page through the collection.
+  - id: getArtwork
+    method: GET
+    path: /artworks/{id}
+    purpose: Fetch full record for an artwork.
+  - id: searchArtworks
+    method: GET
+    path: /artworks/search
+    purpose: Free-text and DSL search.
+  - id: listArtworkTypes
+    method: GET
+    path: /artwork-types
+    purpose: Enumerate artwork types.
+  - id: listCategoryTerms
+    method: GET
+    path: /category-terms
+    purpose: Enumerate subject / department / style terms.

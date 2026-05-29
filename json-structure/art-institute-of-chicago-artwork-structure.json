@@ -1,0 +1,496 @@
+{
+  "name": "Artwork",
+  "description": "An artwork in the Art Institute of Chicago collection.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": "Unique numeric identifier."
+    },
+    {
+      "name": "api_model",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "api_link",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Title of the artwork."
+    },
+    {
+      "name": "alt_titles",
+      "type": "array/null",
+      "description": ""
+    },
+    {
+      "name": "thumbnail",
+      "type": "object/null",
+      "description": ""
+    },
+    {
+      "name": "main_reference_number",
+      "type": "string",
+      "description": "Accession number."
+    },
+    {
+      "name": "has_not_been_viewed_much",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "boost_rank",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "date_start",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "date_end",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "date_display",
+      "type": "string/null",
+      "description": "Human-readable date string."
+    },
+    {
+      "name": "date_qualifier_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "date_qualifier_id",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "artist_display",
+      "type": "string/null",
+      "description": "Human-readable artist credit line."
+    },
+    {
+      "name": "place_of_origin",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "description",
+      "type": "string/null",
+      "description": "Description (CC-BY 4.0)."
+    },
+    {
+      "name": "short_description",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "dimensions",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "dimensions_detail",
+      "type": "array/null",
+      "description": ""
+    },
+    {
+      "name": "medium_display",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "inscriptions",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "credit_line",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "catalogue_display",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "publication_history",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "exhibition_history",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "provenance_text",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "edition",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "publishing_verification_level",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "internal_department_id",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "fiscal_year",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "fiscal_year_deaccession",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "is_public_domain",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "is_zoomable",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "max_zoom_window_size",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "copyright_notice",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "has_multimedia_resources",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "has_educational_resources",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "has_advanced_imaging",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "colorfulness",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "color",
+      "type": "object/null",
+      "description": ""
+    },
+    {
+      "name": "latitude",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "longitude",
+      "type": "number/null",
+      "description": ""
+    },
+    {
+      "name": "latlon",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "is_on_view",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "on_loan_display",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "gallery_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "gallery_id",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "nomisma_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "artwork_type_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "artwork_type_id",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "department_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "department_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "artist_id",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "artist_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_artist_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "artist_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "artist_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "category_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "category_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "term_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "style_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "style_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_style_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "style_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "style_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "classification_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "classification_title",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_classification_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "classification_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "classification_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "subject_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_subject_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "subject_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "subject_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "material_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_material_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "material_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "material_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "technique_id",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "alt_technique_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "technique_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "technique_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "theme_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "image_id",
+      "type": "string/null",
+      "description": "IIIF identifier; combine with config.iiif_url to retrieve images."
+    },
+    {
+      "name": "alt_image_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "document_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "sound_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "video_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "text_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "section_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "section_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "site_ids",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "is_boosted",
+      "type": "boolean",
+      "description": ""
+    },
+    {
+      "name": "suggest_autocomplete_all",
+      "type": "array/object/null",
+      "description": ""
+    },
+    {
+      "name": "source_updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

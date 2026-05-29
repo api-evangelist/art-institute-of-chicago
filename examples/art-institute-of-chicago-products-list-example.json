@@ -1,0 +1,44 @@
+{
+  "pagination": {
+    "total": 2467,
+    "limit": 1,
+    "offset": 0,
+    "total_pages": 2467,
+    "current_page": 1,
+    "next_url": "https://api.artic.edu/api/v1/products?page=2&limit=1"
+  },
+  "data": [
+    {
+      "id": 292096,
+      "api_model": "products",
+      "api_link": "https://api.artic.edu/api/v1/products/292096",
+      "title": "Great Women Artists: Compact Format",
+      "external_sku": 292096,
+      "image_url": "https://shop-images.imgix.net/292096_2.jpg",
+      "web_url": "https://shop.artic.edu/products/292096",
+      "description": "<p>Celebrate five centuries of female creativity with this groundbreaking survey of women artists, now in a sleek compact format.</p>\n<p><em>Great Women Artists</em> is the most extensive illustrated ...",
+      "price_display": "<p>$29.95 <s>$0</s></p>",
+      "min_compare_at_price": 0,
+      "max_compare_at_price": 0,
+      "min_current_price": 29.95,
+      "max_current_price": 29.95,
+      "artist_ids": [],
+      "artwork_ids": [],
+      "exhibition_ids": [],
+      "source_updated_at": "2026-05-03T08:30:36-05:00",
+      "updated_at": "2026-05-03T23:10:48-05:00",
+      "timestamp": "2026-05-29T09:19:16-05:00"
+    }
+  ],
+  "info": {
+    "license_text": "The data in this response may be protected by copyright, and other restrictions, of the Art Institute of Chicago and third parties. You may use this data for noncommercial educational and personal use and for \"fair use\" as authorized under law, provided that you also retain all copyright and other proprietary notices contained on the materials and cite the author and source of the materials.",
+    "license_links": [
+      "https://www.artic.edu/terms"
+    ],
+    "version": "1.14"
+  },
+  "config": {
+    "iiif_url": "https://www.artic.edu/iiif/2",
+    "website_url": "http://www.artic.edu"
+  }
+}

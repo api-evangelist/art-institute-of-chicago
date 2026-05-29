@@ -1,0 +1,34 @@
+{
+  "pagination": {
+    "total": 4169,
+    "limit": 1,
+    "offset": 0,
+    "total_pages": 4169,
+    "current_page": 1,
+    "next_url": "https://api.artic.edu/api/v1/places?page=2&limit=1"
+  },
+  "data": [
+    {
+      "id": 33970,
+      "api_model": "places",
+      "api_link": "https://api.artic.edu/api/v1/places/33970",
+      "title": "Dunlap",
+      "tgn_id": null,
+      "source_updated_at": "2026-05-26T15:50:01-05:00",
+      "updated_at": "2026-05-26T15:57:26-05:00",
+      "timestamp": "2026-05-29T09:19:16-05:00"
+    }
+  ],
+  "info": {
+    "license_text": "The data in this response is licensed under a Creative Commons Attribution 4.0 Generic License (CC-By) and the Terms and Conditions of artic.edu. Contains information from the J. Paul Getty Trust, Getty Research Institute, the Getty Thesaurus of Geographic Names, which is made available under the ODC Attribution License.",
+    "license_links": [
+      "https://creativecommons.org/licenses/by/4.0/",
+      "https://www.artic.edu/terms"
+    ],
+    "version": "1.14"
+  },
+  "config": {
+    "iiif_url": "https://www.artic.edu/iiif/2",
+    "website_url": "http://www.artic.edu"
+  }
+}

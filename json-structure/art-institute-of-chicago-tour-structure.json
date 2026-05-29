@@ -1,0 +1,91 @@
+{
+  "name": "Tour",
+  "description": "Curated multi-stop tour.",
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "description": ""
+    },
+    {
+      "name": "api_model",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "api_link",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "image",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "description",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "intro",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "intro_link",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "intro_transcript",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "weight",
+      "type": "integer/null",
+      "description": ""
+    },
+    {
+      "name": "artwork_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "artist_titles",
+      "type": "array",
+      "description": ""
+    },
+    {
+      "name": "suggest_autocomplete_all",
+      "type": "array/object/null",
+      "description": ""
+    },
+    {
+      "name": "suggest_autocomplete_boosted",
+      "type": "string/null",
+      "description": ""
+    },
+    {
+      "name": "source_updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": ""
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

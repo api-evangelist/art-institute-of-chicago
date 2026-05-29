@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "cidoc": "http://www.cidoc-crm.org/cidoc-crm/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ulan": "http://vocab.getty.edu/ulan/",
+    "tgn": "http://vocab.getty.edu/tgn/",
+    "aic": "https://api.artic.edu/vocab/",
+    "id": "@id",
+    "type": "@type",
+    "Artwork": "schema:VisualArtwork",
+    "Agent": "schema:Person",
+    "Place": "schema:Place",
+    "Gallery": "schema:LocationFeatureSpecification",
+    "Exhibition": "schema:ExhibitionEvent",
+    "Product": "schema:Product",
+    "Tour": "schema:TouristTrip",
+    "title": "schema:name",
+    "description": "schema:description",
+    "short_description": "schema:abstract",
+    "date_display": "schema:dateCreated",
+    "date_start": {
+      "@id": "schema:startDate",
+      "@type": "xsd:integer"
+    },
+    "date_end": {
+      "@id": "schema:endDate",
+      "@type": "xsd:integer"
+    },
+    "artist_display": "schema:creator",
+    "artist_id": "schema:creator",
+    "artist_title": "schema:creator",
+    "place_of_origin": "schema:locationCreated",
+    "medium_display": "schema:artMedium",
+    "dimensions": "schema:size",
+    "credit_line": "schema:creditText",
+    "copyright_notice": "schema:copyrightNotice",
+    "is_public_domain": "aic:isPublicDomain",
+    "image_id": "aic:iiifImageId",
+    "gallery_title": "schema:location",
+    "ulan_id": "ulan:identifier",
+    "tgn_id": "tgn:identifier",
+    "main_reference_number": "schema:identifier",
+    "api_link": "schema:url",
+    "api_model": "schema:additionalType",
+    "updated_at": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:dateTime"
+    },
+    "source_updated_at": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

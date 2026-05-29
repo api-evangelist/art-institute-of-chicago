@@ -1,0 +1,25 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: research-artist
+  description: Research an artist (agent), their artworks, and biographical context.
+spec:
+  provider: Art Institute of Chicago
+  baseUrl: https://api.artic.edu/api/v1
+  operations:
+  - id: searchAgents
+    method: GET
+    path: /agents/search
+    purpose: Find an artist by name.
+  - id: getAgent
+    method: GET
+    path: /agents/{id}
+    purpose: Retrieve biographical info.
+  - id: listArtists
+    method: GET
+    path: /artists
+    purpose: Artist-only convenience listing.
+  - id: searchArtworks
+    method: GET
+    path: /artworks/search
+    purpose: Filter artworks by artist_id.

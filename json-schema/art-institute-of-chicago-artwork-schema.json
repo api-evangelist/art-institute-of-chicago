@@ -1,0 +1,570 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.artic.edu/schemas/artwork.schema.json",
+  "title": "Artwork",
+  "type": "object",
+  "description": "An artwork in the Art Institute of Chicago collection.",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique numeric identifier."
+    },
+    "api_model": {
+      "type": "string"
+    },
+    "api_link": {
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the artwork."
+    },
+    "alt_titles": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "thumbnail": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "main_reference_number": {
+      "type": "string",
+      "description": "Accession number."
+    },
+    "has_not_been_viewed_much": {
+      "type": "boolean"
+    },
+    "boost_rank": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "date_start": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "date_end": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "date_display": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Human-readable date string."
+    },
+    "date_qualifier_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "date_qualifier_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "artist_display": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Human-readable artist credit line."
+    },
+    "place_of_origin": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Description (CC-BY 4.0)."
+    },
+    "short_description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dimensions": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dimensions_detail": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object"
+      }
+    },
+    "medium_display": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inscriptions": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "credit_line": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "catalogue_display": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publication_history": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exhibition_history": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provenance_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "edition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publishing_verification_level": {
+      "type": "string"
+    },
+    "internal_department_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "fiscal_year": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "fiscal_year_deaccession": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "is_public_domain": {
+      "type": "boolean"
+    },
+    "is_zoomable": {
+      "type": "boolean"
+    },
+    "max_zoom_window_size": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "copyright_notice": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "has_multimedia_resources": {
+      "type": "boolean"
+    },
+    "has_educational_resources": {
+      "type": "boolean"
+    },
+    "has_advanced_imaging": {
+      "type": "boolean"
+    },
+    "colorfulness": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "color": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "latitude": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "longitude": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "latlon": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_on_view": {
+      "type": "boolean"
+    },
+    "on_loan_display": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "gallery_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "gallery_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "nomisma_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artwork_type_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artwork_type_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "department_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "department_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "artist_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "artist_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_artist_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "artist_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "artist_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "term_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "style_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "style_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_style_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "style_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "style_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "classification_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "classification_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_classification_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "classification_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "classification_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subject_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_subject_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subject_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subject_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "material_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_material_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "material_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "material_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "technique_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "alt_technique_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "technique_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "technique_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "theme_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "image_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "IIIF identifier; combine with config.iiif_url to retrieve images."
+    },
+    "alt_image_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "document_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sound_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "video_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "text_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "section_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "section_titles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "site_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "is_boosted": {
+      "type": "boolean"
+    },
+    "suggest_autocomplete_all": {
+      "type": [
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "source_updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "api_model",
+    "api_link"
+  ]
+}

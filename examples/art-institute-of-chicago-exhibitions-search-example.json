@@ -1,0 +1,32 @@
+{
+  "preference": null,
+  "pagination": {
+    "total": 6254,
+    "limit": 1,
+    "offset": 0,
+    "total_pages": 6254,
+    "current_page": 1
+  },
+  "data": [
+    {
+      "_score": 17.621307,
+      "id": 9036,
+      "api_model": "exhibitions",
+      "api_link": "https://api.artic.edu/api/v1/exhibitions/9036",
+      "title": "Monet and Chicago",
+      "timestamp": "2026-05-27T23:37:05-05:00"
+    }
+  ],
+  "info": {
+    "license_text": "The data in this response is licensed under a Creative Commons Zero (CC0) 1.0 designation and the Terms and Conditions of artic.edu.",
+    "license_links": [
+      "https://creativecommons.org/publicdomain/zero/1.0/",
+      "https://www.artic.edu/terms"
+    ],
+    "version": "1.14"
+  },
+  "config": {
+    "iiif_url": "https://www.artic.edu/iiif/2",
+    "website_url": "http://www.artic.edu"
+  }
+}

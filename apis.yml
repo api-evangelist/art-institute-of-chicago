@@ -1,32 +1,256 @@
 aid: art-institute-of-chicago
 name: Art Institute of Chicago
-description: "Art"
+description: >-
+  The Art Institute of Chicago publishes an open, REST + Elasticsearch-style
+  Public API for ~120,000 artworks plus agents (artists/makers), places,
+  galleries, exhibitions, tours, mobile sounds, museum-shop products,
+  publications, sections, sites, educator resources, digital and printed
+  publications, and static archive images. Most data is CC0 1.0; descriptions
+  and place data are CC-BY 4.0. No API key required; anonymous limit is 60
+  requests/minute per IP. Clients should send an AIC-User-Agent header for
+  courtesy tracking. The canonical aggregator (Laravel) is open source on
+  GitHub, and nightly bulk data dumps are published in a sibling repo.
 url: https://api.artic.edu/docs/
+image: https://www.artic.edu/iiif/2/AIC-LOGO/full/300,/0/default.jpg
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-29'
 x-source: public-apis/public-apis
+x-type: opensource
 x-category: "Art & Design"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-tier: 2
+x-tier-reason: opensource-with-public-openapi-and-mcp
 tags:
   - Art And Design
+  - Museum
+  - Open Data
+  - Cultural Heritage
+  - IIIF
   - Public APIs
+  - Open Source
 apis:
-  - name: Art Institute of Chicago
-    description: "Art"
+  - name: Art Institute of Chicago Public API
+    description: >-
+      Open REST and search API surfacing the museum's collection, agents,
+      exhibitions, tours, publications, products and operational data
+      (galleries, hours, sites). Backed by Elasticsearch; data refreshed
+      nightly. Read-only.
     humanURL: https://api.artic.edu/docs/
-    baseURL: https://api.artic.edu/docs/
+    baseURL: https://api.artic.edu/api/v1
     tags:
       - Art And Design
+      - Museum
+      - Open Data
     properties:
       - type: Documentation
         url: https://api.artic.edu/docs/
+      - type: OpenAPI
+        url: openapi/art-institute-of-chicago-openapi.yml
+      - type: OpenAPI
+        url: https://api.artic.edu/api/v1/openapi.json
+      - type: Authentication
+        url: https://api.artic.edu/docs/
+      - type: RateLimits
+        url: rate-limits/art-institute-of-chicago-rate-limits.yml
+      - type: License
+        url: https://creativecommons.org/publicdomain/zero/1.0/
+      - type: Example
+        url: examples/art-institute-of-chicago-artworks-list-example.json
+      - type: Example
+        url: examples/art-institute-of-chicago-agents-list-example.json
+      - type: Example
+        url: examples/art-institute-of-chicago-exhibitions-list-example.json
+      - type: Example
+        url: examples/art-institute-of-chicago-galleries-list-example.json
+      - type: Example
+        url: examples/art-institute-of-chicago-places-list-example.json
+      - type: Example
+        url: examples/art-institute-of-chicago-products-list-example.json
+      - type: Example
+        url: examples/art-institute-of-chicago-tours-list-example.json
+      - type: Example
+        url: examples/art-institute-of-chicago-exhibitions-search-example.json
+      - type: JSONSchema
+        url: json-schema/art-institute-of-chicago-artwork-schema.json
+      - type: JSONSchema
+        url: json-schema/art-institute-of-chicago-agent-schema.json
+      - type: JSONSchema
+        url: json-schema/art-institute-of-chicago-place-schema.json
+      - type: JSONSchema
+        url: json-schema/art-institute-of-chicago-gallery-schema.json
+      - type: JSONSchema
+        url: json-schema/art-institute-of-chicago-exhibition-schema.json
+      - type: JSONSchema
+        url: json-schema/art-institute-of-chicago-product-schema.json
+      - type: JSONSchema
+        url: json-schema/art-institute-of-chicago-tour-schema.json
+      - type: JSONStructure
+        url: json-structure/art-institute-of-chicago-artwork-structure.json
+      - type: JSONStructure
+        url: json-structure/art-institute-of-chicago-agent-structure.json
+      - type: JSONStructure
+        url: json-structure/art-institute-of-chicago-place-structure.json
+      - type: JSONStructure
+        url: json-structure/art-institute-of-chicago-gallery-structure.json
+      - type: JSONStructure
+        url: json-structure/art-institute-of-chicago-exhibition-structure.json
+      - type: JSONStructure
+        url: json-structure/art-institute-of-chicago-product-structure.json
+      - type: JSONStructure
+        url: json-structure/art-institute-of-chicago-tour-structure.json
+      - type: JSON-LD
+        url: json-ld/art-institute-of-chicago-context.jsonld
+  - name: IIIF Image API
+    description: >-
+      IIIF Image API 2.0-compliant service for delivering image binaries for
+      artworks. Combine artwork.image_id with config.iiif_url returned by the
+      Public API.
+    humanURL: https://api.artic.edu/docs/#iiif-image-api
+    baseURL: https://www.artic.edu/iiif/2
+    tags:
+      - IIIF
+      - Images
+    properties:
+      - type: Documentation
+        url: https://api.artic.edu/docs/#iiif-image-api
+      - type: Specification
+        url: https://iiif.io/api/image/2.0/
+  - name: Bulk Data Dumps
+    description: >-
+      Nightly data dumps of the collection and related resources, published as
+      JSON in a public GitHub repository. Recommended for bulk consumers
+      instead of scraping the API.
+    humanURL: https://github.com/art-institute-of-chicago/api-data
+    baseURL: https://github.com/art-institute-of-chicago/api-data
+    tags:
+      - Bulk Data
+      - Open Data
+    properties:
+      - type: GitHubRepository
+        url: https://github.com/art-institute-of-chicago/api-data
 common:
   - type: Website
+    url: https://www.artic.edu/
+  - type: Documentation
     url: https://api.artic.edu/docs/
+  - type: Portal
+    url: https://api.artic.edu/docs/
+  - type: TermsOfService
+    url: https://www.artic.edu/terms/terms-and-conditions
+  - type: PrivacyPolicy
+    url: https://www.artic.edu/privacy
+  - type: Support
+    url: mailto:engineering@artic.edu
+  - type: GitHubOrganization
+    url: https://github.com/art-institute-of-chicago
+  - type: GitHubRepository
+    name: data-aggregator
+    url: https://github.com/art-institute-of-chicago/data-aggregator
+  - type: GitHubRepository
+    name: api-data
+    url: https://github.com/art-institute-of-chicago/api-data
+  - type: GitHubRepository
+    name: aic-bash
+    url: https://github.com/art-institute-of-chicago/aic-bash
+  - type: SDK
+    name: aic-bash
+    url: https://github.com/art-institute-of-chicago/aic-bash
+    description: Bash script that queries the API for public-domain artworks and renders them as ASCII art.
+  - type: Tools
+    name: Browser Extension
+    url: https://github.com/art-institute-of-chicago/browser-extension
+    description: Show a random artwork from the collection in a new browser tab.
+  - type: Tools
+    name: aic-mobile-android
+    url: https://github.com/art-institute-of-chicago/aic-mobile-android
+    description: Official Art Institute of Chicago mobile app for Android (Kotlin).
+  - type: Tools
+    name: aic-mobile-ios
+    url: https://github.com/art-institute-of-chicago/aic-mobile-ios
+    description: Official Art Institute of Chicago mobile app for iOS (Swift).
+  - type: Tools
+    name: aic-mobile-cms
+    url: https://github.com/art-institute-of-chicago/aic-mobile-cms
+    description: CMS that powers the official mobile apps.
+  - type: Tools
+    name: twill
+    url: https://github.com/art-institute-of-chicago/twill
+    description: Open-source Laravel CMS toolkit originally built at the Art Institute.
+  - type: Tools
+    name: artic-mcp (community)
+    url: https://github.com/mikechao/artic-mcp
+    description: >-
+      Community-built Model Context Protocol (MCP) server providing
+      natural-language access to the Art Institute of Chicago Collection.
+      TypeScript, MIT-licensed; not officially maintained by the museum.
+  - type: SpectralRules
+    url: rules/art-institute-of-chicago-rules.yml
+  - type: Vocabulary
+    url: vocabulary/art-institute-of-chicago-vocabulary.yml
+  - type: NaftikoCapability
+    url: capabilities/shared/art-institute-of-chicago.yaml
+  - type: NaftikoCapability
+    url: capabilities/browse-collection.yaml
+  - type: NaftikoCapability
+    url: capabilities/research-artist.yaml
+  - type: NaftikoCapability
+    url: capabilities/plan-museum-visit.yaml
+  - type: NaftikoCapability
+    url: capabilities/mobile-audio-tour.yaml
+  - type: NaftikoCapability
+    url: capabilities/education-resources.yaml
+  - type: NaftikoCapability
+    url: capabilities/museum-shop.yaml
+  - type: NaftikoCapability
+    url: capabilities/global-search.yaml
+  - type: Plans
+    url: plans/art-institute-of-chicago-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+features:
+  - name: Open Collection Data
+    description: ~120,000 artworks plus rich metadata, openly licensed and free to use.
+  - name: Elasticsearch-Powered Search
+    description: Full-text and DSL search on every major resource (q, query, sort, from, size, facets).
+  - name: IIIF Image Delivery
+    description: Standards-compliant image delivery via IIIF Image API 2.0 with hotlinking allowed.
+  - name: Sparse Fieldsets and Batch Fetch
+    description: fields= and ids= parameters reduce payload size and round trips.
+  - name: Nightly Bulk Dumps
+    description: api-data repo provides full JSON dumps as an alternative to scraping.
+  - name: Authority Alignment
+    description: Places aligned to Getty TGN, agents aligned to Getty ULAN.
+useCases:
+  - name: Cultural-Heritage Research
+    description: Search and aggregate artworks, artists, places and exhibitions for scholarly work.
+  - name: Educational Apps and Lessons
+    description: Build classroom tools using artworks, educator resources and digital publications.
+  - name: Visitor-Planning Apps
+    description: Show what is on view today via exhibitions, galleries, hours, and tours.
+  - name: Mobile Audio Tours
+    description: Drive in-gallery audio experiences with tours and mobile-sounds endpoints.
+  - name: Generative and AI Workflows
+    description: Public-domain artworks make ideal training and grounding data for image/RAG pipelines.
+  - name: Creative Reuse
+    description: Browser extensions, ASCII renderers, screensavers and embeddings demos already exist as exemplars.
+integrations:
+  - name: IIIF
+    description: International Image Interoperability Framework for image delivery and presentation manifests.
+  - name: Getty Vocabularies
+    description: TGN (places) and ULAN (agents) authority IDs returned with records.
+  - name: schema.org
+    description: Linked-data alignment provided in json-ld/art-institute-of-chicago-context.jsonld.
+  - name: Elasticsearch
+    description: Underlying search engine; query DSL is exposed via search endpoints.
+  - name: Twill CMS
+    description: The museum's open-source Laravel CMS used to publish editorial content.
+  - name: Model Context Protocol
+    description: Community-built MCP server (mikechao/artic-mcp) for AI-assistant access.
+solutions:
+  - name: Public Domain Image Reuse
+    description: Use any artwork flagged is_public_domain=true at any resolution without restriction.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

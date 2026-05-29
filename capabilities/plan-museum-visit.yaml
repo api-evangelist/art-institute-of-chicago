@@ -1,0 +1,30 @@
+apiVersion: naftiko.io/v1
+kind: Capability
+metadata:
+  name: plan-museum-visit
+  description: 'Plan an in-person visit: exhibitions on view, galleries, hours and
+    tours.'
+spec:
+  provider: Art Institute of Chicago
+  baseUrl: https://api.artic.edu/api/v1
+  operations:
+  - id: listExhibitions
+    method: GET
+    path: /exhibitions
+    purpose: List current and upcoming exhibitions.
+  - id: searchExhibitions
+    method: GET
+    path: /exhibitions/search
+    purpose: Find exhibitions by topic.
+  - id: listGalleries
+    method: GET
+    path: /galleries
+    purpose: Find gallery locations.
+  - id: listHours
+    method: GET
+    path: /hours
+    purpose: Get opening hours.
+  - id: listTours
+    method: GET
+    path: /tours
+    purpose: Browse curated tours.
