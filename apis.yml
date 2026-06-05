@@ -1,15 +1,12 @@
 aid: art-institute-of-chicago
 name: Art Institute of Chicago
 description: >-
-  The Art Institute of Chicago publishes an open, REST + Elasticsearch-style
-  Public API for ~120,000 artworks plus agents (artists/makers), places,
-  galleries, exhibitions, tours, mobile sounds, museum-shop products,
-  publications, sections, sites, educator resources, digital and printed
-  publications, and static archive images. Most data is CC0 1.0; descriptions
-  and place data are CC-BY 4.0. No API key required; anonymous limit is 60
-  requests/minute per IP. Clients should send an AIC-User-Agent header for
-  courtesy tracking. The canonical aggregator (Laravel) is open source on
-  GitHub, and nightly bulk data dumps are published in a sibling repo.
+  The Art Institute of Chicago publishes an open, REST + Elasticsearch-style Public API for ~120,000 artworks plus
+  agents (artists/makers), places, galleries, exhibitions, tours, mobile sounds, museum-shop products, publications,
+  sections, sites, educator resources, digital and printed publications, and static archive images. Most data is CC0
+  1.0; descriptions and place data are CC-BY 4.0. No API key required; anonymous limit is 60 requests/minute per IP.
+  Clients should send an AIC-User-Agent header for courtesy tracking. The canonical aggregator (Laravel) is open source
+  on GitHub, and nightly bulk data dumps are published in a sibling repo.
 url: https://api.artic.edu/docs/
 image: https://www.artic.edu/iiif/2/AIC-LOGO/full/300,/0/default.jpg
 specificationVersion: '0.20'
@@ -17,7 +14,7 @@ created: '2026-05-28'
 modified: '2026-05-29'
 x-source: public-apis/public-apis
 x-type: opensource
-x-category: "Art & Design"
+x-category: Art & Design
 x-tier: 2
 x-tier-reason: opensource-with-public-openapi-and-mcp
 tags:
@@ -31,10 +28,8 @@ tags:
 apis:
   - name: Art Institute of Chicago Public API
     description: >-
-      Open REST and search API surfacing the museum's collection, agents,
-      exhibitions, tours, publications, products and operational data
-      (galleries, hours, sites). Backed by Elasticsearch; data refreshed
-      nightly. Read-only.
+      Open REST and search API surfacing the museum's collection, agents, exhibitions, tours, publications, products and
+      operational data (galleries, hours, sites). Backed by Elasticsearch; data refreshed nightly. Read-only.
     humanURL: https://api.artic.edu/docs/
     baseURL: https://api.artic.edu/api/v1
     tags:
@@ -102,9 +97,8 @@ apis:
         url: json-ld/art-institute-of-chicago-context.jsonld
   - name: IIIF Image API
     description: >-
-      IIIF Image API 2.0-compliant service for delivering image binaries for
-      artworks. Combine artwork.image_id with config.iiif_url returned by the
-      Public API.
+      IIIF Image API 2.0-compliant service for delivering image binaries for artworks. Combine artwork.image_id with
+      config.iiif_url returned by the Public API.
     humanURL: https://api.artic.edu/docs/#iiif-image-api
     baseURL: https://www.artic.edu/iiif/2
     tags:
@@ -117,9 +111,8 @@ apis:
         url: https://iiif.io/api/image/2.0/
   - name: Bulk Data Dumps
     description: >-
-      Nightly data dumps of the collection and related resources, published as
-      JSON in a public GitHub repository. Recommended for bulk consumers
-      instead of scraping the API.
+      Nightly data dumps of the collection and related resources, published as JSON in a public GitHub repository.
+      Recommended for bulk consumers instead of scraping the API.
     humanURL: https://github.com/art-institute-of-chicago/api-data
     baseURL: https://github.com/art-institute-of-chicago/api-data
     tags:
@@ -180,29 +173,12 @@ common:
     name: artic-mcp (community)
     url: https://github.com/mikechao/artic-mcp
     description: >-
-      Community-built Model Context Protocol (MCP) server providing
-      natural-language access to the Art Institute of Chicago Collection.
-      TypeScript, MIT-licensed; not officially maintained by the museum.
+      Community-built Model Context Protocol (MCP) server providing natural-language access to the Art Institute of
+      Chicago Collection. TypeScript, MIT-licensed; not officially maintained by the museum.
   - type: SpectralRules
     url: rules/art-institute-of-chicago-rules.yml
   - type: Vocabulary
     url: vocabulary/art-institute-of-chicago-vocabulary.yml
-  - type: NaftikoCapability
-    url: capabilities/shared/art-institute-of-chicago.yaml
-  - type: NaftikoCapability
-    url: capabilities/browse-collection.yaml
-  - type: NaftikoCapability
-    url: capabilities/research-artist.yaml
-  - type: NaftikoCapability
-    url: capabilities/plan-museum-visit.yaml
-  - type: NaftikoCapability
-    url: capabilities/mobile-audio-tour.yaml
-  - type: NaftikoCapability
-    url: capabilities/education-resources.yaml
-  - type: NaftikoCapability
-    url: capabilities/museum-shop.yaml
-  - type: NaftikoCapability
-    url: capabilities/global-search.yaml
   - type: Plans
     url: plans/art-institute-of-chicago-plans-pricing.yml
   - type: RateLimits
