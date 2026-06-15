@@ -1,0 +1,4669 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Art Institute of Chicago Public API",
+    "version": "1.14"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Artworks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Artworks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artworks",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all artworks sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Artworks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artworks/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search artworks data in the aggregator. Artworks in the groups of essentials are boosted so they'll show up higher in results."
+        },
+        {
+          "info": {
+            "name": "Get Artwork",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artworks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single artwork by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/agents",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all agents sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/agents/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search agents data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/agents/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single agent by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Artists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Artists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artists",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all artists sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Get Artist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artists/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single artist by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Places",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Places",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/places",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all places sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Places",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/places/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search places data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Place",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/places/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single place by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Galleries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Galleries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/galleries",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all galleries sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Galleries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/galleries/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search galleries data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Gallery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/galleries/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single gallery by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Exhibitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Exhibitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/exhibitions",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all exhibitions sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Exhibitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/exhibitions/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search exhibitions data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Exhibition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/exhibitions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single exhibition by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agent Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agent Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/agent-types",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all agent-types sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Get Agent Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/agent-types/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single agent type by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agent Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agent Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/agent-roles",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all agent-roles sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Get Agent Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/agent-roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single agent role by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Artwork Place Qualifiers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Artwork Place Qualifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artwork-place-qualifiers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all artwork-place-qualifiers sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Get Artwork Place Qualifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artwork-place-qualifiers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single artwork place qualifier by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Artwork Date Qualifiers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Artwork Date Qualifiers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artwork-date-qualifiers",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all artwork-date-qualifiers sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Get Artwork Date Qualifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artwork-date-qualifiers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single artwork date qualifier by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Artwork Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Artwork Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artwork-types",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all artwork-types sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Get Artwork Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/artwork-types/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single artwork type by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Category Terms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Category Terms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/category-terms",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all category-terms sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Category Terms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/category-terms/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search category-terms data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Category Term",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/category-terms/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single category term by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/images",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all images sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/images/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search images data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/images/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single image by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Videos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/videos",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all videos sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/videos/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search videos data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Video",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/videos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single video by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sounds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sounds",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all sounds sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Sounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sounds/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search sounds data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Sound",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sounds/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single sound by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Texts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Texts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/texts",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all texts sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Texts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/texts/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search texts data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/texts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single text by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/products",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all products sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/products/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search products data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single product by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Tours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/tours",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all tours sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Tours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/tours/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search tours data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Tour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/tours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single tour by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Mobile Sounds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Mobile Sounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/mobile-sounds",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all mobile-sounds sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Mobile Sounds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/mobile-sounds/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search mobile-sounds data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Mobile Sound",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/mobile-sounds/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single mobile sound by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Publications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Publications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/publications",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all publications sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Publications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/publications/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search publications data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Publication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/publications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single publication by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sections",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all sections sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Sections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sections/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search sections data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Section",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single section by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sites",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all sites sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sites/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search sites data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/sites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single site by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/events",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all events sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/events/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search events data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/events/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single event by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Event Occurrences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Event Occurrences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/event-occurrences",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all event-occurrences sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Event Occurrences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/event-occurrences/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search event-occurrences data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Event Occurrence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/event-occurrences/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single event occurrence by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Event Programs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Event Programs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/event-programs",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all event-programs sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Event Programs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/event-programs/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search event-programs data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Event Program",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/event-programs/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single event program by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/articles",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all articles sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/articles/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search articles data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/articles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single article by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Highlights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Highlights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/highlights",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all highlights sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Highlights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/highlights/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search highlights data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Highlight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/highlights/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single highlight by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Static Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Static Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/static-pages",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all static-pages sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Static Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/static-pages/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search static-pages data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Static Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/static-pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single static page by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Generic Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Generic Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/generic-pages",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all generic-pages sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Generic Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/generic-pages/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search generic-pages data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Generic Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/generic-pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single generic page by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Landing Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Landing Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/landing-pages",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all landing-pages sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Landing Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/landing-pages/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search landing-pages data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Landing Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/landing-pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single landing page by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Press Releases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Press Releases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/press-releases",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all press-releases sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Press Releases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/press-releases/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search press-releases data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Press Release",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/press-releases/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single press release by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Educator Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Educator Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/educator-resources",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all educator-resources sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Educator Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/educator-resources/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search educator-resources data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Educator Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/educator-resources/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single educator resource by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Digital Publications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Digital Publications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/digital-publications",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all digital-publications sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Digital Publications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/digital-publications/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search digital-publications data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Digital Publication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/digital-publications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single digital publication by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Digital Publication Articles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Digital Publication Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/digital-publication-articles",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all digital-publication-articles sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Digital Publication Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/digital-publication-articles/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search digital-publication-articles data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Digital Publication Article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/digital-publication-articles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single digital publication article by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Printed Publications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Printed Publications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/printed-publications",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all printed-publications sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Printed Publications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/printed-publications/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search printed-publications data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Printed Publication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/printed-publications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single printed publication by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Hours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/hours",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all hours sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/hours/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search hours data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Hour",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/hours/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single hour by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search All Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              }
+            ]
+          },
+          "docs": "Full-text and Elasticsearch DSL search across all indexed resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
