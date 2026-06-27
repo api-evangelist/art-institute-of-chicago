@@ -49,21 +49,21 @@ apis:
         url: rate-limits/art-institute-of-chicago-rate-limits.yml
       - type: License
         url: https://creativecommons.org/publicdomain/zero/1.0/
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-artworks-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-agents-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-exhibitions-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-galleries-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-places-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-products-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-tours-list-example.json
-      - type: Example
+      - type: Examples
         url: examples/art-institute-of-chicago-exhibitions-search-example.json
       - type: JSONSchema
         url: json-schema/art-institute-of-chicago-artwork-schema.json
@@ -93,7 +93,7 @@ apis:
         url: json-structure/art-institute-of-chicago-product-structure.json
       - type: JSONStructure
         url: json-structure/art-institute-of-chicago-tour-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/art-institute-of-chicago-context.jsonld
   - name: IIIF Image API
     description: >-
@@ -145,7 +145,7 @@ common:
   - type: GitHubRepository
     name: aic-bash
     url: https://github.com/art-institute-of-chicago/aic-bash
-  - type: SDK
+  - type: SDKs
     name: aic-bash
     url: https://github.com/art-institute-of-chicago/aic-bash
     description: Bash script that queries the API for public-domain artworks and renders them as ASCII art.
