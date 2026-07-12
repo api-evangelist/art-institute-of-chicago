@@ -230,3 +230,9 @@ solutions:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+common:
+  - type: DomainSecurity
+    url: security/art-institute-of-chicago-domain-security.yml
+  - url: https://www.artic.edu/blog
+    type: Blog
