@@ -232,6 +232,8 @@ maintainers:
     email: kin@apievangelist.com
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/art-institute-of-chicago-agentic-access.yml
   - type: DomainSecurity
     url: security/art-institute-of-chicago-domain-security.yml
   - url: https://www.artic.edu/blog
