@@ -1,0 +1,342 @@
+openapi: 3.1.0
+info:
+  title: Art Institute of Chicago Public Agent Roles Galleries API
+  description: 'The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).'
+  termsOfService: https://www.artic.edu/terms/terms-and-conditions
+  contact:
+    email: engineering@artic.edu
+    url: https://api.artic.edu/docs/
+  license:
+    name: CC0 1.0 (data) / CC-BY 4.0 (descriptions and place data)
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  version: '1.14'
+servers:
+- url: https://api.artic.edu/api/v1
+  description: Public API v1
+tags:
+- name: Galleries
+  description: Galleries inside the Art Institute of Chicago museum.
+paths:
+  /galleries:
+    get:
+      tags:
+      - Galleries
+      operationId: listGalleries
+      summary: List Galleries
+      description: A list of all galleries sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Gallery'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /galleries/search:
+    get:
+      tags:
+      - Galleries
+      operationId: searchGalleries
+      summary: Search Galleries
+      description: 'Search galleries data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /galleries/{id}:
+    get:
+      tags:
+      - Galleries
+      operationId: getGallery
+      summary: Get Gallery
+      description: Retrieve a single gallery by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Gallery'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  parameters:
+    SearchFrom:
+      name: from
+      in: query
+      description: Elasticsearch offset pagination starting record.
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
+      required: false
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return per page (default 12, max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 12
+    Page:
+      name: page
+      in: query
+      description: Page number (1-based).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    SearchFacets:
+      name: facets
+      in: query
+      description: Comma-separated list of fields to facet on for aggregations.
+      required: false
+      schema:
+        type: string
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to include in the response (sparse fieldsets).
+      required: false
+      schema:
+        type: string
+    SearchSize:
+      name: size
+      in: query
+      description: Elasticsearch page size (max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+    SearchQuery:
+      name: query
+      in: query
+      description: Elasticsearch Query DSL JSON (URL-encoded).
+      required: false
+      schema:
+        type: string
+    Include:
+      name: include
+      in: query
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    SearchSort:
+      name: sort
+      in: query
+      description: Sort specification (Elasticsearch sort syntax).
+      required: false
+      schema:
+        type: string
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
+      required: false
+      schema:
+        type: string
+  schemas:
+    SearchHit:
+      type: object
+      description: A single search hit (Elasticsearch _source projected fields).
+      properties:
+        _score:
+          type: number
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Info:
+      type: object
+      properties:
+        license_text:
+          type: string
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
+          type: string
+    Gallery:
+      type: object
+      description: A physical gallery space inside the museum.
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        number:
+          type:
+          - string
+          - 'null'
+        floor:
+          type:
+          - string
+          - 'null'
+        is_closed:
+          type: boolean
+        latitude:
+          type:
+          - number
+          - 'null'
+        longitude:
+          type:
+          - number
+          - 'null'
+        latlon:
+          type:
+          - string
+          - 'null'
+        tgn_id:
+          type:
+          - string
+          - 'null'
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+        detail:
+          type: string
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        next_url:
+          type: string
+          format: uri
