@@ -8,6 +8,18 @@ description: >-
   Clients should send an AIC-User-Agent header for courtesy tracking. The canonical aggregator (Laravel) is open source
   on GitHub, and nightly bulk data dumps are published in a sibling repo.
 url: https://api.artic.edu/docs/
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 image: https://www.artic.edu/iiif/2/AIC-LOGO/full/300,/0/default.jpg
 specificationVersion: '0.20'
 created: '2026-05-28'
@@ -26,101 +38,2400 @@ tags:
   - Public APIs
   - Open Source
 apis:
-  - name: Art Institute of Chicago Public API
-    description: >-
-      Open REST and search API surfacing the museum's collection, agents, exhibitions, tours, publications, products and
-      operational data (galleries, hours, sites). Backed by Elasticsearch; data refreshed nightly. Read-only.
-    humanURL: https://api.artic.edu/docs/
-    baseURL: https://api.artic.edu/api/v1
-    tags:
-      - Art And Design
-      - Museum
-      - Open Data
-    properties:
-      - type: Documentation
-        url: https://api.artic.edu/docs/
-      - type: OpenAPI
-        url: openapi/art-institute-of-chicago-openapi.yml
-      - type: OpenAPI
-        url: https://api.artic.edu/api/v1/openapi.json
-      - type: Authentication
-        url: https://api.artic.edu/docs/
-      - type: RateLimits
-        url: rate-limits/art-institute-of-chicago-rate-limits.yml
-      - type: License
-        url: https://creativecommons.org/publicdomain/zero/1.0/
-      - type: Examples
-        url: examples/art-institute-of-chicago-artworks-list-example.json
-      - type: Examples
-        url: examples/art-institute-of-chicago-agents-list-example.json
-      - type: Examples
-        url: examples/art-institute-of-chicago-exhibitions-list-example.json
-      - type: Examples
-        url: examples/art-institute-of-chicago-galleries-list-example.json
-      - type: Examples
-        url: examples/art-institute-of-chicago-places-list-example.json
-      - type: Examples
-        url: examples/art-institute-of-chicago-products-list-example.json
-      - type: Examples
-        url: examples/art-institute-of-chicago-tours-list-example.json
-      - type: Examples
-        url: examples/art-institute-of-chicago-exhibitions-search-example.json
-      - type: JSONSchema
-        url: json-schema/art-institute-of-chicago-artwork-schema.json
-      - type: JSONSchema
-        url: json-schema/art-institute-of-chicago-agent-schema.json
-      - type: JSONSchema
-        url: json-schema/art-institute-of-chicago-place-schema.json
-      - type: JSONSchema
-        url: json-schema/art-institute-of-chicago-gallery-schema.json
-      - type: JSONSchema
-        url: json-schema/art-institute-of-chicago-exhibition-schema.json
-      - type: JSONSchema
-        url: json-schema/art-institute-of-chicago-product-schema.json
-      - type: JSONSchema
-        url: json-schema/art-institute-of-chicago-tour-schema.json
-      - type: JSONStructure
-        url: json-structure/art-institute-of-chicago-artwork-structure.json
-      - type: JSONStructure
-        url: json-structure/art-institute-of-chicago-agent-structure.json
-      - type: JSONStructure
-        url: json-structure/art-institute-of-chicago-place-structure.json
-      - type: JSONStructure
-        url: json-structure/art-institute-of-chicago-gallery-structure.json
-      - type: JSONStructure
-        url: json-structure/art-institute-of-chicago-exhibition-structure.json
-      - type: JSONStructure
-        url: json-structure/art-institute-of-chicago-product-structure.json
-      - type: JSONStructure
-        url: json-structure/art-institute-of-chicago-tour-structure.json
-      - type: JSONLD
-        url: json-ld/art-institute-of-chicago-context.jsonld
-  - name: IIIF Image API
-    description: >-
-      IIIF Image API 2.0-compliant service for delivering image binaries for artworks. Combine artwork.image_id with
-      config.iiif_url returned by the Public API.
-    humanURL: https://api.artic.edu/docs/#iiif-image-api
-    baseURL: https://www.artic.edu/iiif/2
-    tags:
-      - IIIF
-      - Images
-    properties:
-      - type: Documentation
-        url: https://api.artic.edu/docs/#iiif-image-api
-      - type: Specification
-        url: https://iiif.io/api/image/2.0/
-  - name: Bulk Data Dumps
-    description: >-
-      Nightly data dumps of the collection and related resources, published as JSON in a public GitHub repository.
-      Recommended for bulk consumers instead of scraping the API.
-    humanURL: https://github.com/art-institute-of-chicago/api-data
-    baseURL: https://github.com/art-institute-of-chicago/api-data
-    tags:
-      - Bulk Data
-      - Open Data
-    properties:
-      - type: GitHubRepository
-        url: https://github.com/art-institute-of-chicago/api-data
+- name: IIIF Image API
+  description: >-
+    IIIF Image API 2.0-compliant service for delivering image binaries for artworks. Combine artwork.image_id
+    with config.iiif_url returned by the Public API.
+  humanURL: https://api.artic.edu/docs/#iiif-image-api
+  baseURL: https://www.artic.edu/iiif/2
+  tags:
+  - IIIF
+  - Images
+  properties:
+  - type: Documentation
+    url: https://api.artic.edu/docs/#iiif-image-api
+  - type: Specification
+    url: https://iiif.io/api/image/2.0/
+- name: Bulk Data Dumps
+  description: >-
+    Nightly data dumps of the collection and related resources, published as JSON in a public GitHub repository.
+    Recommended for bulk consumers instead of scraping the API.
+  humanURL: https://github.com/art-institute-of-chicago/api-data
+  baseURL: https://github.com/art-institute-of-chicago/api-data
+  tags:
+  - Bulk Data
+  - Open Data
+  properties:
+  - type: GitHubRepository
+    url: https://github.com/art-institute-of-chicago/api-data
+- aid: art-institute-of-chicago:art-institute-of-chicago-agent-roles-api
+  name: Art Institute of Chicago Agent Roles API
+  description: Roles agents can play in relation to an artwork.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Agent Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-agent-roles-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-agent-types-api
+  name: Art Institute of Chicago Agent Types API
+  description: Classifications of agents (Individual, Corporate, etc.).
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Agent Types
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-agent-types-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-agents-api
+  name: Art Institute of Chicago Agents API
+  description: People and organizations (artists, makers, donors) associated with artworks.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Agents
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-agents-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-articles-api
+  name: Art Institute of Chicago Articles API
+  description: Magazine-style articles published by the museum.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Articles
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-articles-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-artists-api
+  name: Art Institute of Chicago Artists API
+  description: Convenience alias for agents flagged as artists.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Artists
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-artists-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-artwork-date-qualifiers-api
+  name: Art Institute of Chicago Artwork Date Qualifiers API
+  description: Date qualifier terms used on artworks.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Artwork Date Qualifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-artwork-date-qualifiers-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-artwork-place-qualifiers-api
+  name: Art Institute of Chicago Artwork Place Qualifiers API
+  description: Place qualifier terms used on artworks.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Artwork Place Qualifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-artwork-place-qualifiers-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-artwork-types-api
+  name: Art Institute of Chicago Artwork Types API
+  description: Classification of artwork types (Painting, Sculpture, etc.).
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Artwork Types
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-artwork-types-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-artworks-api
+  name: Art Institute of Chicago Artworks API
+  description: Artworks from the Art Institute of Chicago collection (~120,000 records).
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Artworks
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-artworks-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-category-terms-api
+  name: Art Institute of Chicago Category Terms API
+  description: Subject, department and style category terms.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Category Terms
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-category-terms-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-digital-publication-articles-api
+  name: Art Institute of Chicago Digital Publication Articles API
+  description: Articles inside digital publications.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Digital Publication Articles
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-digital-publication-articles-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-digital-publications-api
+  name: Art Institute of Chicago Digital Publications API
+  description: Online scholarly publications and catalogues.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Digital Publications
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-digital-publications-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-educator-resources-api
+  name: Art Institute of Chicago Educator Resources API
+  description: Lesson plans and resources for educators.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Educator Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-educator-resources-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-event-occurrences-api
+  name: Art Institute of Chicago Event Occurrences API
+  description: Scheduled occurrences of an event.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Event Occurrences
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-event-occurrences-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-event-programs-api
+  name: Art Institute of Chicago Event Programs API
+  description: Recurring program series the events belong to.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Event Programs
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-event-programs-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-events-api
+  name: Art Institute of Chicago Events API
+  description: Public events at the museum.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-events-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-exhibitions-api
+  name: Art Institute of Chicago Exhibitions API
+  description: Past, current and upcoming exhibitions.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Exhibitions
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-exhibitions-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-galleries-api
+  name: Art Institute of Chicago Galleries API
+  description: Galleries inside the Art Institute of Chicago museum.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Galleries
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-galleries-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-generic-pages-api
+  name: Art Institute of Chicago Generic Pages API
+  description: Generic landing-style pages.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Generic Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-generic-pages-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-highlights-api
+  name: Art Institute of Chicago Highlights API
+  description: Curated highlight items from the collection.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Highlights
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-highlights-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-hours-api
+  name: Art Institute of Chicago Hours API
+  description: Museum opening hours.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-hours-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-images-api
+  name: Art Institute of Chicago Images API
+  description: Image assets (delivered via IIIF for binary data).
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-images-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-landing-pages-api
+  name: Art Institute of Chicago Landing Pages API
+  description: Top-level landing pages of artic.edu.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Landing Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-landing-pages-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-mobile-sounds-api
+  name: Art Institute of Chicago Mobile Sounds API
+  description: Audio tour stops and mobile-app sound content.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Mobile Sounds
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-mobile-sounds-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-places-api
+  name: Art Institute of Chicago Places API
+  description: Geographic places linked to artworks (uses Getty Thesaurus of Geographic Names).
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Places
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-places-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-press-releases-api
+  name: Art Institute of Chicago Press Releases API
+  description: Official press releases from the museum.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Press Releases
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-press-releases-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-printed-publications-api
+  name: Art Institute of Chicago Printed Publications API
+  description: Print catalogues and books.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Printed Publications
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-printed-publications-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-products-api
+  name: Art Institute of Chicago Products API
+  description: Items for sale in the museum shop.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-products-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-publications-api
+  name: Art Institute of Chicago Publications API
+  description: All museum publications (combined index).
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Publications
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-publications-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-search-api
+  name: Art Institute of Chicago Search API
+  description: Cross-resource Elasticsearch-style search.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-search-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-sections-api
+  name: Art Institute of Chicago Sections API
+  description: Sections of online publications and catalogues.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Sections
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-sections-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-sites-api
+  name: Art Institute of Chicago Sites API
+  description: Microsites and online sites published by the museum.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-sites-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-sounds-api
+  name: Art Institute of Chicago Sounds API
+  description: Sound assets and metadata.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Sounds
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-sounds-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-static-pages-api
+  name: Art Institute of Chicago Static Pages API
+  description: Static content pages of artic.edu.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Static Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-static-pages-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-texts-api
+  name: Art Institute of Chicago Texts API
+  description: Long-form text content.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Texts
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-texts-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-tours-api
+  name: Art Institute of Chicago Tours API
+  description: Curated multi-stop museum tours.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Tours
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-tours-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
+- aid: art-institute-of-chicago:art-institute-of-chicago-videos-api
+  name: Art Institute of Chicago Videos API
+  description: Video assets and metadata.
+  humanURL: https://api.artic.edu/docs/
+  baseURL: https://api.artic.edu/api/v1
+  tags:
+  - Videos
+  properties:
+  - type: OpenAPI
+    url: openapi/art-institute-of-chicago-videos-api-openapi.yml
+  - type: Documentation
+    url: https://api.artic.edu/docs/
+  - type: Authentication
+    url: https://api.artic.edu/docs/
+  - type: RateLimits
+    url: rate-limits/art-institute-of-chicago-rate-limits.yml
+  - type: License
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  - type: Examples
+    url: examples/art-institute-of-chicago-artworks-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-agents-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-galleries-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-places-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-products-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-tours-list-example.json
+  - type: Examples
+    url: examples/art-institute-of-chicago-exhibitions-search-example.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-artwork-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-agent-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-place-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-gallery-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-exhibition-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-product-schema.json
+  - type: JSONSchema
+    url: json-schema/art-institute-of-chicago-tour-schema.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-artwork-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-agent-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-place-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-gallery-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-exhibition-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-product-structure.json
+  - type: JSONStructure
+    url: json-structure/art-institute-of-chicago-tour-structure.json
+  - type: JSONLD
+    url: json-ld/art-institute-of-chicago-context.jsonld
 common:
   - type: Website
     url: https://www.artic.edu/
