@@ -1,0 +1,4845 @@
+openapi: 3.1.0
+info:
+  title: Art Institute of Chicago Public API
+  description: 'The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus
+    artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational
+    resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places
+    are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent
+    header (recommended for courtesy tracking).'
+  termsOfService: https://www.artic.edu/terms/terms-and-conditions
+  contact:
+    email: engineering@artic.edu
+    url: https://api.artic.edu/docs/
+  license:
+    name: CC0 1.0 (data) / CC-BY 4.0 (descriptions and place data)
+    url: https://creativecommons.org/publicdomain/zero/1.0/
+  version: '1.14'
+servers:
+- url: https://api.artic.edu/api/v1
+  description: Public API v1
+tags:
+- name: Agent Roles
+  description: Roles agents can play in relation to an artwork.
+- name: Agent Types
+  description: Classifications of agents (Individual, Corporate, etc.).
+- name: Agents
+  description: People and organizations (artists, makers, donors) associated with artworks.
+- name: Articles
+  description: Magazine-style articles published by the museum.
+- name: Artists
+  description: Convenience alias for agents flagged as artists.
+- name: Artwork Date Qualifiers
+  description: Date qualifier terms used on artworks.
+- name: Artwork Place Qualifiers
+  description: Place qualifier terms used on artworks.
+- name: Artwork Types
+  description: Classification of artwork types (Painting, Sculpture, etc.).
+- name: Artworks
+  description: Artworks from the Art Institute of Chicago collection (~120,000 records).
+- name: Category Terms
+  description: Subject, department and style category terms.
+- name: Digital Publication Articles
+  description: Articles inside digital publications.
+- name: Digital Publications
+  description: Online scholarly publications and catalogues.
+- name: Educator Resources
+  description: Lesson plans and resources for educators.
+- name: Event Occurrences
+  description: Scheduled occurrences of an event.
+- name: Event Programs
+  description: Recurring program series the events belong to.
+- name: Events
+  description: Public events at the museum.
+- name: Exhibitions
+  description: Past, current and upcoming exhibitions.
+- name: Galleries
+  description: Galleries inside the Art Institute of Chicago museum.
+- name: Generic Pages
+  description: Generic landing-style pages.
+- name: Highlights
+  description: Curated highlight items from the collection.
+- name: Hours
+  description: Museum opening hours.
+- name: Images
+  description: Image assets (delivered via IIIF for binary data).
+- name: Landing Pages
+  description: Top-level landing pages of artic.edu.
+- name: Mobile Sounds
+  description: Audio tour stops and mobile-app sound content.
+- name: Places
+  description: Geographic places linked to artworks (uses Getty Thesaurus of Geographic Names).
+- name: Press Releases
+  description: Official press releases from the museum.
+- name: Printed Publications
+  description: Print catalogues and books.
+- name: Products
+  description: Items for sale in the museum shop.
+- name: Publications
+  description: All museum publications (combined index).
+- name: Search
+  description: Cross-resource Elasticsearch-style search.
+- name: Sections
+  description: Sections of online publications and catalogues.
+- name: Sites
+  description: Microsites and online sites published by the museum.
+- name: Sounds
+  description: Sound assets and metadata.
+- name: Static Pages
+  description: Static content pages of artic.edu.
+- name: Texts
+  description: Long-form text content.
+- name: Tours
+  description: Curated multi-stop museum tours.
+- name: Videos
+  description: Video assets and metadata.
+paths:
+  /artworks:
+    get:
+      tags:
+      - Artworks
+      operationId: listArtworks
+      summary: List Artworks
+      description: A list of all artworks sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Artwork'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artworks/search:
+    get:
+      tags:
+      - Artworks
+      operationId: searchArtworks
+      summary: Search Artworks
+      description: Search artworks data in the aggregator. Artworks in the groups of essentials are boosted so they'll show
+        up higher in results.
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artworks/{id}:
+    get:
+      tags:
+      - Artworks
+      operationId: getArtwork
+      summary: Get Artwork
+      description: Retrieve a single artwork by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Artwork'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /agents:
+    get:
+      tags:
+      - Agents
+      operationId: listAgents
+      summary: List Agents
+      description: A list of all agents sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Agent'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /agents/search:
+    get:
+      tags:
+      - Agents
+      operationId: searchAgents
+      summary: Search Agents
+      description: 'Search agents data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /agents/{id}:
+    get:
+      tags:
+      - Agents
+      operationId: getAgent
+      summary: Get Agent
+      description: Retrieve a single agent by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Agent'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artists:
+    get:
+      tags:
+      - Artists
+      operationId: listArtists
+      summary: List Artists
+      description: A list of all artists sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Agent'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artists/{id}:
+    get:
+      tags:
+      - Artists
+      operationId: getArtist
+      summary: Get Artist
+      description: Retrieve a single artist by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Agent'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /places:
+    get:
+      tags:
+      - Places
+      operationId: listPlaces
+      summary: List Places
+      description: A list of all places sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Place'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /places/search:
+    get:
+      tags:
+      - Places
+      operationId: searchPlaces
+      summary: Search Places
+      description: 'Search places data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /places/{id}:
+    get:
+      tags:
+      - Places
+      operationId: getPlace
+      summary: Get Place
+      description: Retrieve a single place by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Place'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /galleries:
+    get:
+      tags:
+      - Galleries
+      operationId: listGalleries
+      summary: List Galleries
+      description: A list of all galleries sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Gallery'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /galleries/search:
+    get:
+      tags:
+      - Galleries
+      operationId: searchGalleries
+      summary: Search Galleries
+      description: 'Search galleries data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /galleries/{id}:
+    get:
+      tags:
+      - Galleries
+      operationId: getGallery
+      summary: Get Gallery
+      description: Retrieve a single gallery by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Gallery'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /exhibitions:
+    get:
+      tags:
+      - Exhibitions
+      operationId: listExhibitions
+      summary: List Exhibitions
+      description: A list of all exhibitions sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Exhibition'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /exhibitions/search:
+    get:
+      tags:
+      - Exhibitions
+      operationId: searchExhibitions
+      summary: Search Exhibitions
+      description: 'Search exhibitions data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /exhibitions/{id}:
+    get:
+      tags:
+      - Exhibitions
+      operationId: getExhibition
+      summary: Get Exhibition
+      description: Retrieve a single exhibition by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Exhibition'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /agent-types:
+    get:
+      tags:
+      - Agent Types
+      operationId: listAgentTypes
+      summary: List Agent Types
+      description: A list of all agent-types sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /agent-types/{id}:
+    get:
+      tags:
+      - Agent Types
+      operationId: getAgentType
+      summary: Get Agent Type
+      description: Retrieve a single agent type by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /agent-roles:
+    get:
+      tags:
+      - Agent Roles
+      operationId: listAgentRoles
+      summary: List Agent Roles
+      description: A list of all agent-roles sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /agent-roles/{id}:
+    get:
+      tags:
+      - Agent Roles
+      operationId: getAgentRole
+      summary: Get Agent Role
+      description: Retrieve a single agent role by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artwork-place-qualifiers:
+    get:
+      tags:
+      - Artwork Place Qualifiers
+      operationId: listArtworkPlaceQualifiers
+      summary: List Artwork Place Qualifiers
+      description: A list of all artwork-place-qualifiers sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artwork-place-qualifiers/{id}:
+    get:
+      tags:
+      - Artwork Place Qualifiers
+      operationId: getArtworkPlaceQualifier
+      summary: Get Artwork Place Qualifier
+      description: Retrieve a single artwork place qualifier by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artwork-date-qualifiers:
+    get:
+      tags:
+      - Artwork Date Qualifiers
+      operationId: listArtworkDateQualifiers
+      summary: List Artwork Date Qualifiers
+      description: A list of all artwork-date-qualifiers sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artwork-date-qualifiers/{id}:
+    get:
+      tags:
+      - Artwork Date Qualifiers
+      operationId: getArtworkDateQualifier
+      summary: Get Artwork Date Qualifier
+      description: Retrieve a single artwork date qualifier by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artwork-types:
+    get:
+      tags:
+      - Artwork Types
+      operationId: listArtworkTypes
+      summary: List Artwork Types
+      description: A list of all artwork-types sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /artwork-types/{id}:
+    get:
+      tags:
+      - Artwork Types
+      operationId: getArtworkType
+      summary: Get Artwork Type
+      description: Retrieve a single artwork type by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /category-terms:
+    get:
+      tags:
+      - Category Terms
+      operationId: listCategoryTerms
+      summary: List Category Terms
+      description: A list of all category-terms sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /category-terms/search:
+    get:
+      tags:
+      - Category Terms
+      operationId: searchCategoryTerms
+      summary: Search Category Terms
+      description: 'Search category-terms data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /category-terms/{id}:
+    get:
+      tags:
+      - Category Terms
+      operationId: getCategoryTerm
+      summary: Get Category Term
+      description: Retrieve a single category term by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /images:
+    get:
+      tags:
+      - Images
+      operationId: listImages
+      summary: List Images
+      description: A list of all images sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /images/search:
+    get:
+      tags:
+      - Images
+      operationId: searchImages
+      summary: Search Images
+      description: 'Search images data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /images/{id}:
+    get:
+      tags:
+      - Images
+      operationId: getImage
+      summary: Get Image
+      description: Retrieve a single image by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /videos:
+    get:
+      tags:
+      - Videos
+      operationId: listVideos
+      summary: List Videos
+      description: A list of all videos sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /videos/search:
+    get:
+      tags:
+      - Videos
+      operationId: searchVideos
+      summary: Search Videos
+      description: 'Search videos data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /videos/{id}:
+    get:
+      tags:
+      - Videos
+      operationId: getVideo
+      summary: Get Video
+      description: Retrieve a single video by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sounds:
+    get:
+      tags:
+      - Sounds
+      operationId: listSounds
+      summary: List Sounds
+      description: A list of all sounds sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sounds/search:
+    get:
+      tags:
+      - Sounds
+      operationId: searchSounds
+      summary: Search Sounds
+      description: 'Search sounds data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sounds/{id}:
+    get:
+      tags:
+      - Sounds
+      operationId: getSound
+      summary: Get Sound
+      description: Retrieve a single sound by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /texts:
+    get:
+      tags:
+      - Texts
+      operationId: listTexts
+      summary: List Texts
+      description: A list of all texts sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /texts/search:
+    get:
+      tags:
+      - Texts
+      operationId: searchTexts
+      summary: Search Texts
+      description: 'Search texts data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /texts/{id}:
+    get:
+      tags:
+      - Texts
+      operationId: getText
+      summary: Get Text
+      description: Retrieve a single text by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /products:
+    get:
+      tags:
+      - Products
+      operationId: listProducts
+      summary: List Products
+      description: A list of all products sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /products/search:
+    get:
+      tags:
+      - Products
+      operationId: searchProducts
+      summary: Search Products
+      description: 'Search products data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /products/{id}:
+    get:
+      tags:
+      - Products
+      operationId: getProduct
+      summary: Get Product
+      description: Retrieve a single product by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Product'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /tours:
+    get:
+      tags:
+      - Tours
+      operationId: listTours
+      summary: List Tours
+      description: A list of all tours sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tour'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /tours/search:
+    get:
+      tags:
+      - Tours
+      operationId: searchTours
+      summary: Search Tours
+      description: 'Search tours data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /tours/{id}:
+    get:
+      tags:
+      - Tours
+      operationId: getTour
+      summary: Get Tour
+      description: Retrieve a single tour by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Tour'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /mobile-sounds:
+    get:
+      tags:
+      - Mobile Sounds
+      operationId: listMobileSounds
+      summary: List Mobile Sounds
+      description: A list of all mobile-sounds sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /mobile-sounds/search:
+    get:
+      tags:
+      - Mobile Sounds
+      operationId: searchMobileSounds
+      summary: Search Mobile Sounds
+      description: 'Search mobile-sounds data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /mobile-sounds/{id}:
+    get:
+      tags:
+      - Mobile Sounds
+      operationId: getMobileSound
+      summary: Get Mobile Sound
+      description: Retrieve a single mobile sound by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /publications:
+    get:
+      tags:
+      - Publications
+      operationId: listPublications
+      summary: List Publications
+      description: A list of all publications sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /publications/search:
+    get:
+      tags:
+      - Publications
+      operationId: searchPublications
+      summary: Search Publications
+      description: 'Search publications data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /publications/{id}:
+    get:
+      tags:
+      - Publications
+      operationId: getPublication
+      summary: Get Publication
+      description: Retrieve a single publication by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sections:
+    get:
+      tags:
+      - Sections
+      operationId: listSections
+      summary: List Sections
+      description: A list of all sections sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sections/search:
+    get:
+      tags:
+      - Sections
+      operationId: searchSections
+      summary: Search Sections
+      description: 'Search sections data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sections/{id}:
+    get:
+      tags:
+      - Sections
+      operationId: getSection
+      summary: Get Section
+      description: Retrieve a single section by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sites:
+    get:
+      tags:
+      - Sites
+      operationId: listSites
+      summary: List Sites
+      description: A list of all sites sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sites/search:
+    get:
+      tags:
+      - Sites
+      operationId: searchSites
+      summary: Search Sites
+      description: 'Search sites data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sites/{id}:
+    get:
+      tags:
+      - Sites
+      operationId: getSite
+      summary: Get Site
+      description: Retrieve a single site by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /events:
+    get:
+      tags:
+      - Events
+      operationId: listEvents
+      summary: List Events
+      description: A list of all events sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /events/search:
+    get:
+      tags:
+      - Events
+      operationId: searchEvents
+      summary: Search Events
+      description: 'Search events data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /events/{id}:
+    get:
+      tags:
+      - Events
+      operationId: getEvent
+      summary: Get Event
+      description: Retrieve a single event by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /event-occurrences:
+    get:
+      tags:
+      - Event Occurrences
+      operationId: listEventOccurrences
+      summary: List Event Occurrences
+      description: A list of all event-occurrences sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /event-occurrences/search:
+    get:
+      tags:
+      - Event Occurrences
+      operationId: searchEventOccurrences
+      summary: Search Event Occurrences
+      description: 'Search event-occurrences data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /event-occurrences/{id}:
+    get:
+      tags:
+      - Event Occurrences
+      operationId: getEventOccurrence
+      summary: Get Event Occurrence
+      description: Retrieve a single event occurrence by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /event-programs:
+    get:
+      tags:
+      - Event Programs
+      operationId: listEventPrograms
+      summary: List Event Programs
+      description: A list of all event-programs sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /event-programs/search:
+    get:
+      tags:
+      - Event Programs
+      operationId: searchEventPrograms
+      summary: Search Event Programs
+      description: 'Search event-programs data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /event-programs/{id}:
+    get:
+      tags:
+      - Event Programs
+      operationId: getEventProgram
+      summary: Get Event Program
+      description: Retrieve a single event program by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /articles:
+    get:
+      tags:
+      - Articles
+      operationId: listArticles
+      summary: List Articles
+      description: A list of all articles sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /articles/search:
+    get:
+      tags:
+      - Articles
+      operationId: searchArticles
+      summary: Search Articles
+      description: 'Search articles data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /articles/{id}:
+    get:
+      tags:
+      - Articles
+      operationId: getArticle
+      summary: Get Article
+      description: Retrieve a single article by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /highlights:
+    get:
+      tags:
+      - Highlights
+      operationId: listHighlights
+      summary: List Highlights
+      description: A list of all highlights sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /highlights/search:
+    get:
+      tags:
+      - Highlights
+      operationId: searchHighlights
+      summary: Search Highlights
+      description: 'Search highlights data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /highlights/{id}:
+    get:
+      tags:
+      - Highlights
+      operationId: getHighlight
+      summary: Get Highlight
+      description: Retrieve a single highlight by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /static-pages:
+    get:
+      tags:
+      - Static Pages
+      operationId: listStaticPages
+      summary: List Static Pages
+      description: A list of all static-pages sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /static-pages/search:
+    get:
+      tags:
+      - Static Pages
+      operationId: searchStaticPages
+      summary: Search Static Pages
+      description: 'Search static-pages data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /static-pages/{id}:
+    get:
+      tags:
+      - Static Pages
+      operationId: getStaticPage
+      summary: Get Static Page
+      description: Retrieve a single static page by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /generic-pages:
+    get:
+      tags:
+      - Generic Pages
+      operationId: listGenericPages
+      summary: List Generic Pages
+      description: A list of all generic-pages sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /generic-pages/search:
+    get:
+      tags:
+      - Generic Pages
+      operationId: searchGenericPages
+      summary: Search Generic Pages
+      description: 'Search generic-pages data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /generic-pages/{id}:
+    get:
+      tags:
+      - Generic Pages
+      operationId: getGenericPage
+      summary: Get Generic Page
+      description: Retrieve a single generic page by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /landing-pages:
+    get:
+      tags:
+      - Landing Pages
+      operationId: listLandingPages
+      summary: List Landing Pages
+      description: A list of all landing-pages sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /landing-pages/search:
+    get:
+      tags:
+      - Landing Pages
+      operationId: searchLandingPages
+      summary: Search Landing Pages
+      description: 'Search landing-pages data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /landing-pages/{id}:
+    get:
+      tags:
+      - Landing Pages
+      operationId: getLandingPage
+      summary: Get Landing Page
+      description: Retrieve a single landing page by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /press-releases:
+    get:
+      tags:
+      - Press Releases
+      operationId: listPressReleases
+      summary: List Press Releases
+      description: A list of all press-releases sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /press-releases/search:
+    get:
+      tags:
+      - Press Releases
+      operationId: searchPressReleases
+      summary: Search Press Releases
+      description: 'Search press-releases data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /press-releases/{id}:
+    get:
+      tags:
+      - Press Releases
+      operationId: getPressRelease
+      summary: Get Press Release
+      description: Retrieve a single press release by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /educator-resources:
+    get:
+      tags:
+      - Educator Resources
+      operationId: listEducatorResources
+      summary: List Educator Resources
+      description: A list of all educator-resources sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /educator-resources/search:
+    get:
+      tags:
+      - Educator Resources
+      operationId: searchEducatorResources
+      summary: Search Educator Resources
+      description: 'Search educator-resources data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /educator-resources/{id}:
+    get:
+      tags:
+      - Educator Resources
+      operationId: getEducatorResource
+      summary: Get Educator Resource
+      description: Retrieve a single educator resource by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /digital-publications:
+    get:
+      tags:
+      - Digital Publications
+      operationId: listDigitalPublications
+      summary: List Digital Publications
+      description: A list of all digital-publications sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /digital-publications/search:
+    get:
+      tags:
+      - Digital Publications
+      operationId: searchDigitalPublications
+      summary: Search Digital Publications
+      description: 'Search digital-publications data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /digital-publications/{id}:
+    get:
+      tags:
+      - Digital Publications
+      operationId: getDigitalPublication
+      summary: Get Digital Publication
+      description: Retrieve a single digital publication by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /digital-publication-articles:
+    get:
+      tags:
+      - Digital Publication Articles
+      operationId: listDigitalPublicationArticles
+      summary: List Digital Publication Articles
+      description: A list of all digital-publication-articles sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /digital-publication-articles/search:
+    get:
+      tags:
+      - Digital Publication Articles
+      operationId: searchDigitalPublicationArticles
+      summary: Search Digital Publication Articles
+      description: 'Search digital-publication-articles data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /digital-publication-articles/{id}:
+    get:
+      tags:
+      - Digital Publication Articles
+      operationId: getDigitalPublicationArticle
+      summary: Get Digital Publication Article
+      description: Retrieve a single digital publication article by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /printed-publications:
+    get:
+      tags:
+      - Printed Publications
+      operationId: listPrintedPublications
+      summary: List Printed Publications
+      description: A list of all printed-publications sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /printed-publications/search:
+    get:
+      tags:
+      - Printed Publications
+      operationId: searchPrintedPublications
+      summary: Search Printed Publications
+      description: 'Search printed-publications data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /printed-publications/{id}:
+    get:
+      tags:
+      - Printed Publications
+      operationId: getPrintedPublication
+      summary: Get Printed Publication
+      description: Retrieve a single printed publication by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /hours:
+    get:
+      tags:
+      - Hours
+      operationId: listHours
+      summary: List Hours
+      description: A list of all hours sorted by last updated date in descending order.
+      parameters:
+      - $ref: '#/components/parameters/Ids'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /hours/search:
+    get:
+      tags:
+      - Hours
+      operationId: searchHours
+      summary: Search Hours
+      description: 'Search hours data in the aggregator. '
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      - $ref: '#/components/parameters/Fields'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /hours/{id}:
+    get:
+      tags:
+      - Hours
+      operationId: getHour
+      summary: Get Hour
+      description: Retrieve a single hour by ID.
+      parameters:
+      - $ref: '#/components/parameters/ResourceId'
+      - $ref: '#/components/parameters/Fields'
+      - $ref: '#/components/parameters/Include'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/GenericResource'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /search:
+    get:
+      tags:
+      - Search
+      operationId: searchAll
+      summary: Search All Resources
+      description: Full-text and Elasticsearch DSL search across all indexed resources.
+      parameters:
+      - $ref: '#/components/parameters/SearchQ'
+      - $ref: '#/components/parameters/SearchQuery'
+      - $ref: '#/components/parameters/SearchSort'
+      - $ref: '#/components/parameters/SearchFrom'
+      - $ref: '#/components/parameters/SearchSize'
+      - $ref: '#/components/parameters/SearchFacets'
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  preference:
+                    type:
+                    - string
+                    - 'null'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchHit'
+                  info:
+                    $ref: '#/components/schemas/Info'
+                  config:
+                    $ref: '#/components/schemas/Config'
+        default:
+          description: Error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        next_url:
+          type: string
+          format: uri
+    Info:
+      type: object
+      properties:
+        license_text:
+          type: string
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
+          type: string
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+        detail:
+          type: string
+    Artwork:
+      type: object
+      description: An artwork in the Art Institute of Chicago collection.
+      properties:
+        id:
+          type: integer
+          description: Unique numeric identifier.
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+          description: Title of the artwork.
+        alt_titles:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        thumbnail:
+          type:
+          - object
+          - 'null'
+        main_reference_number:
+          type: string
+          description: Accession number.
+        has_not_been_viewed_much:
+          type: boolean
+        boost_rank:
+          type:
+          - integer
+          - 'null'
+        date_start:
+          type:
+          - integer
+          - 'null'
+        date_end:
+          type:
+          - integer
+          - 'null'
+        date_display:
+          type:
+          - string
+          - 'null'
+          description: Human-readable date string.
+        date_qualifier_title:
+          type:
+          - string
+          - 'null'
+        date_qualifier_id:
+          type:
+          - integer
+          - 'null'
+        artist_display:
+          type:
+          - string
+          - 'null'
+          description: Human-readable artist credit line.
+        place_of_origin:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+          description: Description (CC-BY 4.0).
+        short_description:
+          type:
+          - string
+          - 'null'
+        dimensions:
+          type:
+          - string
+          - 'null'
+        dimensions_detail:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+        medium_display:
+          type:
+          - string
+          - 'null'
+        inscriptions:
+          type:
+          - string
+          - 'null'
+        credit_line:
+          type:
+          - string
+          - 'null'
+        catalogue_display:
+          type:
+          - string
+          - 'null'
+        publication_history:
+          type:
+          - string
+          - 'null'
+        exhibition_history:
+          type:
+          - string
+          - 'null'
+        provenance_text:
+          type:
+          - string
+          - 'null'
+        edition:
+          type:
+          - string
+          - 'null'
+        publishing_verification_level:
+          type: string
+        internal_department_id:
+          type:
+          - integer
+          - 'null'
+        fiscal_year:
+          type:
+          - integer
+          - 'null'
+        fiscal_year_deaccession:
+          type:
+          - integer
+          - 'null'
+        is_public_domain:
+          type: boolean
+        is_zoomable:
+          type: boolean
+        max_zoom_window_size:
+          type:
+          - integer
+          - 'null'
+        copyright_notice:
+          type:
+          - string
+          - 'null'
+        has_multimedia_resources:
+          type: boolean
+        has_educational_resources:
+          type: boolean
+        has_advanced_imaging:
+          type: boolean
+        colorfulness:
+          type:
+          - number
+          - 'null'
+        color:
+          type:
+          - object
+          - 'null'
+        latitude:
+          type:
+          - number
+          - 'null'
+        longitude:
+          type:
+          - number
+          - 'null'
+        latlon:
+          type:
+          - string
+          - 'null'
+        is_on_view:
+          type: boolean
+        on_loan_display:
+          type:
+          - string
+          - 'null'
+        gallery_title:
+          type:
+          - string
+          - 'null'
+        gallery_id:
+          type:
+          - integer
+          - 'null'
+        nomisma_id:
+          type:
+          - string
+          - 'null'
+        artwork_type_title:
+          type:
+          - string
+          - 'null'
+        artwork_type_id:
+          type:
+          - integer
+          - 'null'
+        department_title:
+          type:
+          - string
+          - 'null'
+        department_id:
+          type:
+          - string
+          - 'null'
+        artist_id:
+          type:
+          - integer
+          - 'null'
+        artist_title:
+          type:
+          - string
+          - 'null'
+        alt_artist_ids:
+          type: array
+          items:
+            type: integer
+        artist_ids:
+          type: array
+          items:
+            type: integer
+        artist_titles:
+          type: array
+          items:
+            type: string
+        category_ids:
+          type: array
+          items:
+            type: string
+        category_titles:
+          type: array
+          items:
+            type: string
+        term_titles:
+          type: array
+          items:
+            type: string
+        style_id:
+          type:
+          - string
+          - 'null'
+        style_title:
+          type:
+          - string
+          - 'null'
+        alt_style_ids:
+          type: array
+          items:
+            type: string
+        style_ids:
+          type: array
+          items:
+            type: string
+        style_titles:
+          type: array
+          items:
+            type: string
+        classification_id:
+          type:
+          - string
+          - 'null'
+        classification_title:
+          type:
+          - string
+          - 'null'
+        alt_classification_ids:
+          type: array
+          items:
+            type: string
+        classification_ids:
+          type: array
+          items:
+            type: string
+        classification_titles:
+          type: array
+          items:
+            type: string
+        subject_id:
+          type:
+          - string
+          - 'null'
+        alt_subject_ids:
+          type: array
+          items:
+            type: string
+        subject_ids:
+          type: array
+          items:
+            type: string
+        subject_titles:
+          type: array
+          items:
+            type: string
+        material_id:
+          type:
+          - string
+          - 'null'
+        alt_material_ids:
+          type: array
+          items:
+            type: string
+        material_ids:
+          type: array
+          items:
+            type: string
+        material_titles:
+          type: array
+          items:
+            type: string
+        technique_id:
+          type:
+          - string
+          - 'null'
+        alt_technique_ids:
+          type: array
+          items:
+            type: string
+        technique_ids:
+          type: array
+          items:
+            type: string
+        technique_titles:
+          type: array
+          items:
+            type: string
+        theme_titles:
+          type: array
+          items:
+            type: string
+        image_id:
+          type:
+          - string
+          - 'null'
+          description: IIIF identifier; combine with config.iiif_url to retrieve images.
+        alt_image_ids:
+          type: array
+          items:
+            type: string
+        document_ids:
+          type: array
+          items:
+            type: string
+        sound_ids:
+          type: array
+          items:
+            type: string
+        video_ids:
+          type: array
+          items:
+            type: string
+        text_ids:
+          type: array
+          items:
+            type: string
+        section_ids:
+          type: array
+          items:
+            type: string
+        section_titles:
+          type: array
+          items:
+            type: string
+        site_ids:
+          type: array
+          items:
+            type: integer
+        is_boosted:
+          type: boolean
+        suggest_autocomplete_all:
+          type:
+          - array
+          - object
+          - 'null'
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    Agent:
+      type: object
+      description: A person or organization (artist, maker, donor, etc.).
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        sort_title:
+          type:
+          - string
+          - 'null'
+        alt_titles:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        is_artist:
+          type: boolean
+        birth_date:
+          type:
+          - integer
+          - 'null'
+        death_date:
+          type:
+          - integer
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        ulan_id:
+          type:
+          - string
+          - 'null'
+          description: Getty ULAN identifier.
+        suggest_autocomplete_all:
+          type:
+          - array
+          - object
+          - 'null'
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    Place:
+      type: object
+      description: A geographic place (Getty TGN aligned).
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        tgn_id:
+          type:
+          - string
+          - 'null'
+          description: Getty Thesaurus of Geographic Names identifier.
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    Gallery:
+      type: object
+      description: A physical gallery space inside the museum.
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        number:
+          type:
+          - string
+          - 'null'
+        floor:
+          type:
+          - string
+          - 'null'
+        is_closed:
+          type: boolean
+        latitude:
+          type:
+          - number
+          - 'null'
+        longitude:
+          type:
+          - number
+          - 'null'
+        latlon:
+          type:
+          - string
+          - 'null'
+        tgn_id:
+          type:
+          - string
+          - 'null'
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    Exhibition:
+      type: object
+      description: An exhibition (past, present or future).
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type:
+          - string
+          - 'null'
+        aic_start_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        aic_end_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        short_description:
+          type:
+          - string
+          - 'null'
+        web_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        image_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        image_id:
+          type:
+          - string
+          - 'null'
+        alt_image_ids:
+          type: array
+          items:
+            type: string
+        is_featured:
+          type: boolean
+        position:
+          type:
+          - integer
+          - 'null'
+        gallery_id:
+          type:
+          - integer
+          - 'null'
+        gallery_title:
+          type:
+          - string
+          - 'null'
+        artwork_ids:
+          type: array
+          items:
+            type: integer
+        artwork_titles:
+          type: array
+          items:
+            type: string
+        artist_ids:
+          type: array
+          items:
+            type: integer
+        document_ids:
+          type: array
+          items:
+            type: string
+        site_ids:
+          type: array
+          items:
+            type: integer
+        suggest_autocomplete_all:
+          type:
+          - array
+          - object
+          - 'null'
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    Product:
+      type: object
+      description: Museum shop product.
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        external_sku:
+          type:
+          - string
+          - 'null'
+        image_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        web_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        min_current_price:
+          type:
+          - number
+          - 'null'
+        max_current_price:
+          type:
+          - number
+          - 'null'
+        min_compare_at_price:
+          type:
+          - number
+          - 'null'
+        max_compare_at_price:
+          type:
+          - number
+          - 'null'
+        price_display:
+          type:
+          - string
+          - 'null'
+        artist_ids:
+          type: array
+          items:
+            type: integer
+        artwork_ids:
+          type: array
+          items:
+            type: integer
+        exhibition_ids:
+          type: array
+          items:
+            type: integer
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    Tour:
+      type: object
+      description: Curated multi-stop tour.
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        image:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        intro:
+          type:
+          - string
+          - 'null'
+        intro_link:
+          type:
+          - string
+          - 'null'
+          format: uri
+        intro_transcript:
+          type:
+          - string
+          - 'null'
+        weight:
+          type:
+          - integer
+          - 'null'
+        artwork_titles:
+          type: array
+          items:
+            type: string
+        artist_titles:
+          type: array
+          items:
+            type: string
+        suggest_autocomplete_all:
+          type:
+          - array
+          - object
+          - 'null'
+        suggest_autocomplete_boosted:
+          type:
+          - string
+          - 'null'
+        source_updated_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        timestamp:
+          type: string
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    GenericResource:
+      type: object
+      properties:
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        source_updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        timestamp:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      required:
+      - id
+      - title
+      - api_model
+      - api_link
+    SearchHit:
+      type: object
+      description: A single search hit (Elasticsearch _source projected fields).
+      properties:
+        _score:
+          type: number
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+  parameters:
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
+      required: false
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return per page (default 12, max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 12
+    Page:
+      name: page
+      in: query
+      description: Page number (1-based).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to include in the response (sparse fieldsets).
+      required: false
+      schema:
+        type: string
+    Include:
+      name: include
+      in: query
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
+      required: false
+      schema:
+        type: string
+    SearchQuery:
+      name: query
+      in: query
+      description: Elasticsearch Query DSL JSON (URL-encoded).
+      required: false
+      schema:
+        type: string
+    SearchSort:
+      name: sort
+      in: query
+      description: Sort specification (Elasticsearch sort syntax).
+      required: false
+      schema:
+        type: string
+    SearchFrom:
+      name: from
+      in: query
+      description: Elasticsearch offset pagination starting record.
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    SearchSize:
+      name: size
+      in: query
+      description: Elasticsearch page size (max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+    SearchFacets:
+      name: facets
+      in: query
+      description: Comma-separated list of fields to facet on for aggregations.
+      required: false
+      schema:
+        type: string
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer
+  responses: {}
