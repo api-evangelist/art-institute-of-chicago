@@ -2543,6 +2543,10 @@ maintainers:
     email: kin@apievangelist.com
 
 common:
+  - type: IssueTracker
+    url: https://github.com/art-institute-of-chicago/api-data/issues
+  - type: CodeOfConduct
+    url: https://github.com/art-institute-of-chicago/api-data/blob/master/CODE_OF_CONDUCT.md
   - type: AgenticAccess
     url: agentic-access/art-institute-of-chicago-agentic-access.yml
   - type: DomainSecurity
