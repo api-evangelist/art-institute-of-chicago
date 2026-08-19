@@ -21,7 +21,7 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 image: https://www.artic.edu/iiif/2/AIC-LOGO/full/300,/0/default.jpg
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-05-29'
 x-source: public-apis/public-apis
