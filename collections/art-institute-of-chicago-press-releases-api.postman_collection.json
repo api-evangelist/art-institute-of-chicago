@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "550b3b84-998a-4ac1-8c66-2799c82eb88d",
+      "name": "Press Releases",
+      "description": {
+        "content": "Official press releases from the museum.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3902f222-9126-4e04-8e36-99d73a1e5eca",
+          "name": "List Press Releases",
+          "request": {
+            "name": "List Press Releases",
+            "description": {
+              "content": "A list of all press-releases sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "press-releases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c5b0a59-5f0e-4d3c-8503-0c1d22f30f95",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "press-releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 8154,\n    \"limit\": 9070,\n    \"offset\": 5862,\n    \"total_pages\": 9056,\n    \"current_page\": 7647,\n    \"next_url\": \"https://XVejjlUgBW.jzFrH4vVXecXVW9reD3Bq5xoaBUVYMIk1LreAWfdarIGczmWnk9wMIh.pumNIj\"\n  },\n  \"data\": [\n    {\n      \"id\": 260,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://OhTzoKhzneLIbyDmsJn.tqxPMmxRym5ljCJycpIDi5Adenq3qNPsurtydXgS.46kP,-XOJPM15cmCjqMMtMCo-l\",\n      \"source_updated_at\": \"1978-03-30T03:17:11.103Z\",\n      \"updated_at\": \"2007-06-12T06:38:41.347Z\",\n      \"timestamp\": \"1970-06-09T01:59:36.809Z\"\n    },\n    {\n      \"id\": 6292,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://UnxQPguVFWgOItgLMWO.kvfEK0Va9c16cadjPEsYyDdXFaHbYGvGh.hqqIhTjD\",\n      \"source_updated_at\": \"1990-07-24T22:52:06.995Z\",\n      \"updated_at\": \"1989-06-05T08:02:33.143Z\",\n      \"timestamp\": \"1982-05-05T15:31:52.701Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://oYsJgllTVqVp.zlfsS4V1qxQ,6v+SQANDa4ESOSaCA3gLkceXgI3tV\",\n      \"http://VAup.ctwpu1BLejuUG+SuKFAvNOuvpZCFex1epwD\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://YffrsEQIEAbXliBpbzzlEHqfQLZrSgQs.dcarnlWU1.LqjQYyNtMvFjnpxicPaEpmTwkPPVnG\",\n    \"website_url\": \"http://hvvHpHobJjyviugP.ooduH0dN7JXpLmjO8WyEQCtxl9,BNSnsO7gbEvLWuloHfc-Dl9gvhgNCrpTabQxqY.4CNSLzoVuy6aISJi8a\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c73ed204-c5a6-4551-8389-f148f6650c89",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "press-releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7293,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6c91bb1-38ec-4c1f-b34a-27aac688b37a",
+          "name": "Search Press Releases",
+          "request": {
+            "name": "Search Press Releases",
+            "description": {
+              "content": "Search press-releases data in the aggregator. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "press-releases",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b099bb5-e979-407d-8591-896fc38ea083",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "press-releases",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 2507,\n    \"limit\": 6369,\n    \"offset\": 3357,\n    \"total_pages\": 4388,\n    \"current_page\": 8844,\n    \"next_url\": \"http://wSz.jdEPmt0RXPdeIzhHYMybk5CUyLTsPQbwNvtpayApyWTwFCAa9.yBm1++hEGQbnOcSO3epXEaZZTr\"\n  },\n  \"data\": [\n    {\n      \"_score\": 6305.250172783061,\n      \"id\": 937,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://WzNbqvZqp.ehmaj0oIA,mHCtQzGkxC0jUjnO2xEpODN-C,FD9IhQbwF4qY0Xz6emOlNupx61P+w9ZXjMPxT\",\n      \"title\": \"string\",\n      \"timestamp\": \"2026-03-28T11:46:25.437Z\"\n    },\n    {\n      \"_score\": 6803.328976402606,\n      \"id\": 4202,\n      \"api_model\": \"string\",\n      \"api_link\": \"https://HQpgvCFrrsBS.kwxx.7a75hAdBx59xn0\",\n      \"title\": \"string\",\n      \"timestamp\": \"1983-01-12T07:27:36.384Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://fwIovyr.bpdRVeedE0G.Ai4hYBMYYG0280Mk-Ci,DK5dC3\",\n      \"http://vHQVclqCLYrzlVGSOFWWL.lukhelbIhp.D544hM8S\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://AePTAeIQCrC.yltumgv8Ey1ohn92oVueqRmjlrFNT793PH,vadKm6Jk6oo0Eg0-\",\n    \"website_url\": \"http://jqDSTtYbwYoRJQBe.rht0BC7UbzB95rG3GIcX\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f80d1a7-5ad2-4064-93d6-124143b0e816",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "press-releases",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7293,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f3498fc-260c-4080-a4ea-9f3997dd2c28",
+          "name": "Get Press Release",
+          "request": {
+            "name": "Get Press Release",
+            "description": {
+              "content": "Retrieve a single press release by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "press-releases",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad266391-b599-4ef8-acae-81a85ae9a991",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "press-releases",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1681,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"https://TtSwPbmAuweZoUBrOrHeeKNIIeFpbBMse.jkgcOH6Pbdr-EO\",\n    \"source_updated_at\": \"1965-03-20T19:08:53.555Z\",\n    \"updated_at\": \"2007-05-06T16:05:38.126Z\",\n    \"timestamp\": \"2010-03-17T21:11:16.849Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://NzoCiVQtJNyXWcNECoimQpktLNepASfx.kjviSQYYQFQIDMtDxgdA,OpoDocgIgR\",\n      \"https://xNhXulzYgiPUBZbpdVwBctNLma.ttsYcLpAJlgfMekUQSm,ovTPsndgXVOK,ikAGdE\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://mtJszFVDGUDr.berhReF-iGbsvxsXI6ifEQ3avFSpFzgoa\",\n    \"website_url\": \"http://VCWKPuQbohdHnzWIhVgZRDndwUQNIq.rzzLp5vl-myVNwufxUIWpa5Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c38ffc42-2800-47ff-aff0-5f21b8797ac5",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "press-releases",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7293,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "49e20072-a6f7-4d94-b93f-f524b6c995d3",
+    "name": "Art Institute of Chicago Public Agent Roles Press Releases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

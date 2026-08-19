@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "16d022f0-ad4a-4c53-90bc-d15b0a1cebbd",
+      "name": "Tours",
+      "description": {
+        "content": "Curated multi-stop museum tours.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c571add-97c9-4035-bdb0-79ba46efe5d6",
+          "name": "List Tours",
+          "request": {
+            "name": "List Tours",
+            "description": {
+              "content": "A list of all tours sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f08d7246-da1a-4eb1-841d-cedbbd83c2a8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 62,\n    \"limit\": 3283,\n    \"offset\": 3127,\n    \"total_pages\": 705,\n    \"current_page\": 9213,\n    \"next_url\": \"https://ggdJUZuwpbkxadYghIUgRtO.lrlniklyAobt4Dx35CkLV7jqnp.yl9rux5CV9RvJWtIHnrpLGprjhW2TrkMqQxLhPzOjIjGHToGd41\"\n  },\n  \"data\": [\n    {\n      \"id\": 9484,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://MVGUCubexbSDE.sjtkBkyJahbm273p4ULUNH8mYi9nby7BClYEG6U2D07,JJhVFqirf\",\n      \"image\": \"string\",\n      \"description\": \"string\",\n      \"intro\": \"string\",\n      \"intro_link\": \"https://PNYhHdFCnJdckvkqqNaWPAJdyca.ooydnhdHl\",\n      \"intro_transcript\": \"string\",\n      \"weight\": 9540,\n      \"artwork_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"artist_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"suggest_autocomplete_all\": {},\n      \"suggest_autocomplete_boosted\": \"string\",\n      \"source_updated_at\": \"2006-10-19T00:45:37.316Z\",\n      \"updated_at\": \"2004-07-23T09:40:46.021Z\",\n      \"timestamp\": \"1950-12-09T02:17:17.241Z\"\n    },\n    {\n      \"id\": 1120,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://zbJQeXDdrLOhAYUHBgfREwFYkCKzge.bwKrWBhv2zskf-kadlzfgMdlScvj4gKlS6TeosiwQQAgcvIMS0IfcaoHvZ\",\n      \"image\": \"string\",\n      \"description\": \"string\",\n      \"intro\": \"string\",\n      \"intro_link\": \"http://jxpaoWINXugXEpTsaBYyBDpXqNTgVyfcr.oiuhe5fpSaymgvBxGo3fRzukURWSC+Ho1l2+TgZzRN,hnx1fWbmIt6rijJFqOQVrcfAWNXM\",\n      \"intro_transcript\": \"string\",\n      \"weight\": 5141,\n      \"artwork_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"artist_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"suggest_autocomplete_all\": {},\n      \"suggest_autocomplete_boosted\": \"string\",\n      \"source_updated_at\": \"1957-07-27T19:00:52.800Z\",\n      \"updated_at\": \"1972-03-17T21:02:51.432Z\",\n      \"timestamp\": \"2000-01-26T13:58:33.312Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://MYXHWK.hippfBJ1S7ThKqJRg9fJeAhGBpvQoD3V-WCy1w\",\n      \"http://OArLHxx.ihlCnNq50UbOfhi-tc3RuAEO2f6bQKBnbrqFWzyfvwMsTuG\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://FSRntnDddCLFaaSQsuhQochXTOQJ.rmCPPgr4YPivytnULys2CbGxn9\",\n    \"website_url\": \"http://hpszJCGqbP.ynnOn32oMu,sYQ-cUgfbWhjWBMXOaZTFYYvRxzndJeB8aea6\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "785a4147-f0b2-4a24-a334-ba6c69dfa803",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 717,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9cccbc5-7a11-4b35-a6c0-29c7f0e64672",
+          "name": "Search Tours",
+          "request": {
+            "name": "Search Tours",
+            "description": {
+              "content": "Search tours data in the aggregator. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tours",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76232db4-77a6-4111-8933-7e5160f3ce48",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tours",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 1199,\n    \"limit\": 837,\n    \"offset\": 7327,\n    \"total_pages\": 5145,\n    \"current_page\": 3097,\n    \"next_url\": \"http://vISwpXgki.vgjSDHHv9uaCvlxr48KsKTDtSyqDu9fH1O6rBkLPmKf\"\n  },\n  \"data\": [\n    {\n      \"_score\": 6291.936779143065,\n      \"id\": 6510,\n      \"api_model\": \"string\",\n      \"api_link\": \"https://zhseYcOXWXQdeGjalMdYlx.hztQ5CasX8mtOAU04sLD3HLP-g-sOVbKzSgQnRanIC2v5X1ywu6j777PNdhJGpKP,R0HM5,9SudiYn3fDA5KxABUg\",\n      \"title\": \"string\",\n      \"timestamp\": \"1949-10-13T08:41:51.955Z\"\n    },\n    {\n      \"_score\": 8977.93594595562,\n      \"id\": 1713,\n      \"api_model\": \"string\",\n      \"api_link\": \"https://AivOQzO.fyejezFeen3Nv-\",\n      \"title\": \"string\",\n      \"timestamp\": \"1999-02-14T07:44:51.746Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://NiLeadKeyeopAck.fzxaibKGyBsqV,KJwPGK,oIGxau35\",\n      \"http://AfwOTSvFYuaCrdiqoSzPBmkflEB.yauEtNlQD1JiLZ0kFEAlPqUhSleuq2YTICyQLLPWUiH-XdYOAO6CTej\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://WZqSWu.eijrVF3plkbHvN8zg+4uBPACRmUN0VYH-WsrE-GGa4RF\",\n    \"website_url\": \"https://ZSgT.qohV+AEKkqppXGKFEeCybhCsb-KY-crhjuIXgzFsRouYaAt5JSkuervR4\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ccc6409-7ebd-43ea-878d-a2829e9c9cd0",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tours",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 717,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "773c373f-9489-4775-9a01-e0ecb9451d1f",
+          "name": "Get Tour",
+          "request": {
+            "name": "Get Tour",
+            "description": {
+              "content": "Retrieve a single tour by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1795a572-0d61-47d3-9b5d-9fcc7329b2e6",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 9659,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"http://gdWUdHJqJNITQkXgQPKJPtU.qbhasMPysUOUCpZoTiiSuXWoJd5idnnLqFeeFViNz4u\",\n    \"image\": \"string\",\n    \"description\": \"string\",\n    \"intro\": \"string\",\n    \"intro_link\": \"http://cgdjOqDovEyuRiwWexlIDZZZYfluXifJh.pxlnAHf4T74u3UB9sFVqv5XtUQw\",\n    \"intro_transcript\": \"string\",\n    \"weight\": 2544,\n    \"artwork_titles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"artist_titles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"suggest_autocomplete_all\": {},\n    \"suggest_autocomplete_boosted\": \"string\",\n    \"source_updated_at\": \"1977-08-07T13:22:31.553Z\",\n    \"updated_at\": \"2022-01-27T09:11:50.615Z\",\n    \"timestamp\": \"2001-02-27T15:01:00.157Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://JYi.mixrp7XyJpWCBxUP-mhTw8d9k90IDYp-kFcBiXCOUlQ-oHvHqD6V-GK\",\n      \"http://GqzzAqNdJaZanRCfMf.mvjgAhTbDsWgfeKe9bjMck2LmYTVfVYOlQDmgUN7iHcJC6QxOueZiZcpxmbnD\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://cDqrDaFy.szflUOyY8n6tRzAzQkznaO7hgiXn,sQMuF7OoQgoioy\",\n    \"website_url\": \"http://upTPjkGTLAJQzqReGyqTxzOuBJovjNMl.prIbUbXS39cMYRZITk-,35VrF3zpOIXN\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7eb01f8-7558-48c3-b14a-c4827b6a1ac1",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 717,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fba08110-1baf-48a2-8644-6f6d891c248c",
+    "name": "Art Institute of Chicago Public Agent Roles Tours API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

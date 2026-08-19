@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "9d6f44a0-6e14-42ac-9fb0-41a06441985c",
+      "name": "Galleries",
+      "description": {
+        "content": "Galleries inside the Art Institute of Chicago museum.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a5d10985-5321-4ef1-bdf6-8fc06aef4a54",
+          "name": "List Galleries",
+          "request": {
+            "name": "List Galleries",
+            "description": {
+              "content": "A list of all galleries sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "galleries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42e612d1-ff30-43fc-8c38-082386449544",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "galleries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 2257,\n    \"limit\": 1129,\n    \"offset\": 8312,\n    \"total_pages\": 6989,\n    \"current_page\": 1115,\n    \"next_url\": \"http://BkTfFSyNZOzlBDONJCR.mtsvP7V4uA6ZG+dULSwB\"\n  },\n  \"data\": [\n    {\n      \"id\": 2037,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://ab.cqT8trA.CuDaGmqBIdbltwW6VjX1il3-PjvX,6MIlm,oTCrb7.XMe63dB9Jp.1Thp2dgz14\",\n      \"number\": \"string\",\n      \"floor\": \"string\",\n      \"is_closed\": false,\n      \"latitude\": 5835.892507498102,\n      \"longitude\": 5302.99388239723,\n      \"latlon\": \"string\",\n      \"tgn_id\": \"string\",\n      \"source_updated_at\": \"1960-01-06T06:09:47.763Z\",\n      \"updated_at\": \"1949-10-26T19:09:39.552Z\",\n      \"timestamp\": \"1956-01-23T22:52:53.737Z\"\n    },\n    {\n      \"id\": 1982,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://yOowCzeCXpMDcTtUVDtEyrbPZsiLI.lslmIoqxIP9n,JjLjuD4qJKARQ9Bh7uuEurnkxmkyYQ43Q-p9eWM6ZJl3+F\",\n      \"number\": \"string\",\n      \"floor\": \"string\",\n      \"is_closed\": true,\n      \"latitude\": 6148.099750606686,\n      \"longitude\": 3324.761060562764,\n      \"latlon\": \"string\",\n      \"tgn_id\": \"string\",\n      \"source_updated_at\": \"1974-09-13T06:29:11.704Z\",\n      \"updated_at\": \"1995-07-11T23:34:09.872Z\",\n      \"timestamp\": \"2014-03-28T17:51:10.015Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://fttEYWySIjCLzblNQL.uvzz.QjJpcyPPXhkAbWiulLfK\",\n      \"http://KH.axqlXbYIzrC+urh8FMNQIzl4qF9T,EbM9Ui36DmpFY5.V1cb,Gl\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://fIVwlNmzbhqWw.axtd,FnA6\",\n    \"website_url\": \"https://sKchXNWBNrBrEssncOmOoq.udebfiPHodwEcKVBD64EXQJhedpQvl2cwFxWAfREP.wVjIK2MkuOJVDzGihym,\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae4e4955-ac09-46d8-bb18-e5bc38ff8617",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "galleries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7675,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abe679a9-954d-438e-853c-1dd21c46c37e",
+          "name": "Search Galleries",
+          "request": {
+            "name": "Search Galleries",
+            "description": {
+              "content": "Search galleries data in the aggregator. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "galleries",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de420c24-9d7e-4946-b368-0c1327fefddd",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "galleries",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 6675,\n    \"limit\": 4382,\n    \"offset\": 6738,\n    \"total_pages\": 6800,\n    \"current_page\": 1662,\n    \"next_url\": \"http://fQ.dtVZsyrHF-8WRmX-ELWGe88nUbnqUaw,xDA3uMTt8FKaHXZ5J\"\n  },\n  \"data\": [\n    {\n      \"_score\": 1409.8967516068617,\n      \"id\": 8001,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://MUtDUtJPwQAZGpxEvsZ.dflqEcrbmj,P16r-h7ewTk-N2Q0FokfxgKdroVFbp\",\n      \"title\": \"string\",\n      \"timestamp\": \"2000-08-28T16:28:25.041Z\"\n    },\n    {\n      \"_score\": 4484.516771121968,\n      \"id\": 6246,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://oekMXfRrVbJpLc.iuuqjW+GEWEM2S9pMDYpP+N1GhqtFWXOpPm14qRPQGSHVBUI6mUQv4\",\n      \"title\": \"string\",\n      \"timestamp\": \"1957-03-15T14:43:46.009Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://tUTrenScctpOemiJAHgtdHiiGnl.epkeF8H.hW-Xtrddbp-JAE\",\n      \"https://tClbwcLvCjSCzEuosYouxCHZFBhjCzof.ysdqu+C-WdVEhxY2XpRBTRvs88ObQ+,Dda0nDFhMwHeifhnj-qFHW52\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://pGyROBDflbeUCBCgitsHCYQpGHroNRh.zeMD-iplscB7dJ3vtDFUBIqmWBbAWceTvALertaZpcb1mHrg5MxKNSZtz\",\n    \"website_url\": \"https://NyqRtTLmWnUhuhgJt.npjxe9NL5j9TJivTN7ioxtleq.he1N8qwVvK6lLHUU0IthvG3Xjpr2G+nIy\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c54d3bc8-f252-4532-827f-2677e4a16b9b",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "galleries",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7675,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78f340c3-7505-4bf3-ab17-bbd99330ed9d",
+          "name": "Get Gallery",
+          "request": {
+            "name": "Get Gallery",
+            "description": {
+              "content": "Retrieve a single gallery by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "galleries",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2d5961a-5a47-47cf-b37b-49112e90eda8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "galleries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 3104,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"https://GYltlzMTWJOPmkGYfbpinB.pzoiBe3d,e3PkMQ\",\n    \"number\": \"string\",\n    \"floor\": \"string\",\n    \"is_closed\": false,\n    \"latitude\": 9437.442485031435,\n    \"longitude\": 7637.852468041984,\n    \"latlon\": \"string\",\n    \"tgn_id\": \"string\",\n    \"source_updated_at\": \"1986-12-01T21:04:19.052Z\",\n    \"updated_at\": \"2009-08-06T20:48:42.172Z\",\n    \"timestamp\": \"1997-04-29T06:46:25.479Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://zGFmfbjleGXrdmfgIWNnbz.lalbgtNTW0x,e9KYZ2kyPHi+7VUFyl3GvJiEUu+AYgAIupZvVn7bkWa\",\n      \"http://eENPqKTjahAwhE.yqtebkHwIQczHRURhClHSYecIbcmEVKEYcRHm1d07piAlDylhWRgX\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://JygT.jdnd8bgVqNx43dp8FCcX4KQYvEBXT2MGt0NIJjLGwmvBfYEA\",\n    \"website_url\": \"https://WiCciaQwwaBRG.muYlhyZaPiAaC-pggiKK\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c564c4b-4590-4c9d-ae97-b0d8e9e348e8",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "galleries",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7675,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "580040ad-1697-4ae2-9ff9-e762e349dc48",
+    "name": "Art Institute of Chicago Public Agent Roles Galleries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

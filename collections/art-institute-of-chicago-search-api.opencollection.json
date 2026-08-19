@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Art Institute of Chicago Public Agent Roles Search API",
+    "version": "1.14"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search All Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              }
+            ]
+          },
+          "docs": "Full-text and Elasticsearch DSL search across all indexed resources."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

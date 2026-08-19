@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "9bb7cb98-4303-47f5-8e88-8e544ea6df0e",
+      "name": "Educator Resources",
+      "description": {
+        "content": "Lesson plans and resources for educators.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e5606eb0-a2e6-4df4-af4b-33224062877e",
+          "name": "List Educator Resources",
+          "request": {
+            "name": "List Educator Resources",
+            "description": {
+              "content": "A list of all educator-resources sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educator-resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5de7acb6-3394-44d1-9a7a-1ddc867116b8",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educator-resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 5063,\n    \"limit\": 6330,\n    \"offset\": 7487,\n    \"total_pages\": 1772,\n    \"current_page\": 468,\n    \"next_url\": \"http://EtqDiGcLzjLjBCCUkGDoHbmfryQs.erym3mq8ILG8ZE.9flq6UIVrc506.S10d9y\"\n  },\n  \"data\": [\n    {\n      \"id\": 494,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://nzdpqxeYuenRVzCNtvWwkCRzhOVWcqS.rnV77BLhi+cSzZin,QNg5Ar84jsHvFfpMGRQ2ii\",\n      \"source_updated_at\": \"1965-02-15T01:44:01.262Z\",\n      \"updated_at\": \"1951-02-07T12:01:37.423Z\",\n      \"timestamp\": \"2022-12-27T07:21:21.068Z\"\n    },\n    {\n      \"id\": 1160,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://lpbkGrynsmWSDghqknYxH.ptjaEuJ5COgnOzr1TwYamlfJbKPoKVtNMAt0sOAKGYqeAfii7\",\n      \"source_updated_at\": \"1951-10-07T21:03:52.653Z\",\n      \"updated_at\": \"2023-06-27T17:30:20.947Z\",\n      \"timestamp\": \"2008-08-04T15:25:56.295Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://R.xfJltjHGLo,RGuR4FeVx6+FW65yNnLG.1hUXXXyzhk+5NGsbIMMxO+JLAuT\",\n      \"http://cNypoRKgtMOPMwehBIFRjxsmWdP.jqR+iXpFnBJFFHPYDMxrJw9NeNK9TzZhvybCqP3NdZjeBXZ-nc5TSOplK21WJx\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://ZlF.erdxsI.YARIMz4JthV+ILkrbmv8qfW,eYTg8tpEOTjlPzq,PQ5Z\",\n    \"website_url\": \"http://KqPFNeahwFCq.zuidYUa,E4eYNiYPpHIuqZX,.ixoib7CXXjMCXd+Z3qjE.8SFAQhP,M0ORfd8k4kfwF\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c843478-05cb-4a11-a85e-e25ca0dba5ab",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educator-resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9684,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f1f1a42-93cc-4692-835d-579178f30ba4",
+          "name": "Search Educator Resources",
+          "request": {
+            "name": "Search Educator Resources",
+            "description": {
+              "content": "Search educator-resources data in the aggregator. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educator-resources",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d8e723e-e1b3-4ed4-b772-a3b6fc36507e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educator-resources",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 7923,\n    \"limit\": 1003,\n    \"offset\": 1361,\n    \"total_pages\": 5909,\n    \"current_page\": 860,\n    \"next_url\": \"http://WHPMgpNGPMTyeMYbZylzqkBrV.asddj.\"\n  },\n  \"data\": [\n    {\n      \"_score\": 9562.788368682537,\n      \"id\": 2511,\n      \"api_model\": \"string\",\n      \"api_link\": \"https://kalZsKjtEyZ.tjHfdmup6.mDwpF4xzpl.+WM9yhq+gupLeGcyVqpzoiClRpKqJExP,XOq+LpklRZ\",\n      \"title\": \"string\",\n      \"timestamp\": \"1995-09-22T11:42:04.630Z\"\n    },\n    {\n      \"_score\": 1820.5327275223437,\n      \"id\": 3119,\n      \"api_model\": \"string\",\n      \"api_link\": \"https://bUmmVLjuMgiXxgHZYBvfPLjxhWrC.hraploIKMWhEbxxbNWiguwlUb1A0.U7++j4zEvSCm7ZyV\",\n      \"title\": \"string\",\n      \"timestamp\": \"2024-03-26T12:36:39.182Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://ldsejwdWjtgsMoVIqXjebnfuJHyQPs.ruPP\",\n      \"http://BJVUKHBdYwfylOqzTMd.zgruP+BGYggFxqWJIoc.FbueBey\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://hRbuewQOChv.ozorwoz8CUO01IIltL9CHaq.5di4FwccHsI3.HxGf37Ao4vzwBhh4DEfACe,V.EoiuXb6E8\",\n    \"website_url\": \"https://srXoN.ideIRfrEw2leKGCq1mg9YdDNmOL4A8bsG36CeEHo70bKhSB.ONG4kZM95ClfsRrn\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0bff9ee-c98e-4e29-803d-7c381174dd14",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educator-resources",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9684,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2347ad0-5f4f-48c3-a8e7-a425f81347e1",
+          "name": "Get Educator Resource",
+          "request": {
+            "name": "Get Educator Resource",
+            "description": {
+              "content": "Retrieve a single educator resource by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "educator-resources",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff4f42e6-f5a7-4ad4-a87e-2be2caf4e8fa",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educator-resources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 3672,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"http://CpBbYBeMYpUeXeioQHFQSCnscHnbgyZ.szkhvOowCWAlUi7U2sa9carajOLlnqbwW\",\n    \"source_updated_at\": \"2011-11-17T03:35:30.032Z\",\n    \"updated_at\": \"1956-05-25T13:07:06.945Z\",\n    \"timestamp\": \"2010-06-25T17:05:41.649Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://qEjxRICYMhvG.zxAhszDeo6qB.+7rFazfvsy6We81xxP2sgeq6-Se-McVBKjdC\",\n      \"https://GGnwdol.vtrrBmWTB.x4TaF6AS5BMVrlbrc\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://W.swgq0h,-20iqeznm47ietJJlN5vQdEeynTkvAkUYyDDIQk2Ipfne+z8IpcZZOsJ.VZ\",\n    \"website_url\": \"https://eERurQAfSdKLLzAlXaQWb.spswTUaYmhywXDnOX8oAeSCy,vcGRVU3uHmsm1C-gbGu+k.uWfp+c0z.v,\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc1ab4c8-ed05-4b0a-8631-9e6055465d65",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "educator-resources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9684,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e17eccb9-ca99-487e-ab0f-db91c3b1983d",
+    "name": "Art Institute of Chicago Public Agent Roles Educator Resources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

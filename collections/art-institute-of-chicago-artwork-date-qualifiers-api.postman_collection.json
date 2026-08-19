@@ -1,0 +1,373 @@
+{
+  "item": [
+    {
+      "id": "5c86da69-1c5c-41d3-8423-9e1eab9f4219",
+      "name": "Artwork Date Qualifiers",
+      "description": {
+        "content": "Date qualifier terms used on artworks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b324d1c9-3484-4200-b513-e095f5abce9a",
+          "name": "List Artwork Date Qualifiers",
+          "request": {
+            "name": "List Artwork Date Qualifiers",
+            "description": {
+              "content": "A list of all artwork-date-qualifiers sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artwork-date-qualifiers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62bd3b4e-cef6-4a33-909a-d1159853652d",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-date-qualifiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 2714,\n    \"limit\": 3736,\n    \"offset\": 1568,\n    \"total_pages\": 3004,\n    \"current_page\": 9595,\n    \"next_url\": \"https://IYtFUdiI.rrg0mWF3qql7\"\n  },\n  \"data\": [\n    {\n      \"id\": 1039,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://kVFxRmADBpcsyJFggPmIEKOTzTMXIjm.llnYnB2ZJTGZnJ-YMyMSnkkO6rU9LVBacHEtox2CMLope5WnX-MjqerCYy5pf5UqNREGqV\",\n      \"source_updated_at\": \"2009-09-23T21:53:40.769Z\",\n      \"updated_at\": \"1991-04-27T05:25:27.451Z\",\n      \"timestamp\": \"2023-11-17T16:05:04.608Z\"\n    },\n    {\n      \"id\": 139,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://McECgXEiIQBMYyyutcMbkDTH.wtlUc8DA4BLfh\",\n      \"source_updated_at\": \"2002-02-24T03:14:20.255Z\",\n      \"updated_at\": \"2004-07-10T14:37:53.023Z\",\n      \"timestamp\": \"2016-12-10T21:33:06.771Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://bKaanvhspYUrmoOgtRBJTMgiANkLGMtr.pgrMGiSNsyhmF+A76MmUFNVuJ6ka\",\n      \"https://j.lnfrE6.05d6TDKEGuOyNHv5ZfeoMIJAdkr5oylG+venDJBcgbVLf\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://YAIlqwtlZQKouUrQWtcbvcodwKKHRJj.ejjcroizgFCXVwMbN.R09FSCstw\",\n    \"website_url\": \"https://jqYSzSOqjDFJXSzNGWWdvImfy.mqfDnSVtUEgM4bs10DXSTdUIzhznMWN9yHC50z.3jjLrwzfC83TUBcAbD\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23f71a3d-9cce-4151-b0f6-060a7d1367eb",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-date-qualifiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9638,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc45aa85-ed13-497a-aaf8-acde4edddfaa",
+          "name": "Get Artwork Date Qualifier",
+          "request": {
+            "name": "Get Artwork Date Qualifier",
+            "description": {
+              "content": "Retrieve a single artwork date qualifier by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artwork-date-qualifiers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c23dcda6-f8e2-4fef-9ca6-06fc3914c979",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-date-qualifiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 6688,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"https://LAKyfPCEcgSMwetwDZnsoZxKiHBSTj.quhohKV0MFK.PDqug\",\n    \"source_updated_at\": \"1996-04-01T00:00:44.768Z\",\n    \"updated_at\": \"1960-12-03T20:36:42.607Z\",\n    \"timestamp\": \"2010-01-10T08:40:03.344Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://MLTFeecWYZy.iacm2ILgXdJEa\",\n      \"https://XExIdXgGfPVLGWncaKxYRtSxdIKnl.fyvnvHJUG3FbCVylChM6V\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://sLaVNTO.fqoPNe1xrWzKXVsJYfnWu2SoDOtRKumZzLpS\",\n    \"website_url\": \"http://QwZndqup.dzuoJ8toaHxpURAyHndrU-K\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc52fadf-5825-4a1c-8bf4-7386e0fd1f28",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-date-qualifiers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9638,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "280ba235-5232-40d6-8616-588df7e265b9",
+    "name": "Art Institute of Chicago Public Agent Roles Artwork Date Qualifiers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

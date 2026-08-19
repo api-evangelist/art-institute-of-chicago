@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "3a0e2949-5060-47d0-a58d-c00a9db3b16e",
+      "name": "Agents",
+      "description": {
+        "content": "People and organizations (artists, makers, donors) associated with artworks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5fad353c-8ef2-46d3-bb48-4aab981e1d29",
+          "name": "List Agents",
+          "request": {
+            "name": "List Agents",
+            "description": {
+              "content": "A list of all agents sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "da46ca6f-b69b-4446-b421-9bf00766492e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 3005,\n    \"limit\": 6231,\n    \"offset\": 3106,\n    \"total_pages\": 1451,\n    \"current_page\": 5859,\n    \"next_url\": \"https://egPPtFcWoaEbTROoqxexstWEnLm.egQUW,Cw3d-mVEluXeI,FbSFIROqfqF,dg21\"\n  },\n  \"data\": [\n    {\n      \"id\": 1453,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://ZAYAzKQqvYygppMcveN.orvqQU.GoxEROQgYngPRIYxMk.Z0pCH9+8GRGhDv9LYdt61Qe9P+GbD\",\n      \"sort_title\": \"string\",\n      \"alt_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_artist\": false,\n      \"birth_date\": 4924,\n      \"death_date\": 7167,\n      \"description\": \"string\",\n      \"ulan_id\": \"string\",\n      \"suggest_autocomplete_all\": {},\n      \"source_updated_at\": \"2002-07-02T15:09:27.810Z\",\n      \"updated_at\": \"1966-10-27T00:25:50.634Z\",\n      \"timestamp\": \"1984-09-27T16:26:25.198Z\"\n    },\n    {\n      \"id\": 3589,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://yPTbBgBiauE.nanrDjN4TyVzjuMHMAeDbFbbnvanORWUEoG9OsXUE3p3wzrUiD-5zzdddC1W9zTLC\",\n      \"sort_title\": \"string\",\n      \"alt_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_artist\": true,\n      \"birth_date\": 6675,\n      \"death_date\": 4319,\n      \"description\": \"string\",\n      \"ulan_id\": \"string\",\n      \"suggest_autocomplete_all\": {},\n      \"source_updated_at\": \"1982-09-16T18:49:46.878Z\",\n      \"updated_at\": \"2008-03-07T06:55:42.640Z\",\n      \"timestamp\": \"1990-01-09T23:51:42.455Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://nkdPLyRIyZFYA.wowwL3fAo4dsVk7jmtdDEfJ,ZmZ3\",\n      \"http://wcyMgRgwINYPe.fpg-ek9FroG7Ph,MrB4jTRCS2\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://arwnWyrxNc.aucbXB3a6X6eeAOMkIK1s8PHRRSASXOLStUFE+FkjTY.U4frhyFjRQULl9hMQOqZxunpybx\",\n    \"website_url\": \"https://SriVPZMiyvYUvWkFnvRz.wqsRyuZbcOOYsKV\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3de8dda4-52b0-4b93-b10b-8107344013cb",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 4054,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "474c5081-7d62-418a-aea0-bf6036052e5d",
+          "name": "Search Agents",
+          "request": {
+            "name": "Search Agents",
+            "description": {
+              "content": "Search agents data in the aggregator. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agents",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "309d6fa9-46ad-456e-a2a3-c12978eb73da",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 5660,\n    \"limit\": 279,\n    \"offset\": 2695,\n    \"total_pages\": 4190,\n    \"current_page\": 3135,\n    \"next_url\": \"https://wGwLxioRQgqXinscDu.vtfai4JrMvi9nuNY\"\n  },\n  \"data\": [\n    {\n      \"_score\": 3705.583365120475,\n      \"id\": 3937,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://QEPqlWCbxCHq.efpvghag7ZSGLroHBSVHr,nqsBR27BvUXxe\",\n      \"title\": \"string\",\n      \"timestamp\": \"1993-02-03T00:46:24.501Z\"\n    },\n    {\n      \"_score\": 5978.184132930748,\n      \"id\": 5221,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://iQNtgqmzwvPnVIUTIfJMRJ.avkvR3yofeRJrbgeUcqogYPLE60f\",\n      \"title\": \"string\",\n      \"timestamp\": \"2026-07-16T16:49:33.488Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://mHbRNqeqXJikPgtUkaaFPqhkq.meyK3L8KTTi92xX4s0EWvEkaWQfIilq4x4JQo5dSDb,Y\",\n      \"http://MgmVJmljesFoNpH.ciy+0XMCh\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://LksDYDLSREcstv.clcnMP-0B97kxwLuxnfJJ5cnTiWchZ2Qt,2nzds6mDMDkL4WFgSNPW,gWfrNx0wi\",\n    \"website_url\": \"https://UJsKkUbUEIFjMUdbcljrVl.senlRMZotdi1S9TdkiW4CmRr,X+b+qYt\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b944176a-3e0e-4e79-948f-b4551181e9f2",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 4054,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "447a6aae-35ed-4891-8a7c-f7722c1098ee",
+          "name": "Get Agent",
+          "request": {
+            "name": "Get Agent",
+            "description": {
+              "content": "Retrieve a single agent by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agents",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f5a1e77-80a4-45e5-847c-6cac1c06b417",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 2575,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"https://KjsaPlCyYnwWkKy.xdlyOQJVM6YTUkzBhiWR\",\n    \"sort_title\": \"string\",\n    \"alt_titles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_artist\": true,\n    \"birth_date\": 4283,\n    \"death_date\": 3694,\n    \"description\": \"string\",\n    \"ulan_id\": \"string\",\n    \"suggest_autocomplete_all\": {},\n    \"source_updated_at\": \"2010-06-01T10:59:43.998Z\",\n    \"updated_at\": \"2009-02-21T13:51:15.130Z\",\n    \"timestamp\": \"1960-06-03T08:19:18.182Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://TyhTokcToCgobkLhILEBLpGNaRGxMJ.aevaPQvbP-gB+OWfR+SeofKk\",\n      \"https://bvPyH.mwgsjvDJ0HfOSlOog.ePP4hKNmYqciRitscYTenuUPUuy2tJE88uA6\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://sqfwVwFKua.ljgR,qbjWSQOQoc.veIYalR9KuoWbMt4Y3QB\",\n    \"website_url\": \"http://DuDiPN.jopsieiCKBM\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90b0d2a5-77f3-4c7f-b931-287dacf348f6",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 4054,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cdbeb4d2-6e88-4598-a852-0d4874aa8b01",
+    "name": "Art Institute of Chicago Public Agent Roles Agents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

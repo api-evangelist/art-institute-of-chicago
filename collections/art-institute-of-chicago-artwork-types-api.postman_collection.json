@@ -1,0 +1,373 @@
+{
+  "item": [
+    {
+      "id": "ba1bf389-c97a-421a-872f-0540e1f62c02",
+      "name": "Artwork Types",
+      "description": {
+        "content": "Classification of artwork types (Painting, Sculpture, etc.).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ed805b1-e0eb-447b-83c9-b7e31a2aa781",
+          "name": "List Artwork Types",
+          "request": {
+            "name": "List Artwork Types",
+            "description": {
+              "content": "A list of all artwork-types sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artwork-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04d85906-2a34-442f-8840-ad32a0e8b0e7",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 2332,\n    \"limit\": 5184,\n    \"offset\": 9063,\n    \"total_pages\": 1446,\n    \"current_page\": 6162,\n    \"next_url\": \"http://OYPMEiKsEmSCtODxOcFzqKkRa.awpSj-uldW3jKqFhDzRhKL9ByN1M3QA8SzKnYRJYjjd9bomcphCa\"\n  },\n  \"data\": [\n    {\n      \"id\": 3113,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://TlHZqmWiRAAojdvkaRwFmclRIPdJ.lmIhznS6ksWGmabCCvfxv\",\n      \"source_updated_at\": \"2022-09-30T17:25:07.261Z\",\n      \"updated_at\": \"1981-02-24T18:30:00.533Z\",\n      \"timestamp\": \"1977-02-26T02:40:04.532Z\"\n    },\n    {\n      \"id\": 258,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://IQ.qjoexlIeaZdSLkBpB832AIMSr\",\n      \"source_updated_at\": \"1997-05-22T16:24:40.978Z\",\n      \"updated_at\": \"2023-09-06T04:30:42.675Z\",\n      \"timestamp\": \"1964-03-31T01:53:21.872Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://FIPEXho.wyMMWpjB0FdrllEjD5ff6ZNIYcJcfyD0YIZt9nl\",\n      \"http://wcyeM.hzxrqU.MQgZtG8TG+AhMxL-YNhSm.j+LYIEBxbDlezavRa3Z7TXw22qFAbAcvVY3OvqNbJZd0ucNp\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://bWwunhiZldGdIYMmi.oflDfsbNa\",\n    \"website_url\": \"http://kzYNnaBCUGyomnUSrEq.scblZ0PDEmHZHeLlnPmKz\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2b331c1-aacc-4ebc-8d4e-1deb45959f29",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 8228,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03fbc179-e10a-46f6-8aea-302d7bf90428",
+          "name": "Get Artwork Type",
+          "request": {
+            "name": "Get Artwork Type",
+            "description": {
+              "content": "Retrieve a single artwork type by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artwork-types",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be64347b-506b-48d7-be3c-14521d0ab09b",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-types",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 192,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"http://nXPEjVmQcNWuUfSBbKdLwkvaSSZZz.nqX,AuneG5lx+wv6kOz6IFy-iuseODYRh7kYIPb\",\n    \"source_updated_at\": \"2015-07-24T05:13:11.379Z\",\n    \"updated_at\": \"1955-08-22T19:34:33.510Z\",\n    \"timestamp\": \"1995-07-14T11:05:57.310Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://pQiIajlgdzLQCMddiSYbWdKbVuuaP.bpj7VJyTay5J83,AEoVWING4IATIezh,rxiWjL-NXnNMD,ehulMFsc3MG.OB.RgBRlZ,DCCEl6jMccBido6zjMv\",\n      \"http://HydDhMKWDdDckRnkmkeMlqMHQHqEEQBwe.jknsod83X.jk,j1tcxM0Mz0pvIjFd8poB6bQFgIxMNPK.uBIo-+IXKW4AATnxr26wdBi\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://tl.xtpSyOV3jZCWFb0oAOcrFF-vOhp9DyMlwgdP-Kw\",\n    \"website_url\": \"http://pJAgzfQGBSDEm.yxOZgSVWbP5+\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42575923-0db3-4b6e-b66e-ccdad1a42dac",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artwork-types",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 8228,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3b2a7bf7-7790-4f3f-9f2e-6a2faaf8eb9e",
+    "name": "Art Institute of Chicago Public Agent Roles Artwork Types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

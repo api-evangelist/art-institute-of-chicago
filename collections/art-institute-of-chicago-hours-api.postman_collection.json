@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "685e32e3-7473-4839-b69b-9e358e6413cd",
+      "name": "Hours",
+      "description": {
+        "content": "Museum opening hours.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ebb2e60-2215-4697-8dba-4ef369ed0f98",
+          "name": "List Hours",
+          "request": {
+            "name": "List Hours",
+            "description": {
+              "content": "A list of all hours sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a5442aa-9f89-44b5-b481-047639db88e9",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 8678,\n    \"limit\": 5313,\n    \"offset\": 836,\n    \"total_pages\": 7374,\n    \"current_page\": 7319,\n    \"next_url\": \"https://sJKYj.klqwgnd39LElqkJTLTaSohDH\"\n  },\n  \"data\": [\n    {\n      \"id\": 175,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://SOOeveNCkksHCiQ.xbxrDFSpnJ+QY4\",\n      \"source_updated_at\": \"1954-03-04T15:10:28.566Z\",\n      \"updated_at\": \"1987-05-12T03:10:15.232Z\",\n      \"timestamp\": \"1964-10-25T07:27:49.106Z\"\n    },\n    {\n      \"id\": 5305,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://dTOyvvdbEmLMHiQhdjleITa.bthVEmtYp1kQVjhYBwOFVCA3aV-WWhcfLtM0bTTuim0.0VJb\",\n      \"source_updated_at\": \"1966-06-18T08:43:36.300Z\",\n      \"updated_at\": \"2004-12-18T10:47:00.405Z\",\n      \"timestamp\": \"1977-04-07T12:29:07.887Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://FetVXOGJ.arTHVU0d,hVr\",\n      \"http://fcbnlNJdPfOQKiCfFUj.jehgo5xkO75L,g0Yz6qeqrz1EkC1q7\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://Ui.fyvH.7hsL1A6yGEQydSrq,Hd4u6gR.vHKrc5k+\",\n    \"website_url\": \"http://VVWKUCvgmw.wzaHZD-8D7pcw49\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7850d75d-0133-47ad-8a98-3856651379c8",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7137,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76e9ce31-3c24-4bf1-bdda-6ee7badf93e4",
+          "name": "Search Hours",
+          "request": {
+            "name": "Search Hours",
+            "description": {
+              "content": "Search hours data in the aggregator. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hours",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3eeae502-5e0b-4770-af01-6fead3184242",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hours",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 1218,\n    \"limit\": 7614,\n    \"offset\": 1551,\n    \"total_pages\": 3038,\n    \"current_page\": 6457,\n    \"next_url\": \"http://WMZpUdhkqgO.nvzrevs\"\n  },\n  \"data\": [\n    {\n      \"_score\": 7638.144406562186,\n      \"id\": 8341,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://CbJ.xrzHO5klpBTsTQPO-gvegN3wrfxaFUq3.Lgx2EotQYS\",\n      \"title\": \"string\",\n      \"timestamp\": \"2010-05-07T10:54:00.042Z\"\n    },\n    {\n      \"_score\": 7010.20234376117,\n      \"id\": 9391,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://BgKZnSwOnZaPYRNTdGQXIEvtKBto.zyvaQ0gJUFd5sUScuS+bWrSiT2Nk9PfltU.D8jTImfIrFmAB9dry+B7RCQ\",\n      \"title\": \"string\",\n      \"timestamp\": \"1959-09-12T07:50:50.739Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://hWjbLV.qfmLNit,ELZO\",\n      \"https://VdWM.xgeorZduMy8T9yy5qcD-\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://lpRKvfcSAurLldVqpklMcxkIxBfBbcIx.wolhQyPKuqDKOrBBmrbb3dlcu3\",\n    \"website_url\": \"http://PNIWDrSilxTUHKXloqsUaTqPXQzjX.tjmeOjIHRr-KEzpsfc6tgIuD6-my4q1YHLmjYSh+SGtHNUINO86KhB,.KKnP8TKIQakHVBHResg5EcoN\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cafe8b4b-eb82-41c9-8a0c-f75c75ed9a67",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hours",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7137,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fcc6893-4405-4dc2-b126-c9a415a419d6",
+          "name": "Get Hour",
+          "request": {
+            "name": "Get Hour",
+            "description": {
+              "content": "Retrieve a single hour by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hours",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a291f88-a853-4d30-b8a4-7cacb62db0cd",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 7510,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"https://PjHBy.vsUInhBseNWAkWVsKVRviO2NjsQ,4z0Hg,kUWcKXdbyHaP8O\",\n    \"source_updated_at\": \"1992-02-06T11:33:05.330Z\",\n    \"updated_at\": \"1993-09-27T06:59:55.560Z\",\n    \"timestamp\": \"2004-08-07T03:55:03.287Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://qkGfzcflvLlpRKTVoStTLyKjEeDTvMbxJ.vkqJi3w2HAJLRW2YzDSJs0YD4Xjp5DzCaj9BqKDl61p\",\n      \"https://cTrAE.jsobyYHFP..CS9FJS3kuN-ugQQinINxjWHwjy+w\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://UphGAfdhnvGpvzYvNBbPpCuO.pzpmhkbNgYcc+0juFBLMGqfTLCUYg,igaN4+IX4PB0CmO1APxV0KVFrbVsoqH7gUryqM\",\n    \"website_url\": \"https://UfkPYuHUbixAfUr.eckEs-M-fS\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6cf2730-3252-4024-9177-a648783e180e",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hours",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7137,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7807d50-a701-464c-bcc4-a009e91f179b",
+    "name": "Art Institute of Chicago Public Agent Roles Hours API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

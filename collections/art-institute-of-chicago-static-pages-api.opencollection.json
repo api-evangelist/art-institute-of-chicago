@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Art Institute of Chicago Public Agent Roles Static Pages API",
+    "version": "1.14"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Static Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Static Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/static-pages",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of resource IDs to fetch in one call."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return per page (default 12, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number (1-based)."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "A list of all static-pages sorted by last updated date in descending order."
+        },
+        {
+          "info": {
+            "name": "Search Static Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/static-pages/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search string."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort specification (Elasticsearch sort syntax)."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch offset pagination starting record."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Elasticsearch page size (max 100)."
+              },
+              {
+                "name": "facets",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to facet on for aggregations."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              }
+            ]
+          },
+          "docs": "Search static-pages data in the aggregator. "
+        },
+        {
+          "info": {
+            "name": "Get Static Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.artic.edu/api/v1/static-pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Numeric resource identifier."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+              }
+            ]
+          },
+          "docs": "Retrieve a single static page by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

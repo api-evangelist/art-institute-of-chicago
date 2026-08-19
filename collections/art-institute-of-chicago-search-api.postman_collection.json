@@ -1,0 +1,224 @@
+{
+  "item": [
+    {
+      "id": "957332bb-d8a4-49fa-abdd-985015816b62",
+      "name": "Search",
+      "description": {
+        "content": "Cross-resource Elasticsearch-style search.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "88ec636e-a6d0-4f03-86d8-65ff3d4a11dd",
+          "name": "Search All Resources",
+          "request": {
+            "name": "Search All Resources",
+            "description": {
+              "content": "Full-text and Elasticsearch DSL search across all indexed resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4bf3943b-156d-4a44-b3bb-4ba219573d4a",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 8804,\n    \"limit\": 6398,\n    \"offset\": 6069,\n    \"total_pages\": 6043,\n    \"current_page\": 1930,\n    \"next_url\": \"https://WivKlGcybhEnQWtTQC.auMnIST5iRdhNxatXMEw\"\n  },\n  \"data\": [\n    {\n      \"_score\": 7140.600631515187,\n      \"id\": 5643,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://LYuDbizHhcesQrvQUswhyrxVMYiWwgbOI.xyzpu9zJoZn9vdj0XxDXhePWdi.K6uebGuxIUbJBY8K\",\n      \"title\": \"string\",\n      \"timestamp\": \"2005-07-21T01:07:26.085Z\"\n    },\n    {\n      \"_score\": 1389.7554071622542,\n      \"id\": 5986,\n      \"api_model\": \"string\",\n      \"api_link\": \"https://ErGIMkYejLaOYlZrZInvrfCG.aakZK2V+AKgYsoOGpOHrXtyPjSF5++sKDnhT-obL4IqPDcem\",\n      \"title\": \"string\",\n      \"timestamp\": \"2013-01-15T20:24:31.019Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://fY.hnsLQkDIyEv51rlqNRQTM0ABcDos6k2Kk9tmO.f0TDnT9U,suHPhmHuiWQQdN0koCAU-88Zb\",\n      \"https://duKGuvzSrRqnydbJdrdSbClVN.dufbTuFv1zPYB9O5-\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://RjIS.pzykl-z0NuW3hsSvKa5ocqjEECf4bfHfj\",\n    \"website_url\": \"http://X.jbvfqb.yTiODlOHY.bNCmaYsKn95PDFOAVSt\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eba7935b-58ab-4162-9533-a4289b2e2257",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 2392,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "710b883e-449c-44ca-b0ac-77d25c1bd7fe",
+    "name": "Art Institute of Chicago Public Agent Roles Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

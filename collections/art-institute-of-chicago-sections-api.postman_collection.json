@@ -1,0 +1,582 @@
+{
+  "item": [
+    {
+      "id": "50150719-b86d-4cd9-8821-a5270c835e52",
+      "name": "Sections",
+      "description": {
+        "content": "Sections of online publications and catalogues.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "32b9a71a-cc33-4614-b417-6db81af649d2",
+          "name": "List Sections",
+          "request": {
+            "name": "List Sections",
+            "description": {
+              "content": "A list of all sections sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "061cf847-7d21-471c-a539-d159210dd6b2",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 1734,\n    \"limit\": 5794,\n    \"offset\": 3546,\n    \"total_pages\": 7416,\n    \"current_page\": 4803,\n    \"next_url\": \"https://NSihCfwy.yeFTj\"\n  },\n  \"data\": [\n    {\n      \"id\": 9779,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://LZVFHqaNeZWcidunBAMELEVuLX.wsWv5EQ.NnhOxBBvbrMiwqR5g\",\n      \"source_updated_at\": \"1951-07-14T18:49:37.312Z\",\n      \"updated_at\": \"1970-12-15T01:27:07.798Z\",\n      \"timestamp\": \"1993-06-24T22:48:10.006Z\"\n    },\n    {\n      \"id\": 5862,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://nRXUWCINJFbDa.pkBPhr+HN-GpXBA,R3uJatoIJkX3Xm8QZ1zy8eGPfIfrJMJmgct19gxe.\",\n      \"source_updated_at\": \"1968-05-03T00:27:24.262Z\",\n      \"updated_at\": \"1970-08-03T13:20:56.448Z\",\n      \"timestamp\": \"1965-04-29T13:33:09.294Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://ogmOWLXwRZdbWXfZnEhd.xdruWi7CwRtgjJdtGm,aWc+D82meK9ScylATjygT,HOHI\",\n      \"http://nBhklvOPelaHp.gwpKJV+McX91XdzF4Kupguppj++8A.6nrZvsUV.uek,bUgOo\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://cTeVcFMI.xrmzWeBHFOT.TmrZ4vF\",\n    \"website_url\": \"https://gICWYJAQcxgsqpfCfe.wsvqCwKdyGk4JHcF6HjcToftmTPp2IULtRPE90.viG\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d05fb50-7be5-4425-8a8f-d2a7227a6599",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1460,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f9989a2-5b1f-403f-aefd-eb4098ad1f2d",
+          "name": "Search Sections",
+          "request": {
+            "name": "Search Sections",
+            "description": {
+              "content": "Search sections data in the aggregator. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sections",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search string."
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Elasticsearch Query DSL JSON (URL-encoded)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort specification (Elasticsearch sort syntax)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<integer>",
+                  "description": "Elasticsearch offset pagination starting record."
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<integer>",
+                  "description": "Elasticsearch page size (max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "facets",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to facet on for aggregations."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "589cc2a9-bf47-495a-b7cf-5c9621f92a0e",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"preference\": \"string\",\n  \"pagination\": {\n    \"total\": 3087,\n    \"limit\": 2101,\n    \"offset\": 4006,\n    \"total_pages\": 129,\n    \"current_page\": 5480,\n    \"next_url\": \"https://DOlXfFony.zypjXEeDh-CpHjiWiaMMwThfZFuP,-u2LUoHcK5nJJ7xHFNOdw3LttXljX\"\n  },\n  \"data\": [\n    {\n      \"_score\": 8926.477353996233,\n      \"id\": 1345,\n      \"api_model\": \"string\",\n      \"api_link\": \"https://pvmRhzzqDYMDvcjJYMSMmwXHdswIXNiOC.buyY0byiMhCCuunGTkYn5MWwqjlU7xuFadlWtCLeVljZNemVZmninwbOa6egyoa8g9x9Xcj\",\n      \"title\": \"string\",\n      \"timestamp\": \"1965-01-15T04:51:32.360Z\"\n    },\n    {\n      \"_score\": 5980.843455278569,\n      \"id\": 2436,\n      \"api_model\": \"string\",\n      \"api_link\": \"http://uqdSEIfrmlwhXNSGyTYVuNjC.hoiwkPqs-cKpBqQWbuZrsfsaKeWUw4DJ.GLBUqWpP2mVBNZRhW8\",\n      \"title\": \"string\",\n      \"timestamp\": \"1994-05-22T09:28:33.127Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://VnlOMzuITPen.nuCT65b-UdwyqJ+D6sQUm-lpCTF6cxERS\",\n      \"https://mdNsWaxNBgGycQfrcqD.meifmwR,.O,mG\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://XTgMoVUaHRm.pjyDWI1iw\",\n    \"website_url\": \"https://sZLzwPG.ctsmwvS-HwQl3HHQ9kV9rFdYs3Z7DM.pLA+\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "096a373a-72e0-45b8-8197-c05091bc761c",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "facets",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1460,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d95f0374-2bb8-42b3-8a5a-b04aaf2c7c06",
+          "name": "Get Section",
+          "request": {
+            "name": "Get Section",
+            "description": {
+              "content": "Retrieve a single section by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9df4d77-2325-4565-9bcc-9316c17009f6",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1252,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"http://CfiogOBhUmFOciAfygWjGPZorsCIzszH.kptyDJsEMUJYIwGEB2XJcTFPVtrM0j4Omo3T.AAiqrFpf2VO\",\n    \"source_updated_at\": \"2015-10-19T11:30:36.904Z\",\n    \"updated_at\": \"1993-01-04T06:06:29.403Z\",\n    \"timestamp\": \"1976-05-13T20:02:05.108Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"https://SrUWvnWitmpTUPLGmEBbuQsqTbmtjjfBk.mwjntAV8EBFqn+LO\",\n      \"https://pr.wibwVM5V0xRamZRJLjDDROm2OFMCLgcyCOxq4Fw3Fg8nAShIV,q.6Azovx.ml-buU2kNixqB\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://ZBstNZOmWBxFGUwZ.ikwpO+wplii8ydr\",\n    \"website_url\": \"https://AmYtNlkOUDWikKKDmCOCgCYbdjwlyx.soZ7XnJ8I2EaOPtX,V4l30dTKo5LGlQDSDvIRHUB8pEMIKzUHU7k.D5juFwa\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f58759b3-891d-434b-8688-4045e8ad5c7d",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1460,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8994c233-56aa-4c8c-9abe-1e1a1cf544a4",
+    "name": "Art Institute of Chicago Public Agent Roles Sections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}

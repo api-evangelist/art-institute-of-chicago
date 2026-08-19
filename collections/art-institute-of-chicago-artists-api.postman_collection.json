@@ -1,0 +1,373 @@
+{
+  "item": [
+    {
+      "id": "1f6eb43f-931f-4438-8a02-11e32a5b82ea",
+      "name": "Artists",
+      "description": {
+        "content": "Convenience alias for agents flagged as artists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4620727f-d650-408f-9899-3e6369edc8ca",
+          "name": "List Artists",
+          "request": {
+            "name": "List Artists",
+            "description": {
+              "content": "A list of all artists sorted by last updated date in descending order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of resource IDs to fetch in one call."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "12",
+                  "description": "Number of records to return per page (default 12, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number (1-based)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09ea738f-c663-4586-a658-90c894a87077",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pagination\": {\n    \"total\": 58,\n    \"limit\": 8884,\n    \"offset\": 1089,\n    \"total_pages\": 7941,\n    \"current_page\": 2571,\n    \"next_url\": \"https://QXAzWYPc.rntiTo,cso3adXvab.XCm2cwHYhjL1KJNMyroxcfb\"\n  },\n  \"data\": [\n    {\n      \"id\": 6823,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"http://wbalSxfyx.rmoSxUHj302yRnhdIhUdDwVL2p63XosBDQpmow+M14sCNb8Z,PIDBNigXAzplipF4RPH+sHMa\",\n      \"sort_title\": \"string\",\n      \"alt_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_artist\": true,\n      \"birth_date\": 7037,\n      \"death_date\": 4095,\n      \"description\": \"string\",\n      \"ulan_id\": \"string\",\n      \"suggest_autocomplete_all\": {},\n      \"source_updated_at\": \"1954-03-01T12:04:06.618Z\",\n      \"updated_at\": \"1971-10-20T17:00:44.705Z\",\n      \"timestamp\": \"1965-11-10T11:44:57.003Z\"\n    },\n    {\n      \"id\": 816,\n      \"title\": \"string\",\n      \"api_model\": \"string\",\n      \"api_link\": \"https://fqtYEOcbYH.ldvohL3oKsKELz98CA5iZ-6UlCqVJb,YSRTri0EOELbpfn20AsOnHh\",\n      \"sort_title\": \"string\",\n      \"alt_titles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_artist\": true,\n      \"birth_date\": 8614,\n      \"death_date\": 8474,\n      \"description\": \"string\",\n      \"ulan_id\": \"string\",\n      \"suggest_autocomplete_all\": {},\n      \"source_updated_at\": \"1973-03-11T01:09:28.392Z\",\n      \"updated_at\": \"2011-07-29T02:13:07.715Z\",\n      \"timestamp\": \"1978-10-07T21:31:42.259Z\"\n    }\n  ],\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://YqIUyFxnVUtp.ubhOj8KhlOzGVdkk6-LjOv0HDRTbJA5uqwGp7cwZZq7djIRYD3O7YCg\",\n      \"https://ACRi.mtnTz,g4c2ZSaeOL-qtCsHc4x5kR7Qv219yhzOJ8.Bpq,klQe-kItgXFUCBpCV-0nI\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"https://K.ylqzUbslE7-9+A5WiwByzFSc4vgiQbfQ\",\n    \"website_url\": \"https://F.ujERIpavobSIlSv8nSOHYZWeaII-hqhnL5fOA8hxTLO7T73v-Sn-K9YXbRqtMZDKOzRUfKIfQ.91ZPo\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7c79bd4-41a3-4038-a012-3066f5e7b9b4",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "12"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9865,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "727d29bc-8f88-4e55-9dac-ca0a3ab3b2a7",
+          "name": "Get Artist",
+          "request": {
+            "name": "Get Artist",
+            "description": {
+              "content": "Retrieve a single artist by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artists",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Comma-separated list of fields to include in the response (sparse fieldsets)."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Numeric resource identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59f072cf-9c99-4810-a6a7-2d09c2b8b790",
+              "name": "Successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artists",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 1861,\n    \"title\": \"string\",\n    \"api_model\": \"string\",\n    \"api_link\": \"http://NWvgAYzTdPWbXMkhui.dtrbWhvIo-xgeBo4c0rSKXnjsYD9ofsVprus\",\n    \"sort_title\": \"string\",\n    \"alt_titles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_artist\": true,\n    \"birth_date\": 5697,\n    \"death_date\": 7068,\n    \"description\": \"string\",\n    \"ulan_id\": \"string\",\n    \"suggest_autocomplete_all\": {},\n    \"source_updated_at\": \"2005-01-09T03:30:10.976Z\",\n    \"updated_at\": \"1962-06-05T19:42:18.175Z\",\n    \"timestamp\": \"1958-11-02T16:41:44.088Z\"\n  },\n  \"info\": {\n    \"license_text\": \"string\",\n    \"license_links\": [\n      \"http://yfOfkuiBBtqVppnotsd.buuG6iCT,pdkl7BfFrc9n-SuN47+4VjqpQXmwEYi+oUp3LvWzUL3RjOOWlcijwbDPMZ,wj9SUUxYwNmF\",\n      \"http://kNaIMRTFeYTSoSysKCyEqxmZNnysfO.dyoeiSz8xiCM67N4SCZ-Pgm4Cs3HqGzmFBXm5dCala6\"\n    ],\n    \"version\": \"string\"\n  },\n  \"config\": {\n    \"iiif_url\": \"http://LfdirR.lxVen3ShTc1AqrAB9IPNdHTByJNmvkyGDGBd+IdMOJOW\",\n    \"website_url\": \"http://nVxGJZpsSANBvTexUHBfvsL.swqNFonQEGYOoxm9OpxCQN9rlGly+4I-r+azJyAXybFD96B6n4LcMvI41bCgORJf\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d3b48c4-1829-4fa8-8156-680d0bb94391",
+              "name": "Error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artists",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Numeric resource identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9865,\n  \"error\": \"string\",\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.artic.edu/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b7b53f59-6157-4f70-a63c-ca39b48d6f3e",
+    "name": "Art Institute of Chicago Public Agent Roles Artists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).\n\nContact Support:\n Email: engineering@artic.edu",
+      "type": "text/plain"
+    }
+  }
+}
