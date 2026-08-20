@@ -36,6 +36,14 @@ tags:
   - Cultural Heritage
   - IIIF
   - Public APIs
+  - Open-Source
+tags_raw:
+  - Art And Design
+  - Museum
+  - Open Data
+  - Cultural Heritage
+  - IIIF
+  - Public APIs
   - Open Source
 apis:
 - name: IIIF Image API
@@ -45,6 +53,9 @@ apis:
   humanURL: https://api.artic.edu/docs/#iiif-image-api
   baseURL: https://www.artic.edu/iiif/2
   tags:
+  - IIIF
+  - Image
+  tags_raw:
   - IIIF
   - Images
   properties:
@@ -1030,6 +1041,8 @@ apis:
   humanURL: https://api.artic.edu/docs/
   baseURL: https://api.artic.edu/api/v1
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -1414,6 +1427,8 @@ apis:
   humanURL: https://api.artic.edu/docs/
   baseURL: https://api.artic.edu/api/v1
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
@@ -1798,6 +1813,8 @@ apis:
   humanURL: https://api.artic.edu/docs/
   baseURL: https://api.artic.edu/api/v1
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
