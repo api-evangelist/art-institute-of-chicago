@@ -8,6 +8,18 @@ description: >-
   Clients should send an AIC-User-Agent header for courtesy tracking. The canonical aggregator (Laravel) is open source
   on GitHub, and nightly bulk data dumps are published in a sibling repo.
 url: https://api.artic.edu/docs/
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: open
