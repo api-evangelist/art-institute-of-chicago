@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Art Institute of Chicago Public Agent Roles Artists API
-  description: 'The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and places are CC-BY 4.0. No API key required. Anonymous limit: 60 requests/minute per IP. Clients should send an AIC-User-Agent header (recommended for courtesy tracking).'
+  title: Art Institute of Chicago Public Artists API
+  description: The Art Institute of Chicago publishes an open, REST + Elasticsearch-style API for ~120,000 artworks plus artists/agents, places, galleries, exhibitions, tours, mobile sounds, products, publications, sections, sites, educational resources, digital and printed publications, and static archive images.
   termsOfService: https://www.artic.edu/terms/terms-and-conditions
   contact:
     email: engineering@artic.edu
@@ -86,7 +86,89 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return per page (default 12, max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 12
+    Page:
+      name: page
+      in: query
+      description: Page number (1-based).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Include:
+      name: include
+      in: query
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
+      required: false
+      schema:
+        type: string
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to include in the response (sparse fieldsets).
+      required: false
+      schema:
+        type: string
   schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+        detail:
+          type: string
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        next_url:
+          type: string
+          format: uri
     Info:
       type: object
       properties:
@@ -98,15 +180,6 @@ components:
             type: string
             format: uri
         version:
-          type: string
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-        error:
-          type: string
-        detail:
           type: string
     Agent:
       type: object
@@ -169,76 +242,3 @@ components:
       - title
       - api_model
       - api_link
-    Config:
-      type: object
-      properties:
-        iiif_url:
-          type: string
-          format: uri
-        website_url:
-          type: string
-          format: uri
-    Pagination:
-      type: object
-      properties:
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total_pages:
-          type: integer
-        current_page:
-          type: integer
-        next_url:
-          type: string
-          format: uri
-  parameters:
-    ResourceId:
-      name: id
-      in: path
-      description: Numeric resource identifier.
-      required: true
-      schema:
-        type: integer
-    Ids:
-      name: ids
-      in: query
-      description: Comma-separated list of resource IDs to fetch in one call.
-      required: false
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Number of records to return per page (default 12, max 100).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 12
-    Page:
-      name: page
-      in: query
-      description: Page number (1-based).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated list of fields to include in the response (sparse fieldsets).
-      required: false
-      schema:
-        type: string
-    Include:
-      name: include
-      in: query
-      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
-      required: false
-      schema:
-        type: string
