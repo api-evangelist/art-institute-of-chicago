@@ -10,6 +10,9 @@ description: >-
 url: https://api.artic.edu/docs/
 deliveryModel:
   model: unknown
+  license_evidence:
+    not_product:
+    - art-institute-of-chicago/api-data
   open_source: unknown
   commercial: false
   callable_host: true
@@ -17,8 +20,8 @@ deliveryModel:
   confidence: low
   source:
   - openapi
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -48,7 +51,7 @@ tags:
   - Cultural Heritage
   - IIIF
   - Public APIs
-  - Open-Source
+  - Open Source
 tags_raw:
   - Art And Design
   - Museum
@@ -57,6 +60,7 @@ tags_raw:
   - IIIF
   - Public APIs
   - Open Source
+  - Open-Source
 apis:
 - name: IIIF Image API
   description: >-

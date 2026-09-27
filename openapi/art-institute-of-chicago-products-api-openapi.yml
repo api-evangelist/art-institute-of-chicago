@@ -130,17 +130,24 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   parameters:
-    ResourceId:
-      name: id
-      in: path
-      description: Numeric resource identifier.
-      required: true
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
+      required: false
       schema:
-        type: integer
+        type: string
     SearchQuery:
       name: query
       in: query
       description: Elasticsearch Query DSL JSON (URL-encoded).
+      required: false
+      schema:
+        type: string
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to include in the response (sparse fieldsets).
       required: false
       schema:
         type: string
@@ -152,10 +159,24 @@ components:
       schema:
         type: integer
         minimum: 0
-    SearchSort:
-      name: sort
+    Include:
+      name: include
       in: query
-      description: Sort specification (Elasticsearch sort syntax).
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    SearchFacets:
+      name: facets
+      in: query
+      description: Comma-separated list of fields to facet on for aggregations.
+      required: false
+      schema:
+        type: string
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
       required: false
       schema:
         type: string
@@ -168,15 +189,6 @@ components:
         type: integer
         minimum: 1
         default: 1
-    SearchSize:
-      name: size
-      in: query
-      description: Elasticsearch page size (max 100).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
     Limit:
       name: limit
       in: query
@@ -187,42 +199,57 @@ components:
         minimum: 1
         maximum: 100
         default: 12
-    SearchFacets:
-      name: facets
+    SearchSort:
+      name: sort
       in: query
-      description: Comma-separated list of fields to facet on for aggregations.
+      description: Sort specification (Elasticsearch sort syntax).
       required: false
       schema:
         type: string
-    Include:
-      name: include
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer
+    SearchSize:
+      name: size
       in: query
-      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      description: Elasticsearch page size (max 100).
       required: false
       schema:
-        type: string
-    Ids:
-      name: ids
-      in: query
-      description: Comma-separated list of resource IDs to fetch in one call.
-      required: false
-      schema:
-        type: string
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated list of fields to include in the response (sparse fieldsets).
-      required: false
-      schema:
-        type: string
-    SearchQ:
-      name: q
-      in: query
-      description: Free-text search string.
-      required: false
-      schema:
-        type: string
+        type: integer
+        minimum: 1
+        maximum: 100
   schemas:
+    SearchHit:
+      type: object
+      description: A single search hit (Elasticsearch _source projected fields).
+      properties:
+        _score:
+          type: number
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+        detail:
+          type: string
     Product:
       type: object
       description: Museum shop product.
@@ -300,42 +327,6 @@ components:
       - title
       - api_model
       - api_link
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-        error:
-          type: string
-        detail:
-          type: string
-    Config:
-      type: object
-      properties:
-        iiif_url:
-          type: string
-          format: uri
-        website_url:
-          type: string
-          format: uri
-    SearchHit:
-      type: object
-      description: A single search hit (Elasticsearch _source projected fields).
-      properties:
-        _score:
-          type: number
-        id:
-          type: integer
-        api_model:
-          type: string
-        api_link:
-          type: string
-          format: uri
-        title:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
     Info:
       type: object
       properties:
@@ -362,5 +353,14 @@ components:
         current_page:
           type: integer
         next_url:
+          type: string
+          format: uri
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
           type: string
           format: uri

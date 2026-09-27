@@ -87,32 +87,13 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   parameters:
-    ResourceId:
-      name: id
-      in: path
-      description: Numeric resource identifier.
-      required: true
-      schema:
-        type: integer
-    Limit:
-      name: limit
+    Fields:
+      name: fields
       in: query
-      description: Number of records to return per page (default 12, max 100).
+      description: Comma-separated list of fields to include in the response (sparse fieldsets).
       required: false
       schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 12
-    Page:
-      name: page
-      in: query
-      description: Page number (1-based).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
+        type: string
     Include:
       name: include
       in: query
@@ -127,13 +108,32 @@ components:
       required: false
       schema:
         type: string
-    Fields:
-      name: fields
+    Page:
+      name: page
       in: query
-      description: Comma-separated list of fields to include in the response (sparse fieldsets).
+      description: Page number (1-based).
       required: false
       schema:
-        type: string
+        type: integer
+        minimum: 1
+        default: 1
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return per page (default 12, max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 12
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer
   schemas:
     Error:
       type: object
@@ -144,15 +144,18 @@ components:
           type: string
         detail:
           type: string
-    Config:
+    Info:
       type: object
       properties:
-        iiif_url:
+        license_text:
           type: string
-          format: uri
-        website_url:
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
           type: string
-          format: uri
     Pagination:
       type: object
       properties:
@@ -169,18 +172,6 @@ components:
         next_url:
           type: string
           format: uri
-    Info:
-      type: object
-      properties:
-        license_text:
-          type: string
-        license_links:
-          type: array
-          items:
-            type: string
-            format: uri
-        version:
-          type: string
     Agent:
       type: object
       description: A person or organization (artist, maker, donor, etc.).
@@ -242,3 +233,12 @@ components:
       - title
       - api_model
       - api_link
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
