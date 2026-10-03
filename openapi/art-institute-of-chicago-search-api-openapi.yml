@@ -60,53 +60,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
-  parameters:
-    SearchQ:
-      name: q
-      in: query
-      description: Free-text search string.
-      required: false
-      schema:
-        type: string
-    SearchQuery:
-      name: query
-      in: query
-      description: Elasticsearch Query DSL JSON (URL-encoded).
-      required: false
-      schema:
-        type: string
-    SearchFrom:
-      name: from
-      in: query
-      description: Elasticsearch offset pagination starting record.
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    SearchFacets:
-      name: facets
-      in: query
-      description: Comma-separated list of fields to facet on for aggregations.
-      required: false
-      schema:
-        type: string
-    SearchSort:
-      name: sort
-      in: query
-      description: Sort specification (Elasticsearch sort syntax).
-      required: false
-      schema:
-        type: string
-    SearchSize:
-      name: size
-      in: query
-      description: Elasticsearch page size (max 100).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
   schemas:
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        next_url:
+          type: string
+          format: uri
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
     Error:
       type: object
       properties:
@@ -134,22 +113,6 @@ components:
         timestamp:
           type: string
           format: date-time
-    Pagination:
-      type: object
-      properties:
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total_pages:
-          type: integer
-        current_page:
-          type: integer
-        next_url:
-          type: string
-          format: uri
     Info:
       type: object
       properties:
@@ -162,12 +125,49 @@ components:
             format: uri
         version:
           type: string
-    Config:
-      type: object
-      properties:
-        iiif_url:
-          type: string
-          format: uri
-        website_url:
-          type: string
-          format: uri
+  parameters:
+    SearchQuery:
+      name: query
+      in: query
+      description: Elasticsearch Query DSL JSON (URL-encoded).
+      required: false
+      schema:
+        type: string
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
+      required: false
+      schema:
+        type: string
+    SearchSort:
+      name: sort
+      in: query
+      description: Sort specification (Elasticsearch sort syntax).
+      required: false
+      schema:
+        type: string
+    SearchFacets:
+      name: facets
+      in: query
+      description: Comma-separated list of fields to facet on for aggregations.
+      required: false
+      schema:
+        type: string
+    SearchFrom:
+      name: from
+      in: query
+      description: Elasticsearch offset pagination starting record.
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    SearchSize:
+      name: size
+      in: query
+      description: Elasticsearch page size (max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
