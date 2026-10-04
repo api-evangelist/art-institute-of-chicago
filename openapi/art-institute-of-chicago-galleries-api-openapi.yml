@@ -130,6 +130,18 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Info:
+      type: object
+      properties:
+        license_text:
+          type: string
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
+          type: string
     Pagination:
       type: object
       properties:
@@ -146,6 +158,24 @@ components:
         next_url:
           type: string
           format: uri
+    SearchHit:
+      type: object
+      description: A single search hit (Elasticsearch _source projected fields).
+      properties:
+        _score:
+          type: number
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
     Error:
       type: object
       properties:
@@ -208,36 +238,6 @@ components:
       - title
       - api_model
       - api_link
-    SearchHit:
-      type: object
-      description: A single search hit (Elasticsearch _source projected fields).
-      properties:
-        _score:
-          type: number
-        id:
-          type: integer
-        api_model:
-          type: string
-        api_link:
-          type: string
-          format: uri
-        title:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-    Info:
-      type: object
-      properties:
-        license_text:
-          type: string
-        license_links:
-          type: array
-          items:
-            type: string
-            format: uri
-        version:
-          type: string
     Config:
       type: object
       properties:
@@ -248,41 +248,6 @@ components:
           type: string
           format: uri
   parameters:
-    SearchQuery:
-      name: query
-      in: query
-      description: Elasticsearch Query DSL JSON (URL-encoded).
-      required: false
-      schema:
-        type: string
-    ResourceId:
-      name: id
-      in: path
-      description: Numeric resource identifier.
-      required: true
-      schema:
-        type: integer
-    SearchFacets:
-      name: facets
-      in: query
-      description: Comma-separated list of fields to facet on for aggregations.
-      required: false
-      schema:
-        type: string
-    SearchQ:
-      name: q
-      in: query
-      description: Free-text search string.
-      required: false
-      schema:
-        type: string
-    Include:
-      name: include
-      in: query
-      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
-      required: false
-      schema:
-        type: string
     Fields:
       name: fields
       in: query
@@ -299,17 +264,25 @@ components:
         type: integer
         minimum: 1
         default: 1
-    Ids:
-      name: ids
-      in: query
-      description: Comma-separated list of resource IDs to fetch in one call.
-      required: false
-      schema:
-        type: string
     SearchSort:
       name: sort
       in: query
       description: Sort specification (Elasticsearch sort syntax).
+      required: false
+      schema:
+        type: string
+    SearchFrom:
+      name: from
+      in: query
+      description: Elasticsearch offset pagination starting record.
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
       required: false
       schema:
         type: string
@@ -323,14 +296,27 @@ components:
         minimum: 1
         maximum: 100
         default: 12
-    SearchFrom:
-      name: from
-      in: query
-      description: Elasticsearch offset pagination starting record.
-      required: false
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
       schema:
         type: integer
-        minimum: 0
+    Include:
+      name: include
+      in: query
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    SearchQuery:
+      name: query
+      in: query
+      description: Elasticsearch Query DSL JSON (URL-encoded).
+      required: false
+      schema:
+        type: string
     SearchSize:
       name: size
       in: query
@@ -340,3 +326,17 @@ components:
         type: integer
         minimum: 1
         maximum: 100
+    SearchFacets:
+      name: facets
+      in: query
+      description: Comma-separated list of fields to facet on for aggregations.
+      required: false
+      schema:
+        type: string
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
+      required: false
+      schema:
+        type: string

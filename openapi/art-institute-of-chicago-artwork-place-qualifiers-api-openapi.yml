@@ -87,6 +87,18 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Info:
+      type: object
+      properties:
+        license_text:
+          type: string
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
+          type: string
     Pagination:
       type: object
       properties:
@@ -101,6 +113,15 @@ components:
         current_page:
           type: integer
         next_url:
+          type: string
+          format: uri
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
           type: string
           format: uri
     Error:
@@ -144,49 +165,7 @@ components:
       - title
       - api_model
       - api_link
-    Info:
-      type: object
-      properties:
-        license_text:
-          type: string
-        license_links:
-          type: array
-          items:
-            type: string
-            format: uri
-        version:
-          type: string
-    Config:
-      type: object
-      properties:
-        iiif_url:
-          type: string
-          format: uri
-        website_url:
-          type: string
-          format: uri
   parameters:
-    ResourceId:
-      name: id
-      in: path
-      description: Numeric resource identifier.
-      required: true
-      schema:
-        type: integer
-    Ids:
-      name: ids
-      in: query
-      description: Comma-separated list of resource IDs to fetch in one call.
-      required: false
-      schema:
-        type: string
-    Include:
-      name: include
-      in: query
-      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
-      required: false
-      schema:
-        type: string
     Fields:
       name: fields
       in: query
@@ -203,6 +182,13 @@ components:
         type: integer
         minimum: 1
         default: 1
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
+      required: false
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -213,3 +199,17 @@ components:
         minimum: 1
         maximum: 100
         default: 12
+    Include:
+      name: include
+      in: query
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer

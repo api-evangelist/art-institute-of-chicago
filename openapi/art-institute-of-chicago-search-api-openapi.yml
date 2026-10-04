@@ -61,6 +61,18 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Info:
+      type: object
+      properties:
+        license_text:
+          type: string
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
+          type: string
     Pagination:
       type: object
       properties:
@@ -77,24 +89,6 @@ components:
         next_url:
           type: string
           format: uri
-    Config:
-      type: object
-      properties:
-        iiif_url:
-          type: string
-          format: uri
-        website_url:
-          type: string
-          format: uri
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-        error:
-          type: string
-        detail:
-          type: string
     SearchHit:
       type: object
       description: A single search hit (Elasticsearch _source projected fields).
@@ -113,44 +107,29 @@ components:
         timestamp:
           type: string
           format: date-time
-    Info:
+    Error:
       type: object
       properties:
-        license_text:
+        status:
+          type: integer
+        error:
           type: string
-        license_links:
-          type: array
-          items:
-            type: string
-            format: uri
-        version:
+        detail:
           type: string
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
   parameters:
-    SearchQuery:
-      name: query
-      in: query
-      description: Elasticsearch Query DSL JSON (URL-encoded).
-      required: false
-      schema:
-        type: string
-    SearchQ:
-      name: q
-      in: query
-      description: Free-text search string.
-      required: false
-      schema:
-        type: string
     SearchSort:
       name: sort
       in: query
       description: Sort specification (Elasticsearch sort syntax).
-      required: false
-      schema:
-        type: string
-    SearchFacets:
-      name: facets
-      in: query
-      description: Comma-separated list of fields to facet on for aggregations.
       required: false
       schema:
         type: string
@@ -162,6 +141,13 @@ components:
       schema:
         type: integer
         minimum: 0
+    SearchQuery:
+      name: query
+      in: query
+      description: Elasticsearch Query DSL JSON (URL-encoded).
+      required: false
+      schema:
+        type: string
     SearchSize:
       name: size
       in: query
@@ -171,3 +157,17 @@ components:
         type: integer
         minimum: 1
         maximum: 100
+    SearchFacets:
+      name: facets
+      in: query
+      description: Comma-separated list of fields to facet on for aggregations.
+      required: false
+      schema:
+        type: string
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
+      required: false
+      schema:
+        type: string
