@@ -45,15 +45,14 @@ x-category: Art & Design
 x-tier: 2
 x-tier-reason: opensource-with-public-openapi-and-mcp
 tags:
-  - Art And Design
   - Museums
   - Open Data
   - Cultural Heritage
   - IIIF
   - Public APIs
   - Open Source
+  - Art
 tags_raw:
-  - Art And Design
   - Museum
   - Open Data
   - Cultural Heritage
@@ -61,6 +60,7 @@ tags_raw:
   - Public APIs
   - Open Source
   - Open-Source
+  - Art
 apis:
 - name: IIIF Image API
   description: >-
@@ -2588,3 +2588,5 @@ common:
     url: security/art-institute-of-chicago-domain-security.yml
   - url: https://www.artic.edu/blog
     type: Blog
+x-tags-removed:
+- Art And Design
