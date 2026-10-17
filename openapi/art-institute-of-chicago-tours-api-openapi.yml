@@ -129,53 +129,100 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
+  parameters:
+    SearchFacets:
+      name: facets
+      in: query
+      description: Comma-separated list of fields to facet on for aggregations.
+      required: false
+      schema:
+        type: string
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer
+    SearchQuery:
+      name: query
+      in: query
+      description: Elasticsearch Query DSL JSON (URL-encoded).
+      required: false
+      schema:
+        type: string
+    SearchSize:
+      name: size
+      in: query
+      description: Elasticsearch page size (max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+    SearchSort:
+      name: sort
+      in: query
+      description: Sort specification (Elasticsearch sort syntax).
+      required: false
+      schema:
+        type: string
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
+      required: false
+      schema:
+        type: string
+    SearchFrom:
+      name: from
+      in: query
+      description: Elasticsearch offset pagination starting record.
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    Include:
+      name: include
+      in: query
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      description: Page number (1-based).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
+      required: false
+      schema:
+        type: string
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to include in the response (sparse fieldsets).
+      required: false
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return per page (default 12, max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 12
   schemas:
-    Info:
-      type: object
-      properties:
-        license_text:
-          type: string
-        license_links:
-          type: array
-          items:
-            type: string
-            format: uri
-        version:
-          type: string
-    Pagination:
-      type: object
-      properties:
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total_pages:
-          type: integer
-        current_page:
-          type: integer
-        next_url:
-          type: string
-          format: uri
-    SearchHit:
-      type: object
-      description: A single search hit (Elasticsearch _source projected fields).
-      properties:
-        _score:
-          type: number
-        id:
-          type: integer
-        api_model:
-          type: string
-        api_link:
-          type: string
-          format: uri
-        title:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
     Error:
       type: object
       properties:
@@ -185,6 +232,15 @@ components:
           type: string
         detail:
           type: string
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
     Tour:
       type: object
       description: Curated multi-stop tour.
@@ -254,105 +310,49 @@ components:
       - title
       - api_model
       - api_link
-    Config:
+    Info:
       type: object
       properties:
-        iiif_url:
+        license_text:
+          type: string
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
+          type: string
+    SearchHit:
+      type: object
+      description: A single search hit (Elasticsearch _source projected fields).
+      properties:
+        _score:
+          type: number
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
           type: string
           format: uri
-        website_url:
+        title:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        next_url:
           type: string
           format: uri
-  parameters:
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated list of fields to include in the response (sparse fieldsets).
-      required: false
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      description: Page number (1-based).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-    SearchSort:
-      name: sort
-      in: query
-      description: Sort specification (Elasticsearch sort syntax).
-      required: false
-      schema:
-        type: string
-    SearchFrom:
-      name: from
-      in: query
-      description: Elasticsearch offset pagination starting record.
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    Ids:
-      name: ids
-      in: query
-      description: Comma-separated list of resource IDs to fetch in one call.
-      required: false
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Number of records to return per page (default 12, max 100).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 12
-    ResourceId:
-      name: id
-      in: path
-      description: Numeric resource identifier.
-      required: true
-      schema:
-        type: integer
-    Include:
-      name: include
-      in: query
-      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
-      required: false
-      schema:
-        type: string
-    SearchQuery:
-      name: query
-      in: query
-      description: Elasticsearch Query DSL JSON (URL-encoded).
-      required: false
-      schema:
-        type: string
-    SearchSize:
-      name: size
-      in: query
-      description: Elasticsearch page size (max 100).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-    SearchFacets:
-      name: facets
-      in: query
-      description: Comma-separated list of fields to facet on for aggregations.
-      required: false
-      schema:
-        type: string
-    SearchQ:
-      name: q
-      in: query
-      description: Free-text search string.
-      required: false
-      schema:
-        type: string

@@ -61,52 +61,6 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    Info:
-      type: object
-      properties:
-        license_text:
-          type: string
-        license_links:
-          type: array
-          items:
-            type: string
-            format: uri
-        version:
-          type: string
-    Pagination:
-      type: object
-      properties:
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total_pages:
-          type: integer
-        current_page:
-          type: integer
-        next_url:
-          type: string
-          format: uri
-    SearchHit:
-      type: object
-      description: A single search hit (Elasticsearch _source projected fields).
-      properties:
-        _score:
-          type: number
-        id:
-          type: integer
-        api_model:
-          type: string
-        api_link:
-          type: string
-          format: uri
-        title:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
     Error:
       type: object
       properties:
@@ -125,11 +79,73 @@ components:
         website_url:
           type: string
           format: uri
+    Pagination:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        next_url:
+          type: string
+          format: uri
+    Info:
+      type: object
+      properties:
+        license_text:
+          type: string
+        license_links:
+          type: array
+          items:
+            type: string
+            format: uri
+        version:
+          type: string
+    SearchHit:
+      type: object
+      description: A single search hit (Elasticsearch _source projected fields).
+      properties:
+        _score:
+          type: number
+        id:
+          type: integer
+        api_model:
+          type: string
+        api_link:
+          type: string
+          format: uri
+        title:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
   parameters:
+    SearchSize:
+      name: size
+      in: query
+      description: Elasticsearch page size (max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
     SearchSort:
       name: sort
       in: query
       description: Sort specification (Elasticsearch sort syntax).
+      required: false
+      schema:
+        type: string
+    SearchQ:
+      name: q
+      in: query
+      description: Free-text search string.
       required: false
       schema:
         type: string
@@ -148,26 +164,10 @@ components:
       required: false
       schema:
         type: string
-    SearchSize:
-      name: size
-      in: query
-      description: Elasticsearch page size (max 100).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
     SearchFacets:
       name: facets
       in: query
       description: Comma-separated list of fields to facet on for aggregations.
-      required: false
-      schema:
-        type: string
-    SearchQ:
-      name: q
-      in: query
-      description: Free-text search string.
       required: false
       schema:
         type: string

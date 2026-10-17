@@ -86,7 +86,73 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 components:
+  parameters:
+    ResourceId:
+      name: id
+      in: path
+      description: Numeric resource identifier.
+      required: true
+      schema:
+        type: integer
+    Ids:
+      name: ids
+      in: query
+      description: Comma-separated list of resource IDs to fetch in one call.
+      required: false
+      schema:
+        type: string
+    Include:
+      name: include
+      in: query
+      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
+      required: false
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      description: Page number (1-based).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    Fields:
+      name: fields
+      in: query
+      description: Comma-separated list of fields to include in the response (sparse fieldsets).
+      required: false
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Number of records to return per page (default 12, max 100).
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 12
   schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        error:
+          type: string
+        detail:
+          type: string
+    Config:
+      type: object
+      properties:
+        iiif_url:
+          type: string
+          format: uri
+        website_url:
+          type: string
+          format: uri
     Info:
       type: object
       properties:
@@ -99,31 +165,6 @@ components:
             format: uri
         version:
           type: string
-    Pagination:
-      type: object
-      properties:
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total_pages:
-          type: integer
-        current_page:
-          type: integer
-        next_url:
-          type: string
-          format: uri
-    Config:
-      type: object
-      properties:
-        iiif_url:
-          type: string
-          format: uri
-        website_url:
-          type: string
-          format: uri
     Agent:
       type: object
       description: A person or organization (artist, maker, donor, etc.).
@@ -185,60 +226,19 @@ components:
       - title
       - api_model
       - api_link
-    Error:
+    Pagination:
       type: object
       properties:
-        status:
+        total:
           type: integer
-        error:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total_pages:
+          type: integer
+        current_page:
+          type: integer
+        next_url:
           type: string
-        detail:
-          type: string
-  parameters:
-    Fields:
-      name: fields
-      in: query
-      description: Comma-separated list of fields to include in the response (sparse fieldsets).
-      required: false
-      schema:
-        type: string
-    Page:
-      name: page
-      in: query
-      description: Page number (1-based).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-    Ids:
-      name: ids
-      in: query
-      description: Comma-separated list of resource IDs to fetch in one call.
-      required: false
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Number of records to return per page (default 12, max 100).
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 12
-    Include:
-      name: include
-      in: query
-      description: Comma-separated list of related resources to include (e.g. artist_pivots, dates, place_pivots, sites).
-      required: false
-      schema:
-        type: string
-    ResourceId:
-      name: id
-      in: path
-      description: Numeric resource identifier.
-      required: true
-      schema:
-        type: integer
+          format: uri
