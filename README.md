@@ -1,4 +1,4 @@
-# Art Institute of Chicago (art-institute-of-chicago)
+# Art Institute of Chicago
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,135 +66,189 @@
 
 The Art Institute of Chicago publishes an open, REST + Elasticsearch-style Public API for ~120,000 artworks plus agents (artists/makers), places, galleries, exhibitions, tours, mobile sounds, museum-shop products, publications, sections, sites, educator resources, digital and printed publications, and static archive images. Most data is CC0 1.0; descriptions and place data are CC-BY 4.0. No API key required; anonymous limit is 60 requests/minute per IP. Clients should send an AIC-User-Agent header for courtesy tracking. The canonical aggregator (Laravel) is open source on GitHub, and nightly bulk data dumps are published in a sibling repo.
 
-**APIs.json:** [https://api.artic.edu/docs/](https://api.artic.edu/docs/)
+**Areas:** Museums · Open Data · Cultural Heritage · IIIF · Public APIs · Open Source · Art
 
-## Tags
+## Art Institute of Chicago on APIs.io
 
-- Art And Design
-- Museum
-- Open Data
-- Cultural Heritage
-- IIIF
-- Public APIs
-- Open Source
+Everything profiled for Art Institute of Chicago is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/art-institute-of-chicago/](https://apis.io/providers/art-institute-of-chicago/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (39)
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-29
+- [IIIF Image API](https://apis.io/apis/art-institute-of-chicago/iiif-image-api/) — IIIF Image API 2.0-compliant service for delivering image binaries for artworks. Combine artwork.image_id with config.iiif_url returned by the Public API.
+- [Bulk Data Dumps](https://apis.io/apis/art-institute-of-chicago/bulk-data-dumps/) — Nightly data dumps of the collection and related resources, published as JSON in a public GitHub repository. Recommended for bulk consumers instead of…
+- [Art Institute of Chicago Agent Roles API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-agent-roles-api/) — Roles agents can play in relation to an artwork.
+- [Art Institute of Chicago Agent Types API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-agent-types-api/) — Classifications of agents (Individual, Corporate, etc.).
+- [Art Institute of Chicago Agents API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-agents-api/) — People and organizations (artists, makers, donors) associated with artworks.
+- [Art Institute of Chicago Articles API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-articles-api/) — Magazine-style articles published by the museum.
+- [Art Institute of Chicago Artists API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-artists-api/) — Convenience alias for agents flagged as artists.
+- [Art Institute of Chicago Artwork Date Qualifiers API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-artwork-date-qualifiers-api/) — Date qualifier terms used on artworks.
+- [Art Institute of Chicago Artwork Place Qualifiers API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-artwork-place-qualifiers-api/) — Place qualifier terms used on artworks.
+- [Art Institute of Chicago Artwork Types API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-artwork-types-api/) — Classification of artwork types (Painting, Sculpture, etc.).
+- [Art Institute of Chicago Artworks API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-artworks-api/) — Artworks from the Art Institute of Chicago collection (~120,000 records).
+- [Art Institute of Chicago Category Terms API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-category-terms-api/) — Subject, department and style category terms.
+- [Art Institute of Chicago Digital Publication Articles API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-digital-publication-articles-api/) — Articles inside digital publications.
+- [Art Institute of Chicago Digital Publications API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-digital-publications-api/) — Online scholarly publications and catalogues.
+- [Art Institute of Chicago Educator Resources API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-educator-resources-api/) — Lesson plans and resources for educators.
+- [Art Institute of Chicago Event Occurrences API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-event-occurrences-api/) — Scheduled occurrences of an event.
+- [Art Institute of Chicago Event Programs API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-event-programs-api/) — Recurring program series the events belong to.
+- [Art Institute of Chicago Events API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-events-api/) — Public events at the museum.
+- [Art Institute of Chicago Exhibitions API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-exhibitions-api/) — Past, current and upcoming exhibitions.
+- [Art Institute of Chicago Galleries API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-galleries-api/) — Galleries inside the Art Institute of Chicago museum.
+- [Art Institute of Chicago Generic Pages API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-generic-pages-api/) — Generic landing-style pages.
+- [Art Institute of Chicago Highlights API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-highlights-api/) — Curated highlight items from the collection.
+- [Art Institute of Chicago Hours API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-hours-api/) — Museum opening hours.
+- [Art Institute of Chicago Images API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-images-api/) — Image assets (delivered via IIIF for binary data).
+- [Art Institute of Chicago Landing Pages API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-landing-pages-api/) — Top-level landing pages of artic.edu.
+- [Art Institute of Chicago Mobile Sounds API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-mobile-sounds-api/) — Audio tour stops and mobile-app sound content.
+- [Art Institute of Chicago Places API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-places-api/) — Geographic places linked to artworks (uses Getty Thesaurus of Geographic Names).
+- [Art Institute of Chicago Press Releases API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-press-releases-api/) — Official press releases from the museum.
+- [Art Institute of Chicago Printed Publications API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-printed-publications-api/) — Print catalogues and books.
+- [Art Institute of Chicago Products API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-products-api/) — Items for sale in the museum shop.
+- [Art Institute of Chicago Publications API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-publications-api/) — All museum publications (combined index).
+- [Art Institute of Chicago Search API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-search-api/) — Cross-resource Elasticsearch-style search.
+- [Art Institute of Chicago Sections API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-sections-api/) — Sections of online publications and catalogues.
+- [Art Institute of Chicago Sites API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-sites-api/) — Microsites and online sites published by the museum.
+- [Art Institute of Chicago Sounds API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-sounds-api/) — Sound assets and metadata.
+- [Art Institute of Chicago Static Pages API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-static-pages-api/) — Static content pages of artic.edu.
+- [Art Institute of Chicago Texts API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-texts-api/) — Long-form text content.
+- [Art Institute of Chicago Tours API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-tours-api/) — Curated multi-stop museum tours.
+- [Art Institute of Chicago Videos API](https://apis.io/apis/art-institute-of-chicago/art-institute-of-chicago-videos-api/) — Video assets and metadata.
 
-## APIs
+### Published properties
 
-### Art Institute of Chicago Public API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Open REST and search API surfacing the museum's collection, agents, exhibitions, tours, publications, products and operational data (galleries, hours, sites). Backed by Elasticsearch; data refreshed nightly. Read-only.
+#### Agentic access (1)
 
-- **Human URL:** [https://api.artic.edu/docs/](https://api.artic.edu/docs/)
-- **Base URL:** `https://api.artic.edu/api/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Art Institute Of Chicago Agentic Access](https://apis.io/agentic-access/art-institute-of-chicago/art-institute-of-chicago-agentic-access/)
 
-- Art And Design
-- Museum
-- Open Data
+#### JSON Schema (7)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://api.artic.edu/docs/)
-- [OpenAPI](openapi/art-institute-of-chicago-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/art-institute-of-chicago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/art-institute-of-chicago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [OpenAPI](https://api.artic.edu/api/v1/openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Authentication](https://api.artic.edu/docs/)
-- [Rate Limits](rate-limits/art-institute-of-chicago-rate-limits.yml)
-- [License](https://creativecommons.org/publicdomain/zero/1.0/)
-- [Example](examples/art-institute-of-chicago-artworks-list-example.json)
-- [Example](examples/art-institute-of-chicago-agents-list-example.json)
-- [Example](examples/art-institute-of-chicago-exhibitions-list-example.json)
-- [Example](examples/art-institute-of-chicago-galleries-list-example.json)
-- [Example](examples/art-institute-of-chicago-places-list-example.json)
-- [Example](examples/art-institute-of-chicago-products-list-example.json)
-- [Example](examples/art-institute-of-chicago-tours-list-example.json)
-- [Example](examples/art-institute-of-chicago-exhibitions-search-example.json)
-- [JSON Schema](json-schema/art-institute-of-chicago-artwork-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/art-institute-of-chicago-agent-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/art-institute-of-chicago-place-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/art-institute-of-chicago-gallery-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/art-institute-of-chicago-exhibition-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/art-institute-of-chicago-product-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/art-institute-of-chicago-tour-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/art-institute-of-chicago-artwork-structure.json)
-- [JSON Structure](json-structure/art-institute-of-chicago-agent-structure.json)
-- [JSON Structure](json-structure/art-institute-of-chicago-place-structure.json)
-- [JSON Structure](json-structure/art-institute-of-chicago-gallery-structure.json)
-- [JSON Structure](json-structure/art-institute-of-chicago-exhibition-structure.json)
-- [JSON Structure](json-structure/art-institute-of-chicago-product-structure.json)
-- [JSON Structure](json-structure/art-institute-of-chicago-tour-structure.json)
-- [J S O N- L D](json-ld/art-institute-of-chicago-context.jsonld)
+- [Agent](https://apis.io/schemas/art-institute-of-chicago/art-institute-of-chicago-agent/)
+- [Artwork](https://apis.io/schemas/art-institute-of-chicago/art-institute-of-chicago-artwork/)
+- [Exhibition](https://apis.io/schemas/art-institute-of-chicago/art-institute-of-chicago-exhibition/)
+- [Gallery](https://apis.io/schemas/art-institute-of-chicago/art-institute-of-chicago-gallery/)
+- [Place](https://apis.io/schemas/art-institute-of-chicago/art-institute-of-chicago-place/)
+- [Product](https://apis.io/schemas/art-institute-of-chicago/art-institute-of-chicago-product/)
+- [Tour](https://apis.io/schemas/art-institute-of-chicago/art-institute-of-chicago-tour/)
 
-### IIIF Image API
+#### JSON Structure (7)
 
-IIIF Image API 2.0-compliant service for delivering image binaries for artworks. Combine artwork.image_id with config.iiif_url returned by the Public API.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://api.artic.edu/docs/#iiif-image-api](https://api.artic.edu/docs/#iiif-image-api)
-- **Base URL:** `https://www.artic.edu/iiif/2`
+- [Art Institute Of Chicago Agent Structure](https://apis.io/json-structure/art-institute-of-chicago/art-institute-of-chicago-agent-structure/)
+- [Art Institute Of Chicago Artwork Structure](https://apis.io/json-structure/art-institute-of-chicago/art-institute-of-chicago-artwork-structure/)
+- [Art Institute Of Chicago Exhibition Structure](https://apis.io/json-structure/art-institute-of-chicago/art-institute-of-chicago-exhibition-structure/)
+- [Art Institute Of Chicago Gallery Structure](https://apis.io/json-structure/art-institute-of-chicago/art-institute-of-chicago-gallery-structure/)
+- [Art Institute Of Chicago Place Structure](https://apis.io/json-structure/art-institute-of-chicago/art-institute-of-chicago-place-structure/)
+- [Art Institute Of Chicago Product Structure](https://apis.io/json-structure/art-institute-of-chicago/art-institute-of-chicago-product-structure/)
+- [Art Institute Of Chicago Tour Structure](https://apis.io/json-structure/art-institute-of-chicago/art-institute-of-chicago-tour-structure/)
 
-#### Tags
+#### JSON-LD (1)
 
-- IIIF
-- Images
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Art Institute Of Chicago Context](https://apis.io/jsonld/art-institute-of-chicago/art-institute-of-chicago-context/)
 
-- [Documentation](https://api.artic.edu/docs/#iiif-image-api)
-- [Specification](https://iiif.io/api/image/2.0/)
-- [Postman Collection](collections/art-institute-of-chicago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/art-institute-of-chicago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Bulk Data Dumps
+The provider's domain terms, defined.
 
-Nightly data dumps of the collection and related resources, published as JSON in a public GitHub repository. Recommended for bulk consumers instead of scraping the API.
+- [Art Institute of Chicago Vocabulary](https://apis.io/vocabularies/art-institute-of-chicago/art-institute-of-chicago-vocabulary/)
 
-- **Human URL:** [https://github.com/art-institute-of-chicago/api-data](https://github.com/art-institute-of-chicago/api-data)
-- **Base URL:** `https://github.com/art-institute-of-chicago/api-data`
+#### Examples (8)
 
-#### Tags
+Example requests and responses.
 
-- Bulk Data
-- Open Data
+- [Art Institute Of Chicago Agents List Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-agents-list-example/)
+- [Art Institute Of Chicago Artworks List Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-artworks-list-example/)
+- [Art Institute Of Chicago Exhibitions List Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-exhibitions-list-example/)
+- [Art Institute Of Chicago Exhibitions Search Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-exhibitions-search-example/)
+- [Art Institute Of Chicago Galleries List Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-galleries-list-example/)
+- [Art Institute Of Chicago Places List Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-places-list-example/)
+- [Art Institute Of Chicago Products List Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-products-list-example/)
+- [Art Institute Of Chicago Tours List Example](https://apis.io/examples/art-institute-of-chicago/art-institute-of-chicago-tours-list-example/)
 
-#### Properties
+#### Collections (38)
 
-- [GitHub Repository](https://github.com/art-institute-of-chicago/api-data)
-- [Postman Collection](collections/art-institute-of-chicago.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/art-institute-of-chicago.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [Art Institute of Chicago Public API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago/)
+- [Art Institute of Chicago Public Agent Roles API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-agent-roles-api/)
+- [Art Institute of Chicago Public Agent Roles Agent Types API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-agent-types-api/)
+- [Art Institute of Chicago Public Agent Roles Agents API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-agents-api/)
+- [Art Institute of Chicago Public Agent Roles Articles API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-articles-api/)
+- [Art Institute of Chicago Public Agent Roles Artists API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-artists-api/)
+- [Art Institute of Chicago Public Agent Roles Artwork Date Qualifiers API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-artwork-date-qualifiers-api/)
+- [Art Institute of Chicago Public Agent Roles Artwork Place Qualifiers API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-artwork-place-qualifiers-api/)
+- [Art Institute of Chicago Public Agent Roles Artwork Types API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-artwork-types-api/)
+- [Art Institute of Chicago Public Agent Roles Artworks API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-artworks-api/)
+- [Art Institute of Chicago Public Agent Roles Category Terms API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-category-terms-api/)
+- [Art Institute of Chicago Public Agent Roles Digital Publication Articles API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-digital-publication-articles-api/)
+- [Art Institute of Chicago Public Agent Roles Digital Publications API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-digital-publications-api/)
+- [Art Institute of Chicago Public Agent Roles Educator Resources API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-educator-resources-api/)
+- [Art Institute of Chicago Public Agent Roles Event Occurrences API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-event-occurrences-api/)
+- [Art Institute of Chicago Public Agent Roles Event Programs API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-event-programs-api/)
+- [Art Institute of Chicago Public Agent Roles Events API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-events-api/)
+- [Art Institute of Chicago Public Agent Roles Exhibitions API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-exhibitions-api/)
+- [Art Institute of Chicago Public Agent Roles Galleries API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-galleries-api/)
+- [Art Institute of Chicago Public Agent Roles Generic Pages API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-generic-pages-api/)
+- [Art Institute of Chicago Public Agent Roles Highlights API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-highlights-api/)
+- [Art Institute of Chicago Public Agent Roles Hours API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-hours-api/)
+- [Art Institute of Chicago Public Agent Roles Images API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-images-api/)
+- [Art Institute of Chicago Public Agent Roles Landing Pages API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-landing-pages-api/)
+- [Art Institute of Chicago Public Agent Roles Mobile Sounds API](https://apis.io/collections/art-institute-of-chicago/open-art-institute-of-chicago-mobile-sounds-api/)
+- …and 13 more published on APIs.io
 
-- [Website](https://www.artic.edu/)
-- [Documentation](https://api.artic.edu/docs/)
-- [Portal](https://api.artic.edu/docs/)
-- [Terms of Service](https://www.artic.edu/terms/terms-and-conditions)
-- [Privacy Policy](https://www.artic.edu/privacy)
-- [Support](mailto:engineering@artic.edu)
-- [GitHub Organization](https://github.com/art-institute-of-chicago)
-- [GitHub Repository](https://github.com/art-institute-of-chicago/data-aggregator)
-- [GitHub Repository](https://github.com/art-institute-of-chicago/api-data)
-- [GitHub Repository](https://github.com/art-institute-of-chicago/aic-bash)
-- [SDK](https://github.com/art-institute-of-chicago/aic-bash)
-- [Tools](https://github.com/art-institute-of-chicago/browser-extension)
-- [Tools](https://github.com/art-institute-of-chicago/aic-mobile-android)
-- [Tools](https://github.com/art-institute-of-chicago/aic-mobile-ios)
-- [Tools](https://github.com/art-institute-of-chicago/aic-mobile-cms)
-- [Tools](https://github.com/art-institute-of-chicago/twill)
-- [Tools](https://github.com/mikechao/artic-mcp)
-- [Spectral Rules](rules/art-institute-of-chicago-rules.yml)
-- [Vocabulary](vocabulary/art-institute-of-chicago-vocabulary.yml)
-- [Plans](plans/art-institute-of-chicago-plans-pricing.yml)
-- [Rate Limits](rate-limits/art-institute-of-chicago-rate-limits.yml)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
+#### Governance rules (2)
 
-## Maintainers
+Spectral rulesets for the provider's contracts.
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- [Art Institute of Chicago — jsonschema rules](https://apis.io/rules/art-institute-of-chicago/art-institute-of-chicago-jsonschema-spectral-rules/)
+- [Art Institute of Chicago API Rules](https://apis.io/rules/art-institute-of-chicago/art-institute-of-chicago-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Art Institute Of Chicago Domain Security](https://apis.io/security/art-institute-of-chicago/art-institute-of-chicago-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Art Institute Of Chicago Plans Pricing](https://apis.io/plans/art-institute-of-chicago/art-institute-of-chicago-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Art Institute Of Chicago Rate Limits](https://apis.io/rate-limits/art-institute-of-chicago/art-institute-of-chicago-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Blog](https://www.artic.edu/blog)
+
+## API Evangelist rating
+
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
+
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Art Institute of Chicago: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/art-institute-of-chicago/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
